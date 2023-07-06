@@ -21,6 +21,6 @@ Tomamos 5 referentes;
 
 #5 Renzo Mega, alias “Chevo“, tengo 18, me encargare del front por lo menos en este proyecto, mi hobby es tatuar y dibujar, “Por los mares de mi memoria navego. también naufrago“; 🍊team
 
-#6 Jorge Amaya, Tengo 37 años, me recibi de técnico en informática e el año 2004 de ahi tengo algunas bases en diagrama de flujos y logica de programacion, tengo algunos conocimientos de HTML, CSS y JavaScript. Hasta el momento supongo me gusta mas el back-end pero eso lo vereos a lo largo de la cursada. 
+#6 Jorge Amaya, Tengo 37 años, me recibi de técnico en informática en el año 2004 de ahi tengo algunas bases en diagrama de flujos y logica de programacion, tengo algunos conocimientos de HTML, CSS y JavaScript. Hasta el momento supongo me gusta mas el back-end pero eso lo veremos a lo largo de la cursada. 
 
 #7
