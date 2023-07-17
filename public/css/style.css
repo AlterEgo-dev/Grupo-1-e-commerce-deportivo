@@ -219,10 +219,34 @@ footer{
     }
 
     .container-fluid {
+        font-family: 'Roboto';
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 10px;
+    }
+
+    .offcanvas-body {
+        background-color: #FD611A;
+    }
+
+    .offcanvas-body ul li {
+        font-weight: bold;
+        color: white;
+    }
+
+    .offcanvas-body button {
+        border: 1px solid white;
+        color: white;
+    }
+
+    .offcanvas-header {
+        background-color: #FD611A;
+    }
+
+    .offcanvas-header h5 {
+        color: white;
+        text-decoration: underline white;
     }
 }
 

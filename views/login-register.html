@@ -59,28 +59,28 @@
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Categorias</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Hombre</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Mujer</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Marcas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Zapatillas</a>
+                  </li>
+                  
                 </ul>
                 <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="¿Qué desea buscar?" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
                   </form>
               </div>
             </div>
@@ -96,7 +96,7 @@
     <main>
         <div class="login-container">
             <div class="header-login">
-                <p>Iniciar Sesión</p>
+                <p>INICIO SESIÓN</p>
             </div>
             <div class="selector-register">
                 <div>
@@ -105,23 +105,89 @@
                 <div>
                     <a href="#">Registrarme</a>
                 </div>
-    
-                </div>
-            <form>
-                <div>
-    
-                </div>
-    
-                <div>
-    
-                </div>
-    
-                <div>
-    
-                </div>
-            </form>
-            </div>
         </div>
+
+
+
+        <!-- LOGIN FORM -->
+
+
+        <section>
+          <div class="container-form"> 
+                <div class="logo-form">
+                    <img src="/public/img/logo_login.png" alt="Logo Dexter">
+                </div>
+                <div class="texto">
+                    <h2>Tus beneficios te esperan</h2>
+                    <p>Obtén envío gratis, cupones de descuento y productos solo para miembros cuando estés en DexterClub.</p>
+                </div>
+                <form action="#">
+                    <div class="login">
+                        <div class="caja-usuario">
+                            <label for="#">Usuario</label>
+                            <input type="text">
+                        </div>
+                        <div class="caja-password">
+                            <label for="#">Contraseña</label>
+                            <input type="password">
+                        </div>
+                        <div class="caja-checkbox">
+                            <input type="checkbox">
+                            <label for="#">Recordarme</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="caja-sesion">
+                        <button type="submit">
+                            <p>Iniciar Sesion</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                            </svg>
+                        </button>
+                        
+                    </div>
+                </form>
+            </div>
+          </div>
+          </section>
+
+          <!-- REGISTER FORM-->
+
+          <!-- <section>
+            <form action="#">
+              <div class="registro">
+                <div class="caja-nuevo-usuario">
+                  <label for="#">Usuario</label>
+                  <input type="text" placeholder="Nombre de usuario">
+              </div>
+                  <div class="caja-nuevo-email">
+                      <label for="#">E-Mail</label>
+                      <input type="email" placeholder="Crear e-mail">
+                  </div>
+                  <div class="caja-nueva-password">
+                      <label for="#">Contraseña</label>
+                      <input type="password" placeholder="Crear contraseña">
+                  </div>
+                  <div class="caja-confirmar-password">
+                    <input type="password" placeholder="Confirmar contraseña">
+                </div>
+                  <div class="caja-checkbox-politica">
+                      <input type="checkbox">
+                      <label for="#">Acepto los acuerdos de Politica y Privacidad</label>
+                  </div>
+              </div>
+              
+              
+              <div class="caja-registro-usuario">
+                  <button type="submit">
+                      <p>Registrarme</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                          <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                      </svg>
+                  </button>
+          </section> -->
+
     </main>
 
 
