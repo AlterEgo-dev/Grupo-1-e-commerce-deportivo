@@ -9,6 +9,11 @@ Tomamos 5 referentes;
 - Nike
 - Dexter
 
+Paleta de colores: 
+#FD611A Naranja Oscuro
+Blanco
+Negro
+
 --------------- # Nosotros # ------------------
 
 #1 Soy Bruno Bianco, tengo 19. Tengo varios hobbies, uno de ellos es tomarme la competitividad en serio y el otro es pelearme con los Brasileros en CSGO. Siempre digo que si van a hacer algo, hay que procurar hacerlo bien. En este proyecto me voy a encargar del back, asi que si ven cualquier 'ERROR 404', no fui yo.
@@ -23,4 +28,4 @@ Tomamos 5 referentes;
 
 #6 Jorge Amaya, Tengo 37 años, me recibi de técnico en informática en el año 2004 de ahi tengo algunas bases en diagrama de flujos y logica de programacion, tengo algunos conocimientos de HTML, CSS y JavaScript. Hasta el momento supongo me gusta mas el back-end pero eso lo veremos a lo largo de la cursada. 
 
-#7
+#7 Juliana Díaz, tengo 32 años, soy docente y mamá de 2 nenes. Me gusta el diseño en general y soy muy organizada. En programación me encanta el Front pero, quiero aprender sobre el Back.
