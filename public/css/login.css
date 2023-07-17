@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-container {
+    border: solid 1px rgb(219, 219, 219);
+    border-radius: 5px;
+    height: 700px;
+    margin: 100px;
+    width: 80%;
+}
+
+.header-login {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    margin: 18px;
+}
+
+.selector-register {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px 100px;
+    height: 5%;
+    font-weight: bold;
+}
+
+.selector-register a {
+    display: flex;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    border-bottom: 1px solid gray;
+}
+
+.selector-register a:focus {
+    border-bottom: 1px solid #FD611A;
+    border-width: 3px;
+}
