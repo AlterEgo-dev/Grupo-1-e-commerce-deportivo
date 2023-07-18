@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100vw;
+}
+
+.slider {
+    margin: 20px;
+    display: flex;
+    width: 100%;
+}
+
+.carrucel {
+    width: 50%;
+}
+
+.precio-stock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detalle-producto {
+    width: 50%;
+}
+
+.nombre-producto {
+    font-size: 30px;
+}
+
+.container-nombre-producto {
+    width: 80%;
+}
+
+.linea-divisora {
+    border: solid 1px black;
+}
+
