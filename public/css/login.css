@@ -1,7 +1,6 @@
 
 .login-container {
     width: 100%;
-    border: solid 1px rgb(219, 219, 219);
     border-radius: 5px;
     height: auto;
 }
@@ -24,19 +23,30 @@
     font-weight: bold;
 }
 
-.selector-register a {
-    display: flex;
+.selector-register button {
     padding: 10px;
-    text-decoration: none;
     color: black;
     font-size: 18px;
     border-bottom: 1px solid gray;
-}
+    border: none;
+    cursor: pointer;
+  }
 
-.selector-register a:focus {
+  .selector-register button:focus {
     border-bottom: 1px solid #FD611A;
     border-width: 3px;
-} 
+  }
+
+  .active-btn {
+  border-bottom: 1px solid #FD611A;
+  border-width: 3px;
+}
+
+/* Hide the focus outline for buttons */
+button:focus {
+  outline: none;
+}
+
 
 /* ----------- FORM LOGIN ---------- */
 
@@ -150,8 +160,14 @@ section {
 
 /* --------- FORM REGISTER ----------- */
 
-/* .registro {
-    margin-top: 50px;
+ #register-form.registro {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 32px;
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
 .registro, label{
     display: grid;
@@ -207,7 +223,7 @@ section {
 .caja-registro-usuario button:hover {
     background-color: var(--dexter);
     border: none;
-} */
+} 
 
 /* ---------- MOBILE LOGIN ----------- */
 
@@ -282,5 +298,9 @@ section {
 
     .login-container {
         border: 0;
+    }
+
+    #register-form.registro {
+        width: auto;
     }
 }
