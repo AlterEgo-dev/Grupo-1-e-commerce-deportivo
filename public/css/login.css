@@ -42,7 +42,8 @@
   border-width: 3px;
 }
 
-/* Hide the focus outline for buttons */
+/*
+
 button:focus {
   outline: none;
 }
