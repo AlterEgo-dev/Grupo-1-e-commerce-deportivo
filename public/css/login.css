@@ -28,25 +28,17 @@
     color: black;
     font-size: 18px;
     border-bottom: 1px solid gray;
-    border: none;
+    border: 0;
     cursor: pointer;
-  }
-
-  .selector-register button:focus {
-    border-bottom: 1px solid #FD611A;
-    border-width: 3px;
-  }
-
-  .active-btn {
-  border-bottom: 1px solid #FD611A;
-  border-width: 3px;
+    transition: background-color 0.3s ease; /* Add transition property */
 }
 
-/*
-
-button:focus {
-  outline: none;
+.selector-register button.selected {
+    background-color: #FD611A;
 }
+  button {
+    outline: none;
+  }
 
 
 /* ----------- FORM LOGIN ---------- */

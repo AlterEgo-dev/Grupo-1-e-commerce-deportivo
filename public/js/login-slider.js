@@ -56,4 +56,32 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("register-btn").addEventListener("click", showRegisterForm);
       });
 
+
+      /* FUNCION MANTENER EL COLOR SOBRE EL CLICK */
+
+    const loginBtn = document.getElementById('login-btn');
+    const registerBtn = document.getElementById('register-btn');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    
+    function handleButtonClick(selectedButton) {
+        loginBtn.classList.remove('selected');
+        registerBtn.classList.remove('selected');
+        selectedButton.classList.add('selected');
+    }
+
+    
+    loginBtn.addEventListener('click', () => {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        handleButtonClick(loginBtn);
+    });
+
+    registerBtn.addEventListener('click', () => {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        handleButtonClick(registerBtn);
+    });
+    
 /* ----------------------------------------------- */
