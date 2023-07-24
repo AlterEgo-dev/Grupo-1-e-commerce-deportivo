@@ -64,14 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const loginForm = document.getElementById('login-form');
       const registerForm = document.getElementById('register-form');
   
-      // Function to handle the button clicks and toggle the selected class
+      
       function handleButtonClick(selectedButton) {
           loginBtn.classList.remove('selected');
           registerBtn.classList.remove('selected');
           selectedButton.classList.add('selected');
       }
   
-      // Event listeners to switch between forms
+      
       loginBtn.addEventListener('click', () => {
           loginForm.style.display = 'block';
           registerForm.style.display = 'none';
