@@ -29,3 +29,7 @@ Negro
 #6 Jorge Amaya, Tengo 37 años, me recibi de técnico en informática en el año 2004 de ahi tengo algunas bases en diagrama de flujos y logica de programacion, tengo algunos conocimientos de HTML, CSS y JavaScript. Hasta el momento supongo me gusta mas el back-end pero eso lo veremos a lo largo de la cursada. 
 
 #7 Juliana Díaz, tengo 32 años, soy docente y mamá de 2 nenes. Me gusta el diseño en general y soy muy organizada. En programación me encanta el Front pero, quiero aprender sobre el Back.
+
+------------------ # Proyecto # ---------------------
+
+TRELLO: https://trello.com/invite/b/VlMw5pvU/ATTIa3753a64d1896c8769ce43314013d388C1B05A93/e-commerce-dh
