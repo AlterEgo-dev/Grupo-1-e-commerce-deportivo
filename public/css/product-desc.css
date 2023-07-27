@@ -1,0 +1,84 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Body */
+main {
+  background: rgb(255, 255, 255);
+}
+
+section {
+  display: flex;
+}
+
+/* Carrusel */
+.carousel,
+.slide {
+  width: 35vw;
+
+}
+
+article {
+  padding: 70px;
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background: black;
+}
+
+
+/* Info producto */
+.precio {
+  display: flex;
+  padding: 20px 0px 20px;
+  border-bottom: 1px solid black;
+}
+
+.descuento {
+  color: #FD611A;
+  margin-left: 10px;
+}
+
+.talles {
+  display: flex;
+  padding: 20px 0px 20px;
+  font-size: 20px;
+  width: 20em;
+}
+
+.talles-radio {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+#id {
+  margin-left: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 100%;
+}
+
+/* sliders */
+.slide,
+.collapse .collapse-horizontal {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  position: fixed;
+  right: 0px;
+}
+
+.card {
+  color: aqua;
+}
