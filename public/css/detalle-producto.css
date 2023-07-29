@@ -7,22 +7,22 @@
 
 /* Body */
 main {
-  background: rgb(255, 255, 255);
+  justify-content: center;
 }
 
 section {
   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 /* Carrusel */
-.carousel,
-.slide {
+.carousel {
   width: 35vw;
-
 }
 
 article {
-  padding: 70px;
+  margin: 40px;
 
 }
 
@@ -33,52 +33,69 @@ article {
 
 
 /* Info producto */
-.precio {
+.precio-container {
   display: flex;
   padding: 20px 0px 20px;
   border-bottom: 1px solid black;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.precio {
+  font-size: 2rem;
+}
+
+.detalles {
+  width: 25%;
 }
 
 .descuento {
   color: #FD611A;
-  margin-left: 10px;
+  font-size: 150%;
 }
 
 .talles {
   display: flex;
-  padding: 20px 0px 20px;
-  font-size: 20px;
-  width: 20em;
+  padding: 20px;
 }
+
 
 .talles-radio {
   border: 1px solid black;
   padding: 15px;
-}
 
-#id {
-  margin-left: 100px;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
 }
 
 .btn {
   width: 100%;
+  margin: 5px 0px 0px 5px;
 }
 
-/* collapse */
-.slide,
-.collapse .collapse-horizontal {
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  position: fixed;
-  right: 0px;
-}
+/* Responsive */
 
-.card {
-  color: aqua;
+/* Mobile */
+@media(max-width: 480px) {}
+
+/* Tablet */
+@media(max-width: 768px) {
+  .carousel {
+    width: 100%;
+  }
+
+  .detalles {
+    width: 100%;
+  }
+
+
+
+  .buttons {
+    display: block;
+  }
 }
