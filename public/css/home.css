@@ -37,6 +37,10 @@
 .modelos .imgModel img{
     width: 20%;
 }
+.options-footer a{
+    text-decoration: none;
+    color:white;
+}
 
 @media (max-width: 480px){
     .modelos .imgModel{
