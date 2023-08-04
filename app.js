@@ -8,15 +8,15 @@ app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/home.html'))
+    res.sendFile(path.resolve(__dirname, './src/views/home.html'))
 })
 
 app.get('/login-register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login-register.html'))
+    res.sendFile(path.resolve(__dirname, './src/views/login-register.html'))
 })
 
 app.get('/detalle-producto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/detalle-producto.html'))
+    res.sendFile(path.resolve(__dirname, './src/views/detalle-producto.html'))
 })
 
 app.listen(puerto, () => {
