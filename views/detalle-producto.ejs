@@ -16,126 +16,11 @@
     />
   </head>
   <body>
-    <header>
-      <div class="ofertas-header">
-        <p class="title-ofertas-header">ENVÍO GRATIS</p>
-        <p class="desc-ofertas-header">EN COMPRAS DESDE $ 34.000!</p>
-      </div>
 
-      <!-- NAVBAR -->
+        <!--HEADER-->
+        <%- include ("./partials/navbar") %>
 
-      <nav>
-        <div class="container">
-          <div class="logo">
-            <a href="/"
-              ><img
-                src="/img/logo_footer.png"
-                style="height: 180; width: 180px"
-            /></a>
-          </div>
-          <div class="buscador">
-            <form action="https://www.google.com/search" method="get">
-              <input
-                type="text"
-                placeholder="¿Qué desea buscar?"
-                class="busca"
-              />
-              <button>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="18px"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-                  />
-                </svg>
-              </button>
-            </form>
-          </div>
-          <div class="first-part">
-            <ul>
-              <a href="#">Categorias</a>
-              <a href="#">Hombre</a>
-              <a href="#">Mujer</a>
-              <a href="#">Zapatillas</a>
-            </ul>
-          </div>
-          <div class="second-part">
-            <ul>
-              <a href="/login-register">Login</a>
-              <a href="#">Carrito</a>
-            </ul>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"
-              ><i class="fa-solid fa-bars"></i
-            ></span>
-          </button>
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">DESTER</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Inicio</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Categorias</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Hombre</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Mujer</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Marcas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Zapatillas</a>
-                </li>
-              </ul>
-              <form class="d-flex mt-3" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="¿Qué desea buscar?"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Buscar
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
+    
     <main>
       <section>
         <!-- Carrusel -->
@@ -314,50 +199,10 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+     <!-- FOOTER -->
+     <%- include ("./partials/footer") %>
 
-    <footer>
-      <div class="row">
-        <div class="part-footer col-4 col-md-3">
-          <img src="/img/logo_footer.png" alt="" class="marca-footer" />
-        </div>
-        <div class="part-footer col-4 col-md-3">
-          <div class="options-footer">
-            <div class="title-footer">Sobre nosotros</div>
-            <a href="" target="_blank" class="item-footer">¿Quiénes somos?</a>
-            <a href="" target="_blank" class="item-footer">Devoluciones</a>
-            <a href="" target="_blank" class="item-footer"
-              >Preguntas frecuentes</a
-            >
-            <a href="" target="_blank" class="item-footer">Contacto</a>
-          </div>
-        </div>
-        <div class="part-footer col-4 col-md-3">
-          <div class="options-footer">
-            <div class="title-footer">Mapa del sitio</div>
-            <a href="" target="_blank" class="item-footer">Loguin</a>
-            <a href="" target="_blank" class="item-footer">Categorías</a>
-            <a href="" target="_blank" class="item-footer">Ofertas</a>
-            <a href="" target="_blank" class="item-footer"
-              >Podría interesarte</a
-            >
-            <a href="" target="_blank" class="item-footer">Novedades</a>
-            <a href="" target="_blank" class="item-footer">Novedades</a>
-          </div>
-        </div>
-        <div class="part-footer col-12 col-md-3">
-          <div class="part-qr-footer">
-            <img src="/img/qr_footer.png" alt="" class="qr-footer" />
-            <div class="part-icon">
-              <i class="icon-footer fab fa-facebook"></i>
-              <i class="icon-footer fab fa-instagram"></i>
-              <i class="icon-footer fab fa-whatsapp"></i>
-              <i class="icon-footer fab fa-twitter"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+     
     <!-- JS BOOTSTRAP -->
 
     <script
