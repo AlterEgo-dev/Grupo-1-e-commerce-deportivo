@@ -16,10 +16,6 @@ app.set ("view engine", "ejs" );
 app.use ("/", mainRoute);
 app.use ("/product", productRoute);
 
-app.get('/login-register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './src/views/login-register.html'))
-})
-
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);
 });
