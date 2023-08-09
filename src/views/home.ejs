@@ -32,81 +32,89 @@
                 <button></button>
             </div>
         </div>
-    
-        
+
+
         <div class="swiffy-slider slider-item-show5 slider-nav-caretfill slider-nav-dark slider-nav-outside slider-nav-visible slider-nav-page slider-indicators-dark slider-indicators-outside productos">
             <h1 class="titulo-productos">Novedades</h1>
             <ul class="slider-container slider-item-show5 slider-item-show2-sm ">
+                <% data.map((results) => { %>
+                    <article id="sport">
                 <li>
-                    <a href="/detalle-producto">
-                        <img src="/img/imagenes home/argentina-messi-talle-8-adidas.jpg">
-                        <p>Producto A</p>
-                        <b>$5000</b>
+                    <a href="/product/<%= results.id %>">
+                        <img src="<%= results.image %>">
+                        <p>
+                            <%= results.title %>
+                        </p>
+                        <b>
+                            <%= results.price %>
+                        </b>
                     </a>
                 </li>
-                <li>
-                    <a href="/detalle-producto">
+                    </article>
+                    <% }) %>                
+                <!-- <li>
+                    <a href="/product">
                         <img src="/img/imagenes home/botines.jpg">
                         <p>Producto A</p>
                         <b>$5000</b>
                     </a>
                 </li>
                 <li>
-                    <a href="/detalle-producto">
+                    <a href="/product">
                         <img src="/img/imagenes home/buzo blanco.webp">
                         <p>Producto A</p>
                         <b>$5000</b>
                     </a>
                 </li>
                 <li>
-                    <a href="/detalle-producto">
+                    <a href="/product">
                         <img src="/img/imagenes home/chomba lacoste.avif">
                         <p>Producto A</p>
                         <b>$5000</b>
                     </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/pantalon corto.avif">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/Playera_hollister.jpg">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/remera.jpg">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/ropa mujer.jpg">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/zapatillas nike.jpg">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
                 </li>
                 <li>
-                <a href="/detalle-producto">
+                <a href="/product">
                     <img src="/img/imagenes home/zapatillas.jpg">
                     <p>Producto A</p>
                     <b>$5000</b>
                 </a>
-                </li>
+                </li> -->
             </ul>
             <button type="button" class="slider-nav"></button>
             <button type="button" class="slider-nav slider-nav-next slider-nav-outside"></button>
@@ -123,9 +131,9 @@
         <div class="modelos">
             <h2>Podria interesarte</h2>
             <section class="imgModel">
-                <img src="/img/imagenes home/modelo1.webp" alt="modelo 1">
-                <img src="/img/imagenes home/modelo2.webp" alt="modelo 2">
-                <img src="/img/imagenes home/modelo3.webp" alt="modelo 3">
+                <img src="/img/imagenes-home/modelo1.webp" alt="modelo 1">
+                <img src="/img/imagenes-home/modelo2.webp" alt="modelo 2">
+                <img src="/img/imagenes-home/modelo3.webp" alt="modelo 3">
             </section>
         </div>
     </main>

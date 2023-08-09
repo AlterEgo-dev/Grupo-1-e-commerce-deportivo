@@ -29,7 +29,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="/img/img-detalle/Z1.jpg"
+                  src="<%= product.image %>"
                   class="d-block w-100"
                   alt="Zapatillas1"
                 />
@@ -78,12 +78,19 @@
 
         <!-- Nombre precio y talles -->
         <article class="detalles">
-          <h2>NOMBRE DEL PRODUCTO</h2>
+          <h2>
+            <%= product.title %>
+          </h2>
           <div class="precio-container">
-            <h3 class="precio">$40.000</h3>
+            <h3 class="precio">
+              $ <%= product.price %>
+            </h3>
             <h4 class="descuento">10%OFF</h4>
-            <p id="id">ID:123456789</p>
+            <p id="id">
+             ID: <%= product.id %>
+            </p>
           </div>
+
 
           <!-- Talles -->
           <div class="talles">
