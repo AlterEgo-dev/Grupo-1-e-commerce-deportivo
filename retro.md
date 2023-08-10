@@ -11,3 +11,15 @@ Acciones positivas:
 Acciones de mejora:
 -Pactamos un día específico para las reuniones semanales donde pueden estar todos los integrantes y así realizar un seguimiento específico de nuestras tareas y las dificultades que vayan surgiendo temporalmente, como así también el apoyo ante eventualides personales que dificulten la entrega en tiempo y forma de las actividades designadas individualmente.
 
+
+
+------RETROSPECTIVA SPRINT 3------
+
+Resumen del Sprint:
+Durante este sprint hemos logrado gestionar mejor la organización del tiempo y las divisiones de tareas respecto al sprint anterior. 
+La implementación de las Weekly mejoró la comunicación grupal, permitiendo conocer las debilidades y fortalezas de cada uno de los integrantes y así lograr repartir de manera más propicia las consignas.
+
+
+Acciones de mejora: 
+-Se espera para el siguiente sprint: mejorar progresivamente la comunicación y la gestión del tiempo en cuanto a fechas límites de entrega de actividades.
+-Lograr que cada uno de los compañeros pueda sortear las dificultades que surgan, tanto personales como de conocimiento específico de los temas dados.
