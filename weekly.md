@@ -28,4 +28,17 @@ Queda pendiente de entrega:
 
 La siguiente Weekly ya va a formar parte del Sprint nro. 4.
 
+SPRINT 4
+-> 16/08/2023
+
+Se realizó la revisión de las consignas planteadas para el Sprint 4 asignando responsables y fechas límites que serán actualizadas en el tablero de trabajo, como así tambien los avances en las vistas pendientes que están por ser entregadas a la brevedad.
+
+Objetivos de la semana:
+-Avanzar en el estudio de los nuevos conceptos para finalizar lo antes posible las consignas nuevas.
+-Revisar y modificar las imágenes utilizadas para que quede más prolijo el sitio.
+-Finalizar las actividades pendientes de los Sprints anteriores.
+-Trabajar en los estilos de las diferentes Views.
+
+
+
 
