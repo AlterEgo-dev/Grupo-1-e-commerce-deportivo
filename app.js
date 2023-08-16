@@ -4,7 +4,10 @@ const path = require('path');
 const app = express();
 const mainRoute = require ('./src/routes/main');
 const productRoute = require ('./src/routes/product');
+const methodOverride = require('method-override');
 
+
+app.use(methodOverride('_method'));
 
 const puerto = process.env.puerto || 8000;
 

@@ -9,6 +9,9 @@ const productController = {
         const { results } = dataBase;
         const product = results.find((prod) => prod.id === id );
         res.render('detalle-producto.ejs', { product, products: results });
+    },
+    productEdit: (req,res) => {
+        res.render('product-create.ejs');
     }
 }
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear nuevo producto</title>
+
+    <link rel="stylesheet" href="/css/product-create.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- BOOTSTRAP Y SLIDER -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <%- include ("./partials/navbar") %>
+
+    <form action = "/" method="get" class="formulario">
+        <div class="nombre">
+            <label for="Nombre">Nombre del producto: </label>
+            <input type="text" name="Nombre" placeholder="Ej: camiseta de messi...">
+        </div>
+        <label for="">Categoria:</label>
+        <div class="cate">
+            <label for=""><input type="radio" name="cat"> Calzado</label>
+            <label for=""><input type="radio" name="cat"> Indumentaria</label>
+        </div>
+        <label for="talles">talles:</label>
+        <div class="talles">
+            <label for=""><input type="checkbox"> 35 </label>
+            <label for=""><input type="checkbox"> 36 </label>
+            <label for=""><input type="checkbox"> 37 </label>
+            <label for=""><input type="checkbox"> 38 </label>
+            <label for=""><input type="checkbox"> 39 </label>
+            <label for=""><input type="checkbox"> 40 </label>
+            <label for=""><input type="checkbox"> 41 </label>
+            <label for=""><input type="checkbox"> 42 </label>
+            <label for=""><input type="checkbox"> 43 </label>
+            <label for=""><input type="checkbox"> 44 </label>
+            <label for=""><input type="checkbox"> 45 </label>
+            <label for=""><input type="checkbox"> 46 </label>
+        </div>
+        <div class="talles">
+            <label for=""><input type="checkbox"> S</label>
+            <label for=""><input type="checkbox"> M</label>
+            <label for=""><input type="checkbox"> L</label>
+            <label for=""><input type="checkbox"> XL</label>
+            <label for=""><input type="checkbox"> XXL</label>
+        </div>
+        <label for="img">imagenes:</label>
+        <input type="file" name="img">
+        <div class="precio">
+            <label for="precio">Precio: </label>
+            <input type="text" name="precio" placeholder="$$$">
+        </div>
+        <div class="textT">
+            <div class="descYCuid">
+                <label for="descripcion">Descripcion:</label>
+                <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Escriba una descripcion de producto..." maxlength="10"></textarea>
+            </div>
+            <div class="descYCuid">
+                <label for="cuidados">Cuidados:</label>
+                <textarea name="Cuidados" id="" cols="30" rows="10" placeholder="Escriba los cuidados del producto..."></textarea>
+            </div>
+        </div>
+        <button type="submit" class="boton-prod">Subir producto</button>
+    </form>
+
+    <%- include ("./partials/footer") %>
+</body>
+</html>

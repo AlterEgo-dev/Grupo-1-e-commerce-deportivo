@@ -165,14 +165,13 @@ footer{
     margin-bottom: 3px;
     color: white;
 }
-
 .options-footer {
     display: flex;
     flex-direction: column;
     font-size: 13px;
 }
 
-.options-footer, a{
+.options-footer a{
     text-decoration: none;
     color:white;
 }
