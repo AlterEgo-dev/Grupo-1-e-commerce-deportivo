@@ -291,7 +291,7 @@ section {
     .login input {
         width: 100%;
         height: 18px;
-
+        font-size: 11px;
     }
 
     .caja-checkbox {
@@ -301,7 +301,6 @@ section {
     }
 
     .caja-checkbox input {
-
         width: 14px;
     }
 
@@ -315,5 +314,47 @@ section {
 
     #register-form.registro {
         width: auto;
+    }
+
+    /* -------- MOBILE REGISTER --------- */
+
+    .registro label{
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .registro input {
+        width: 100%;
+        height: 20px;
+        font-size: 11px;
+    }
+
+    .caja-checkbox-politica {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .caja-checkbox-politica input {
+        width: 14px;
+    }
+
+    .caja-registro-usuario {
+        display: block;
+        margin: 0 auto;
+        width: 50px;
+    }
+
+    .caja-registro-usuario button {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .caja-registro-usuario p {
+        display: none;
     }
 }

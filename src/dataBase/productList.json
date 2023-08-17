@@ -5,45 +5,70 @@
         "id": "1",
         "title": "Producto A",
         "price": "10000",
-        "image": "/img/imagenes-home/remera.jpg"
+        "image": "/img/imagenes-home/remera.jpg",
+        "imageDetail": [ 
+            "/img/imagenes-home/remera.jpg",
+            "/img/imagenes-home/Playera_hollister.jpg",
+            "/img/imagenes-home/zapatillas.jpg"
+        ]
     },
 
     {
         "id": "2",
         "title": "Producto B",
         "price": "597000",
-        "image": "/img/imagenes-home/remera.jpg"
+        "image": "/img/imagenes-home/remera.jpg",
+        "imageDetail": [ 
+            "/img/imagenes-home/Playera_hollister.jpg",
+            "/img/imagenes-home/Playera_hollister.jpg",
+            "/img/imagenes-home/Playera_hollister.jpg" ]
     },
 
     {
         "id": "3",
         "title": "Producto C",
         "price": "56000",
-        "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg"
+        "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
     },
+
     {
         "id": "4",
         "title": "Producto D",
         "price": "5600",
-        "image": "/img/imagenes-home/Playera_hollister.jpg"
+        "image": "/img/imagenes-home/Playera_hollister.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"] 
     },
     {
         "id": "5",
         "title": "Producto E",
         "price": "5000",
-        "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg"
+        "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg"]
     },
     {
         "id": "6",
         "title": "Producto F",
         "price": "51000",
-        "image": "/img/imagenes-home/zapatillas.jpg"
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
     },
     {
         "id": "7",
         "title": "Producto G",
         "price": "6000",
-        "image": "/img/imagenes-home/zapatillas.jpg"
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
     }
 ]
     }
