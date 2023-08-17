@@ -69,6 +69,46 @@
         "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg",
                         "/img/imagenes-home/Playera_hollister.jpg",
                         "/img/imagenes-home/Playera_hollister.jpg"]
+    },
+
+    {
+        "id": "8",
+        "title": "Producto H",
+        "price": "51000",
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
+    },
+
+    {
+        "id": "9",
+        "title": "Producto I",
+        "price": "51000",
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
+    },
+
+    {
+        "id": "10",
+        "title": "Producto J",
+        "price": "51000",
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
+    },
+
+    {
+        "id": "11",
+        "title": "Producto k",
+        "price": "51000",
+        "image": "/img/imagenes-home/zapatillas.jpg",
+        "imageDetail": ["/img/imagenes-home/Playera_hollister.jpg", 
+                        "/img/imagenes-home/Playera_hollister.jpg",
+                        "/img/imagenes-home/Playera_hollister.jpg"]
     }
 ]
     }
