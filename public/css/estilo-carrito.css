@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    width: 100vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.contenedor-prod-precio{
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-productos{
+    width: 60%;
+}
+
+.producto-seleccionado{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.img-prod-carrito{
+    width: 30%;
+}
+
+.nombre-prod-talle{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sector-prod-talle{
+    margin: 2px;
+    font-size: 0.8em;
+}
+
+.nombre-prod{
+    font-size: 1.2em;
+    padding-bottom: 12px;
+}
+
+.editar-prod{
+    text-decoration: none;
+    color: gray;
+    margin-top: 10px;
+}
+
+.canasto{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.precio-total{
+    margin-top: 15px;
+}
+
+.pago-total{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    border-left: 1px solid black;
+    padding-left: 20px;
+}
+
+.calculo-pago{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contenedor-inputs-forma-pago{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.forma-pago{
+    font-size: 1.2em;
+}
+
+.boton-comprar{
+    border: none;
+    background-color: #FD611A;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
