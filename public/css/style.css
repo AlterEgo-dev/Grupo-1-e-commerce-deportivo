@@ -120,6 +120,7 @@ header {
     padding: 5px;
 }
 
+
 .second-part {
     padding: 15px 0px;
     grid-area: 2;
@@ -165,14 +166,13 @@ footer{
     margin-bottom: 3px;
     color: white;
 }
-
 .options-footer {
     display: flex;
     flex-direction: column;
     font-size: 13px;
 }
 
-.options-footer, a{
+.options-footer a{
     text-decoration: none;
     color:white;
 }
@@ -223,7 +223,7 @@ footer{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 10px;
+
     }
 
     .offcanvas-body {
@@ -253,6 +253,7 @@ footer{
 /* --------------- MOBILE FOOTER ----------- */
 
 @media (max-width:768px) {
+
     .qr-footer{
         display: none;
     }

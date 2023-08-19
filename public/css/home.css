@@ -7,7 +7,7 @@
 }
 .slider1 .slider-container img{
     width: 100%;
-    height: 500px;
+    height: 100%;
 }
 .swiffy-slider .slider-nav{
     margin: 16px;
@@ -19,7 +19,7 @@
 
 .banner img{
     width: 100%;
-    height: 400px;
+    height: auto;
 }
 .modelos{
     margin-top: 50px;
@@ -37,12 +37,9 @@
 .modelos .imgModel img{
     width: 20%;
 }
-.options-footer a{
-    text-decoration: none;
-    color:white;
-}
 
-@media (max-width: 480px){
+
+@media (max-width: 420px){
     .modelos .imgModel{
         display: flex;
         flex-direction: column;

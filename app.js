@@ -2,22 +2,23 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const mainRoute = require ('./src/routes/main');
+const productRoute = require ('./src/routes/product');
+const methodOverride = require('method-override');
+
+
+app.use(methodOverride('_method'));
+
 const puerto = process.env.puerto || 8000;
 
 app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/home.html'))
-})
+app.set ('view engin', 'ejs');
+app.set('views', './src/views')
 
-app.get('/login-register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login-register.html'))
-})
-
-app.get('/detalle-producto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/detalle-producto.html'))
-})
+app.use ('/', mainRoute);
+app.use ('/product', productRoute);
 
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);
