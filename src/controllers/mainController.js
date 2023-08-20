@@ -10,6 +10,9 @@ const mainController = {
     },
     register: (req, res) => {
         res.render('login-register.ejs');
+    },
+    carrito: (req, res) => {
+        res.render('carrito.ejs');
     }
 }
 
