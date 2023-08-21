@@ -196,6 +196,61 @@ footer{
     color: white;
     font-size: 20px;
 }
+@keyframes oscurito-fachero {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.3;
+    }
+  }
+  
+  
+  .first-part a,
+  .second-part a {
+    transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .first-part a::before,
+  .second-part a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+    border-radius: 10px; 
+  }
+  
+  .first-part a:hover::before,
+  .second-part a:hover::before {
+    animation: oscurito-fachero 0.3s forwards;
+    opacity: 0.3;
+  }
+@keyframes agrandamiento-facherito {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.3);
+    }
+  }
+
+  
+  nav ul a,
+  .part-footer a {
+    transition: transform 0.3s;
+  }
+  
+  nav ul a:hover,
+  .part-footer a:hover {
+    animation: agrandamiento-facherito 0.3s forwards;
+  }
 
 /* --------- MEDIA QUERY --------- */
 

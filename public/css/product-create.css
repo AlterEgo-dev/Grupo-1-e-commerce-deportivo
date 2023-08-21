@@ -13,16 +13,19 @@
     align-items: center;
     margin: 40px 0;
     gap: 10px;
-
+   
 }
+
 .formulario input{
     padding: 5px;
+    
 }
 .formulario label{
     font-weight: 500;
 }
 .nombre input{
-    border-color: var(--color-naranja);
+    border: solid var(--color-naranja) 2px;
+    padding: 10px;
     border-radius: 10px;
     outline: none;
 }
@@ -36,10 +39,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
 }
+.descYCuid h3 {
+    font-size: 1.2rem; 
+    color: var(--color-naranja); 
+    margin-bottom: 10px; 
+}
+
 .descYCuid textarea{
     padding: 5px;
-    outline-color: var(--color-naranja);
+    
 }
 .talles{
     display: flex;
@@ -65,7 +77,7 @@
 }
 .precio input{
     border-radius: 10px;
-    border-color: var(--color-naranja);
+    border: solid var(--color-naranja) 2px;
     outline: none;
 }
 .boton-prod{
@@ -73,8 +85,13 @@
     border-radius: 2px;
     border: none;
     background-color:var(--color-naranja);
-    color: var(--color-blanco);
+    color: var(--color-negro);
     padding: 5px;
     border-radius: 10px;
     width: 25%;
+    transition: background-color 1s, color 1s;
+}
+.boton-prod:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-naranja);
 }
