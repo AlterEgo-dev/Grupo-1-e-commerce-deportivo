@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- ESTILOS -->
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product-admin.css">
+    <link rel="icon" href="/img/logo-general.png">
+
+    <!-- BOOTSTRAP Y SLIDER -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <%- include ("./partials/navbar") %>
+
+    <div class="caja-contenedora-productos">
+    <% data.map((results) => { %>
+        <a class="caja-product-a" href="/product/product-edit/<%= results.id %>">
+        <div class="caja-product" href="/product/product-edit/<%= results.id %>">
+                <div class="img-product">
+                    <img src="<%= results.image %>">
+                </div>
+                <div class="title-product">
+                    <%= results.title %>
+                </div>
+                <div class="price-product">
+                    <%= results.price %>
+                </div>
+                <div class="id-product">
+                    <%= results.id %>
+                </div>
+            </div>
+        </a>
+        <% }) %>
+    </div>
+    
+
+ 
+
+    <%- include ("./partials/footer") %>
+
+    <script src="https://kit.fontawesome.com/4e61ee30bd.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

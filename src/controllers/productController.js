@@ -11,6 +11,13 @@ const productController = {
     res.render('detalle-producto.ejs', { product, products: results });
   },
 
+  productAdminList: (req, res) => {
+
+    const { results } = dataBase;
+
+    res.render('product-admin.ejs', { data: results });
+  },
+
   productEdit: (req, res) => {
     res.render('product-create.ejs');
   },
@@ -35,9 +42,6 @@ const productController = {
 
       const filePath = path.join(__dirname, '../dataBase/productList.json');
       fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2));
-
-      console.log(req.body)
-
     
       res.redirect(`/product/detail/${id}`);
     } else {

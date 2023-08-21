@@ -120,6 +120,17 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ]
+    },
+    {
+      "id": "12",
+      "title": "Producto l",
+      "price": "51000",
+      "image": "/img/imagenes-home/zapatillas.jpg",
+      "imageDetail": [
+        "/img/imagenes-home/Playera_hollister.jpg",
+        "/img/imagenes-home/Playera_hollister.jpg",
+        "/img/imagenes-home/Playera_hollister.jpg"
+      ]
     }
   ]
 }
