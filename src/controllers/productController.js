@@ -18,9 +18,42 @@ const productController = {
     res.render('product-admin.ejs', { data: results });
   },
 
-  productEdit: (req, res) => {
+  productCreate: (req, res) => {
     res.render('product-create.ejs');
-  },
+},
+
+productCreatePush: (req, res) => {
+  const { title, price, image, imageDetail, sizes, category, description, cuidados } = req.body;
+
+  const productoNuevo = {
+    id: '',
+    title: title,
+    price: price,
+    image: '/img/img-detalle/Z1.jpg',
+    imageDetail: [
+      '/img/img-detalle/Z1.jpg',
+      '/img/img-detalle/Z1.jpg',
+      '/img/img-detalle/Z1.jpg'
+    ],
+    sizes: sizes,
+    category: category,
+    description: description,
+    cuidados: cuidados
+  };
+
+  const filePath = path.join(__dirname, '../dataBase/productList.json');
+  const productJson = fs.readFileSync(filePath, 'utf-8');
+  const jsonData = JSON.parse(productJson);
+
+
+
+  const lastId = jsonData.results.length > 0 ? parseInt(jsonData.results[jsonData.results.length - 1].id) : 0;
+  productoNuevo.id = (lastId + 1).toString();
+
+  jsonData.results.push(productoNuevo);
+  fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
+  res.redirect('/product/product-admin');
+},
 
   productEditForm: (req, res) => {
     const { id } = req.params;

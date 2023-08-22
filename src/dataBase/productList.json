@@ -2,7 +2,7 @@
   "results": [
     {
       "id": "1",
-      "title": "Producto A",
+      "title": "Producto B",
       "price": "5454",
       "image": "/img/imagenes-home/remera.jpg",
       "imageDetail": [
@@ -10,8 +10,12 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/zapatillas.jpg"
       ],
-      "sizes": ["S","XL","XXL"],
-      "category": "Indumentaria",
+      "sizes": [
+        "on",
+        "on",
+        "on"
+      ],
+      "category": "on",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
     },
@@ -25,7 +29,11 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": ["S","XL","XXL"],
+      "sizes": [
+        "S",
+        "XL",
+        "XXL"
+      ],
       "category": "Indumentaria",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -40,7 +48,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": ["S","M","L","XL","XXL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
       "category": "Indumentaria",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -55,7 +69,11 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": ["S","XL","XXL"],
+      "sizes": [
+        "S",
+        "XL",
+        "XXL"
+      ],
       "category": "Indumentaria",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -70,7 +88,11 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": ["S","XL","XXL"],
+      "sizes": [
+        "S",
+        "XL",
+        "XXL"
+      ],
       "category": "Indumentaria",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -85,7 +107,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -100,7 +128,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -115,7 +149,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -130,7 +170,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -145,7 +191,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -160,7 +212,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
@@ -175,7 +233,13 @@
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
-      "sizes": [35,41,42,43,45],
+      "sizes": [
+        35,
+        41,
+        42,
+        43,
+        45
+      ],
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"

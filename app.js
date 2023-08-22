@@ -9,10 +9,9 @@ const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'));
 
-app.use(express.urlencoded({ extended: true }));
-
 const puerto = process.env.puerto || 8000;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 

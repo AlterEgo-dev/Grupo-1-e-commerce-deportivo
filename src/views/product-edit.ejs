@@ -27,9 +27,9 @@
         <label for="">Categoria:</label>
         <div class="cate">
             <%if(product.category == "Calzado"){%>
-                <label for=""><input type="radio" name="category" checked > Calzado</label>
+                <label for=""><input type="radio" name="category" value="Calzado" checked > Calzado</label>
             <%}else{%>
-                <label for=""><input type="radio" name="category" checked > Indumentaria</label>
+                <label for=""><input type="radio" name="category" value="Indumentaria" checked > Indumentaria</label>
             <%}%>
         </div>
         <label for="talles">talles:</label>
@@ -38,8 +38,8 @@
                 <% for(let i = 35; i < 47; i++) {%>
                     <% let a = 0%>
                 <% product.sizes.forEach((product, index) => { %>
-                    <% if(product === i) {%>
-                <label for=""><input type="checkbox" value="<%= i %>" name="sizes" > <%= i %></label>
+                    <% if(product == i) {%>
+                <label for=""><input type="checkbox" value="<%= i %>" name="sizes" checked> <%= i %></label>
                 <% a = 1}%>
 
                 <% })%>
@@ -54,11 +54,11 @@
                     <% let z = 0 %>
                     <% product.sizes.forEach((p, i) => { %>
                         <% if(p === tallesLetras[w]){ %>
-                            <label for=""><input type="checkbox" name="sizes" checked> <%= tallesLetras[w] %></label>
+                            <label for=""><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" checked> <%= tallesLetras[w] %></label>
                             <% z = 1 %>
             <% } }) %>
             <% if(z === 0) {%>
-                <label for=""><input type="checkbox"> <%= tallesLetras[w] %></label>
+                <label for=""><input type="checkbox" value="<%= tallesLetras[w] %>"> <%= tallesLetras[w] %></label>
             <%}}%>
             </div>
             <% } %>
