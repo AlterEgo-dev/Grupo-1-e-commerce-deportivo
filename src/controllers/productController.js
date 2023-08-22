@@ -30,14 +30,18 @@ const productController = {
   },
 
   saveEditedProduct: (req, res) => {
-    const { id } = req.params;
-    const { nombre, precio } = req.body;
+    const {id} = req.params;
+    const {title, precio, sizes, category, descripcion, Cuidados } = req.body;
     const { results } = dataBase;
-
+    console.log(req.body);
     const product = results.find((prod) => prod.id === id);
     if (product) {
-      product.title = nombre;
+      product.title = title;
       product.price = precio;
+      product.sizes = sizes;
+      product.category = category;
+      product.description = descripcion;
+      product.cuidados = Cuidados;
 
 
       const filePath = path.join(__dirname, '../dataBase/productList.json');

@@ -80,6 +80,9 @@
     border: solid var(--color-naranja) 2px;
     outline: none;
 }
+.imagenprinc{
+    height: 300px;
+}
 .boton-prod{
     margin-top: 10px;
     border-radius: 2px;
