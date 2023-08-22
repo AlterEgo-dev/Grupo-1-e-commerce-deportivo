@@ -12,6 +12,7 @@
       ],
       "sizes": [
         "S",
+        "L",
         "XL",
         "XXL"
       ],
@@ -108,8 +109,11 @@
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
       "sizes": [
-        "35",
-        "41"
+        35,
+        41,
+        42,
+        43,
+        45
       ],
       "category": "Calzado",
       "description": "descripcion",

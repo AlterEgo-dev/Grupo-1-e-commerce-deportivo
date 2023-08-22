@@ -81,19 +81,9 @@
             <form class="talles-form">
               <h3>Talles</h3>
               <div class="talles-radio">
-                <input type="radio" name="Talles" disabled /><label>35</label>
-                <input type="radio" name="Talles" disabled /><label>36</label>
-                <input type="radio" name="Talles" /><label>37</label>
-                <input type="radio" name="Talles" /><label>38</label>
-                <input type="radio" name="Talles" /><label>39</label>
-                <input type="radio" name="Talles" /><label>40</label>
-                <input type="radio" name="Talles" /><label>41</label>
-                <input type="radio" name="Talles" /><label>42</label>
-                <input type="radio" name="Talles" /><label>43</label>
-                <input type="radio" name="Talles" disabled /><label>44</label>
-                <input type="radio" name="Talles" /><label>45</label>
-                <input type="radio" name="Talles" /><label>46</label>
-                <input type="radio" name="Talles" /><label>47</label>
+                <% product.sizes.forEach((product, index) => { %>
+                  <input type="radio" name="Talles" value="<%= product %>" /><label><%= product %></label>
+                <% }) %>
               </div>
             </form>
           </div>
