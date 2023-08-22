@@ -44,7 +44,7 @@
 
                 <% })%>
                 <%if(a === 0) {%>
-                    <label for=""><input type="checkbox" value="<%= i %>"> <%= i %></label>
+                    <label for=""><input type="checkbox" value="<%= i %>" name="sizes"> <%= i %></label>
                 <%}}%>
             </div>
         <%}else{%>
@@ -58,7 +58,7 @@
                             <% z = 1 %>
             <% } }) %>
             <% if(z === 0) {%>
-                <label for=""><input type="checkbox" value="<%= tallesLetras[w] %>"> <%= tallesLetras[w] %></label>
+                <label for=""><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>"> <%= tallesLetras[w] %></label>
             <%}}%>
             </div>
             <% } %>

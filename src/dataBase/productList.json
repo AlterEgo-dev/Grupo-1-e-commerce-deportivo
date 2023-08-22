@@ -2,7 +2,7 @@
   "results": [
     {
       "id": "1",
-      "title": "Producto B",
+      "title": "Producto A",
       "price": "5454",
       "image": "/img/imagenes-home/remera.jpg",
       "imageDetail": [
@@ -11,11 +11,11 @@
         "/img/imagenes-home/zapatillas.jpg"
       ],
       "sizes": [
-        "on",
-        "on",
-        "on"
+        "S",
+        "XL",
+        "XXL"
       ],
-      "category": "on",
+      "category": "Indumentaria",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
     },
@@ -108,11 +108,8 @@
         "/img/imagenes-home/Playera_hollister.jpg"
       ],
       "sizes": [
-        35,
-        41,
-        42,
-        43,
-        45
+        "35",
+        "41"
       ],
       "category": "Calzado",
       "description": "descripcion",
