@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalle Producto</title>
-    <!-- NUESTROS ESTILOS -->
-    <link rel="stylesheet" href="/css/detalle-producto.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="/img/logo-general.png">
     <!-- ESTILO BOOTSTRAP -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -15,13 +11,15 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <!-- NUESTROS ESTILOS -->
+    <link rel="stylesheet" href="/css/detalle-producto.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/img/logo-general.png" />
   </head>
   <body>
+    <!--HEADER-->
+    <%- include ("./partials/navbar") %>
 
-        <!--HEADER-->
-        <%- include ("./partials/navbar") %>
-
-    
     <main>
       <section>
         <!-- Carrusel -->
@@ -30,14 +28,14 @@
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
               <% product.imageDetail.forEach((product, index) => { %>
-                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                  <img
-                    src="<%= product %>"
-                    class="d-block w-100"
-                    alt="Zapatillas <%= index + 1 %>"
-                  />
-                </div>
-              <% }) %> 
+              <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                <img
+                  src="<%= product %>"
+                  class="d-block w-100"
+                  alt="Zapatillas <%= index + 1 %>"
+                />
+              </div>
+              <% }) %>
             </div>
             <button
               class="carousel-control-prev"
@@ -45,7 +43,10 @@
               data-bs-target="#carouselExample"
               data-bs-slide="prev"
             >
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Previous</span>
             </button>
             <button
@@ -54,27 +55,23 @@
               data-bs-target="#carouselExample"
               data-bs-slide="next"
             >
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-        </article>  
+        </article>
 
         <!-- Nombre precio y talles -->
         <article class="detalles">
-          <h2>
-            <%= product.title %>
-          </h2>
+          <h2><%= product.title %></h2>
           <div class="precio-container">
-            <h3 class="precio">
-              $ <%= product.price %>
-            </h3>
+            <h3 class="precio">$ <%= product.price %></h3>
             <h4 class="descuento">10%OFF</h4>
-            <p id="id">
-             ID: <%= product.id %>
-            </p>
+            <p id="id">ID: <%= product.id %></p>
           </div>
-
 
           <!-- Talles -->
           <div class="talles">
@@ -82,7 +79,11 @@
               <h3>Talles</h3>
               <div class="talles-radio">
                 <% product.sizes.forEach((product, index) => { %>
-                  <input type="radio" name="Talles" value="<%= product %>" /><label><%= product %></label>
+                <input
+                  type="radio"
+                  name="Talles"
+                  value="<%= product %>"
+                /><label><%= product %></label>
                 <% }) %>
               </div>
             </form>
@@ -168,22 +169,66 @@
                   </div>
                   <div class="modal-body">
                     <h2>Guia</h2>
-                    <p></p>
+                    <table>
+                      <tr>
+                        <th>Talla</th>
+                        <th>Pecho</th>
+                        <th>Cintura</th>
+                        <th>Caderas</th>
+                      </tr>
+                      <tr>
+                        <td>XS</td>
+                        <td>32</td>
+                        <td>24</td>
+                        <td>34</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>34</td>
+                        <td>26</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>36</td>
+                        <td>28</td>
+                        <td>38</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>38</td>
+                        <td>30</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>40</td>
+                        <td>32</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>42</td>
+                        <td>34</td>
+                        <td>44</td>
+                      </tr>
+                    </table>
                   </div>
                   <div class="modal-footer"></div>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-dark">AGREGAR AL CARRITO</button>
+          <button type="button" class="btn btn-carrito">
+            Agregar al carrito
+          </button>
         </article>
       </section>
     </main>
 
-     <!-- FOOTER -->
-     <%- include ("./partials/footer") %>
+    <!-- FOOTER -->
+    <%- include ("./partials/footer") %>
 
-     
     <!-- JS BOOTSTRAP -->
 
     <script

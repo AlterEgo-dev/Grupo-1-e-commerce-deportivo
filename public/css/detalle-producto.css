@@ -34,8 +34,8 @@ article {
   height: 70vh;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev,
+.carousel-control-next {
   background: black;
 }
 
@@ -83,6 +83,48 @@ article {
 .btn {
   width: 100%;
   margin: 5px 0px 0px 5px;
+}
+
+.btn-carrito {
+  background-color: #fd621a5d;
+  color: #FD611A;
+}
+
+.btn-carrito:hover {
+  background-color: #FD611A;
+  color: white;
+}
+
+/* Modal */
+.modal-header {
+  background-color: #FD611A;
+  color: white;
+}
+
+.modal-footer {
+  background-color: rgba(0, 0, 0, 0.911);
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+th {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+td {
+  text-align: right;
 }
 
 /* Responsive */
