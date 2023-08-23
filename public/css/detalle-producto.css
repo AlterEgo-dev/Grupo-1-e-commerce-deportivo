@@ -16,6 +16,11 @@ section {
   flex-wrap: wrap;
 }
 
+article {
+  margin: 40px;
+  height: 70vh;
+}
+
 /* Carrusel */
 .carousel-item img {
   width: 100%;
@@ -27,11 +32,6 @@ section {
   width: 35vw;
   display: flex;
   align-items: center;
-}
-
-article {
-  margin: 40px;
-  height: 70vh;
 }
 
 .carousel-control-prev-icon,
@@ -72,14 +72,14 @@ article {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
 }
 
-/* Botones */
 .btn-radio {
   max-width: 50px;
 }
 
+
+/* Botones */
 .buttons {
   display: flex;
   justify-content: space-evenly;
@@ -115,6 +115,7 @@ article {
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
 th,
