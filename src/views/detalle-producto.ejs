@@ -31,7 +31,7 @@
               <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
                 <img
                   src="<%= product %>"
-                  class="d-block w-100"
+                  class=""
                   alt="Zapatillas <%= index + 1 %>"
                 />
               </div>
@@ -81,9 +81,16 @@
                 <% product.sizes.forEach((product, index) => { %>
                 <input
                   type="radio"
-                  name="Talles"
+                  class="btn-check"
+                  name="talles"
+                  autocomplete="off"
                   value="<%= product %>"
-                /><label><%= product %></label>
+                  id="<%= product %>"
+                /><label
+                  class="btn btn-outline-dark btn-radio"
+                  for="<%= product %>"
+                  ><%= product %></label
+                >
                 <% }) %>
               </div>
             </form>

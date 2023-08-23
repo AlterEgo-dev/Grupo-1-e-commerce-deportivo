@@ -17,26 +17,26 @@ section {
 }
 
 /* Carrusel */
-.carousel {
-  width: 35vw;
+.carousel-item img {
+  width: 100%;
 }
 
-.carousel {
+.carousel,
+.slide,
+.carousel-inner {
   width: 35vw;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  display: flex;
+  align-items: center;
 }
-
 
 article {
   margin: 40px;
   height: 70vh;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  background: black;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #FD611A
 }
 
 
@@ -63,15 +63,21 @@ article {
   font-size: 150%;
 }
 
+/* Talles */
 .talles {
-  display: flex;
   padding: 20px;
 }
 
 .talles-radio {
-  border: 1px solid black;
-  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 
+}
+
+/* Botones */
+.btn-radio {
+  max-width: 50px;
 }
 
 .buttons {
@@ -142,9 +148,23 @@ td {
     width: 100%;
   }
 
-
-
   .buttons {
     display: block;
   }
+
+  .carousel,
+  .slide,
+  .carousel-inner {
+    width: 100vw;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none;
+  }
+
+  article {
+    height: 100%;
+  }
+
 }
