@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle Producto</title>
-    <!-- ESTILO BOOTSTRAP -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
-    <!-- NUESTROS ESTILOS -->
-    <link rel="stylesheet" href="/css/detalle-producto.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="/img/logo-general.png" />
-  </head>
-  <body>
-    <!--HEADER-->
-    <%- include ("./partials/navbar") %>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle Producto</title>
+  <!-- ESTILO BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <!-- NUESTROS ESTILOS -->
+  <link rel="stylesheet" href="/css/detalle-producto.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/img/logo-general.png" />
+</head>
+
+<body>
+  <!--HEADER-->
+  <%- include ("./partials/navbar") %>
 
     <main>
       <section>
@@ -27,38 +25,18 @@
         <article>
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
-              <% product.imageDetail.forEach((product, index) => { %>
-              <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                <img
-                  src="<%= product %>"
-                  class=""
-                  alt="Zapatillas <%= index + 1 %>"
-                />
-              </div>
-              <% }) %>
+              <% product.imageDetail.forEach((product, index)=> { %>
+                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                  <img src="<%= product %>" class="" alt="Zapatillas <%= index + 1 %>" />
+                </div>
+                <% }) %>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExample"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExample"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -66,11 +44,15 @@
 
         <!-- Nombre precio y talles -->
         <article class="detalles">
-          <h2><%= product.title %></h2>
+          <h2>
+            <%= product.title %>
+          </h2>
           <div class="precio-container">
-            <h3 class="precio">$ <%= product.price %></h3>
+            <h3 class="precio">$ <%= product.price %>
+            </h3>
             <h4 class="descuento">10%OFF</h4>
-            <p id="id">ID: <%= product.id %></p>
+            <p id="id">ID: <%= product.id %>
+            </p>
           </div>
 
           <!-- Talles -->
@@ -78,20 +60,23 @@
             <form class="talles-form">
               <h3>Talles</h3>
               <div class="talles-radio">
-                <% product.sizes.forEach((product, index) => { %>
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="talles"
-                  autocomplete="off"
-                  value="<%= product %>"
-                  id="<%= product %>"
-                /><label
-                  class="btn btn-outline-dark btn-radio"
-                  for="<%= product %>"
-                  ><%= product %></label
-                >
-                <% }) %>
+                <% if (Array.isArray(product.sizes)) { %>
+                  <% product.sizes.forEach((size, index)=> { %>
+                    <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
+                      id="<%= size %>" />
+                    <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
+                      <%= size %>
+                    </label>
+                    <% }) %>
+                      <% } else if (typeof product.sizes==='string' ) { %>
+                        <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
+                          id="<%= product.sizes %>" /><label class="btn btn-outline-dark btn-radio"
+                          for="<%= product.sizes %>">
+                          <%= product.sizes %>
+                        </label>
+                        <% } else { %>
+                          <p>No hay tallas disponibles.</p>
+                          <% } %>
               </div>
             </form>
           </div>
@@ -99,37 +84,20 @@
           <!-- Modal Buttons -->
           <div class="buttons">
             <!-- Boton 1 -->
-            <button
-              type="button"
-              class="btn btn-dark"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Detalles
             </button>
 
             <!-- Modal -->
-            <div
-              class="modal fade"
-              id="staticBackdrop"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabindex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                       Detalles
                     </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <h2>Descripcion</h2>
@@ -142,37 +110,20 @@
               </div>
             </div>
             <!-- Boton 2 -->
-            <button
-              type="button"
-              class="btn btn-dark"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop2"
-            >
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
               Guia de Talles
             </button>
 
             <!-- Modal -->
-            <div
-              class="modal fade"
-              id="staticBackdrop2"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabindex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                       Guia de Talles
                     </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <h2>Guia</h2>
@@ -323,18 +274,14 @@
     <!-- FOOTER -->
     <%- include ("./partials/footer") %>
 
-    <!-- JS BOOTSTRAP -->
+      <!-- JS BOOTSTRAP -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 
-    <!-- JS FONTAWESOME-->
-    <script
-      src="https://kit.fontawesome.com/4e61ee30bd.js"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      <!-- JS FONTAWESOME-->
+      <script src="https://kit.fontawesome.com/4e61ee30bd.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
