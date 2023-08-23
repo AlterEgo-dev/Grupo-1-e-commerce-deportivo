@@ -66,7 +66,7 @@ productCreatePush: (req, res) => {
     const {id} = req.params;
     const {title, precio, sizes, category, descripcion, Cuidados } = req.body;
     const { results } = dataBase;
-    console.log(req.body);
+
     const product = results.find((prod) => prod.id === id);
     if (product) {
       product.title = title;

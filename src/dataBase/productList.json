@@ -244,25 +244,6 @@
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
-    },
-    {
-      "id": "13",
-      "title": "Prueba",
-      "price": "1234",
-      "image": "/img/img-detalle/Z1.jpg",
-      "imageDetail": [
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg"
-      ],
-      "category": "Calzado",
-      "description": "sdasdas",
-      "cuidados": "dasdas",
-      "sizes": [
-        "39",
-        "40",
-        "41"
-      ]
     }
   ]
 }
