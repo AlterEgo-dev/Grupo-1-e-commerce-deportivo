@@ -19,68 +19,55 @@
 
 
     <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="nombre">
-            <label for="title">Nombre del producto: </label>
-            <input type="text" name="title" value="<%= product.title %>">
-        </div>
-        <label for="">Categoria:</label>
-        <div class="cate">
-            <%if(product.category == "Calzado"){%>
-                <label for=""><input type="radio" name="category" value="Calzado" checked > Calzado</label>
-            <%}else{%>
-                <label for=""><input type="radio" name="category" value="Indumentaria" checked > Indumentaria</label>
-            <%}%>
-        </div>
-        <label for="talles">talles:</label>
-        <%if(product.category == "Calzado"){%>
-            <div class="talles">
-                <% for(let i = 35; i < 47; i++) {%>
-                    <% let a = 0%>
-                <% product.sizes.forEach((product, index) => { %>
-                    <% if(product == i) {%>
-                <label for=""><input type="checkbox" value="<%= i %>" name="sizes" checked> <%= i %></label>
-                <% a = 1}%>
-
-                <% })%>
-                <%if(a === 0) {%>
-                    <label for=""><input type="checkbox" value="<%= i %>" name="sizes"> <%= i %></label>
-                <%}}%>
-            </div>
-        <%}else{%>
-            <div class="talles">
-                <% let tallesLetras = ["S","M","L","XL","XXL"] %>
-                <% for(let w = 0; w < tallesLetras.length; w++) {%>
-                    <% let z = 0 %>
-                    <% product.sizes.forEach((p, i) => { %>
-                        <% if(p === tallesLetras[w]){ %>
-                            <label for=""><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" checked> <%= tallesLetras[w] %></label>
-                            <% z = 1 %>
-            <% } }) %>
-            <% if(z === 0) {%>
-                <label for=""><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>"> <%= tallesLetras[w] %></label>
-            <%}}%>
-            </div>
+    <input type="hidden" name="_method" value="PUT">
+    <div class="nombre">
+        <label for="title">Nombre del producto: </label>
+        <input type="text" name="title" value="<%= product.title %>">
+    </div>
+    <label for="">Categoria:</label>
+    <div class="cate">
+        <% if (product.category === "Calzado") { %>
+            <label><input type="radio" name="category" value="Calzado" checked> Calzado</label>
+        <% } else { %>
+            <label><input type="radio" name="category" value="Indumentaria" checked> Indumentaria</label>
+        <% } %>
+    </div>
+    <label for="talles">talles:</label>
+    <% if (product.category === "Calzado") { %>
+        <div class="talles">
+            <% for (let i = 35; i < 47; i++) { %>
+                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(i.toString()) ? "checked" : ""; %>
+                <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
             <% } %>
+        </div>
+    <% } else { %>
+        <div class="talles">
+            <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
+            <% for (let w = 0; w < tallesLetras.length; w++) { %>
+                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
+                <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
+            <% } %>
+        </div>
+    <% } %>
 
-        <label for="img">imagenes:</label>
-        <img class="imagenprinc" src="<%= product.image %>" alt="">
-        <div class="precio">
-            <label for="price">Precio: </label>
-            <input type="text" name="precio" value="<%= product.price %>" name="precio">
+    <label for="img">imagenes:</label>
+    <img class="imagenprinc" src="<%= product.image %>" alt="">
+    <div class="precio">
+        <label for="price">Precio: </label>
+        <input type="text" name="precio" value="<%= product.price %>" name="precio">
+    </div>
+    <div class="textT">
+        <div class="descYCuid">
+            <label for="descripcion">Descripcion:</label>
+            <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Escriba una descripcion de producto..." name="descripcion"><%= product.description %></textarea>
         </div>
-        <div class="textT">
-            <div class="descYCuid">
-                <label for="descripcion">Descripcion:</label>
-                <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Escriba una descripcion de producto..." name="descripcion"><%= product.description %></textarea>
-            </div>
-            <div class="descYCuid">
-                <label for="cuidados">Cuidados:</label>
-                <textarea name="Cuidados" id="" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." name="Cuidados"><%= product.cuidados %></textarea>
-            </div>
+        <div class="descYCuid">
+            <label for="cuidados">Cuidados:</label>
+            <textarea name="Cuidados" id="" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." name="Cuidados"><%= product.cuidados %></textarea>
         </div>
-        <button type="submit" class="boton-prod">Subir producto</button>
-    </form>
+    </div>
+    <button type="submit" class="boton-prod">Subir producto</button>
+</form>
 
 
     <%- include ("./partials/footer") %>

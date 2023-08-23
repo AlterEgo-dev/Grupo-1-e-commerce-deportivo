@@ -79,14 +79,21 @@
           <!-- Talles -->
           <div class="talles">
             <form class="talles-form">
-              <h3>Talles</h3>
-              <div class="talles-radio">
-                <% product.sizes.forEach((product, index) => { %>
-                  <input type="radio" name="Talles" value="<%= product %>" /><label><%= product %></label>
-                <% }) %>
-              </div>
+                <h3>Talles</h3>
+                <div class="talles-radio">
+                    <% if (Array.isArray(product.sizes)) { %>
+                        <% product.sizes.forEach((size, index) => { %>
+                            <input type="radio" name="Talles" value="<%= size %>" /><label><%= size %></label>
+                        <% }) %>
+                    <% } else if (typeof product.sizes === 'string') { %>
+                        <input type="radio" name="Talles" value="<%= product.sizes %>" /><label><%= product.sizes %></label>
+                    <% } else { %>
+                        <p>No hay tallas disponibles.</p>
+                    <% } %>
+                </div>
             </form>
-          </div>
+        </div>
+        
 
           <!-- Modal Buttons -->
           <div class="buttons">
