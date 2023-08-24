@@ -45,9 +45,9 @@ const productController = {
         title: title,
         price: price,
         image: imagePath,
-        imageDetail: ['',
-         '',
-         ''],
+        imageDetail: ['/img/img-detalle/Z1.jpg',
+        '/img/img-detalle/Z1.jpg',
+        '/img/img-detalle/Z1.jpg'],
         sizes: sizes,
         category: category,
         description: description,
@@ -87,12 +87,12 @@ const productController = {
 
     const product = results.find((prod) => prod.id === id);
     if (product) {
-      product.title = title;
-      product.price = precio;
-      product.sizes = sizes;
-      product.category = category;
-      product.description = descripcion;
-      product.cuidados = Cuidados;
+      title ? product.title = title : product.title;
+      precio ? product.price = precio : product.price;
+      sizes ? product.sizes = sizes : product.sizes;
+      category ? product.category = category : product.category;
+      descripcion ? product.description = descripcion : product.description;
+      Cuidados ? product.cuidados = Cuidados : product.cuidados;
 
 
       const filePath = path.join(__dirname, '../dataBase/productList.json');
