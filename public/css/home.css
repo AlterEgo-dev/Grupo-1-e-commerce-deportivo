@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    font-family: roboto;
 }
 .swiffy-slider{
    text-align: center;
@@ -36,6 +37,50 @@
 }
 .modelos .imgModel img{
     width: 20%;
+}
+
+.titulo-productos {
+   font-family: 'Roboto';
+   margin-top: 10px;
+   padding: 20px;
+   font-size: x-large;
+   color: #FD611A;
+   font-weight: bolder;
+}
+
+/*carrousel*/
+.target-varios{
+    background-color: #FD611A;
+}
+
+/*categorias*/
+
+.img-interes{
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    background-color: #FD611A;
+    transition: 1s;
+    filter: grayscale(100%);
+}
+
+.img-interes:hover{
+    filter: none;
+}
+
+.text-interes {
+    font-weight: bolder;
+    color:#FD611A;
+    font-family: roboto;
+}
+
+.title-interes {
+    font-size: x-large;
 }
 
 

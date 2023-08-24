@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Producto B",
       "price": "5454",
-      "image": "/img/imagenes-home/remera.jpg",
+      "image": "/img/productos/prod-1.jfif",
       "imageDetail": [
         "/img/imagenes-home/remera.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -24,7 +24,7 @@
       "id": "2",
       "title": "Producto B",
       "price": "597000",
-      "image": "/img/imagenes-home/remera.jpg",
+      "image": "/img/productos/prod-2.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -43,7 +43,7 @@
       "id": "3",
       "title": "Producto C",
       "price": "56000",
-      "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg",
+      "image": "/img/productos/prod-3.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -64,7 +64,7 @@
       "id": "4",
       "title": "Producto D",
       "price": "5600",
-      "image": "/img/imagenes-home/Playera_hollister.jpg",
+      "image": "/img/productos/prod-4.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -83,7 +83,7 @@
       "id": "5",
       "title": "Producto E",
       "price": "5000",
-      "image": "/img/imagenes-home/argentina-messi-talle-8-adidas.jpg",
+      "image": "/img/productos/prod-5.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -102,7 +102,7 @@
       "id": "6",
       "title": "Producto F",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-6.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -123,7 +123,7 @@
       "id": "7",
       "title": "Producto G",
       "price": "6000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-7.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -144,7 +144,7 @@
       "id": "8",
       "title": "Producto H",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-8.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -165,7 +165,7 @@
       "id": "9",
       "title": "Producto I",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-9.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -186,7 +186,7 @@
       "id": "10",
       "title": "Producto J",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-10.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -207,7 +207,7 @@
       "id": "11",
       "title": "Producto k",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-11.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -228,7 +228,7 @@
       "id": "12",
       "title": "Producto l",
       "price": "51000",
-      "image": "/img/imagenes-home/zapatillas.jpg",
+      "image": "/img/productos/prod-12.jfif",
       "imageDetail": [
         "/img/imagenes-home/Playera_hollister.jpg",
         "/img/imagenes-home/Playera_hollister.jpg",
@@ -247,9 +247,9 @@
     },
     {
       "id": "13",
-      "title": "gtdf",
+      "title": "Algo",
       "price": "342423",
-      "image": "/img/img-detalle/Z1-1692846165308-926352151.png",
+      "image": "/img/productos/prod-13.jfif",
       "imageDetail": [
         "",
         "",
