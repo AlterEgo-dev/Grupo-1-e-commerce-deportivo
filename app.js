@@ -15,15 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 
-app.set('view engine', 'ejs'); // Corrige el typo en 'view engine'
+app.set('view engine', 'ejs'); 
 app.set('views', './src/views');
 
-// Configuración de almacenamiento y opciones de Multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname, '../../public/img/img-detalle'));
   
-   // Ajusta la ruta de destino según tu estructura
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
