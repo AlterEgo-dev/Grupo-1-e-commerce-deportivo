@@ -1,9 +1,22 @@
 const path = require('path');
 const fs = require('fs');
 const dataBase = require('../dataBase/productList.json');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../../public/img/img-detalle'));
+
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, 'Z1-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
 
 const productController = {
-    
   productDetail: (req, res) => {
     const { id } = req.params;
     const { results } = dataBase;
@@ -12,48 +25,53 @@ const productController = {
   },
 
   productAdminList: (req, res) => {
-
     const { results } = dataBase;
-
     res.render('product-admin.ejs', { data: results });
   },
 
   productCreate: (req, res) => {
     res.render('product-create.ejs');
-},
+  },
 
-productCreatePush: (req, res) => {
-  const { title, price, image, imageDetail, sizes, category, description, cuidados } = req.body;
+  productCreatePush: [
+    upload.single('image'),
+    (req, res) => {
+      const { title, price, sizes, category, description, cuidados } = req.body;
 
-  const productoNuevo = {
-    id: '',
-    title: title,
-    price: price,
-    image: '/img/img-detalle/Z1.jpg',
-    imageDetail: [
-      '/img/img-detalle/Z1.jpg',
-      '/img/img-detalle/Z1.jpg',
-      '/img/img-detalle/Z1.jpg'
-    ],
-    sizes: sizes,
-    category: category,
-    description: description,
-    cuidados: cuidados
-  };
+      const imagePath = '/img/img-detalle/' + req.file.filename;
 
-  const filePath = path.join(__dirname, '../dataBase/productList.json');
-  const productJson = fs.readFileSync(filePath, 'utf-8');
-  const jsonData = JSON.parse(productJson);
+      const productoNuevo = {
+        id: '',
+        title: title,
+        price: price,
+        image: imagePath,
+        imageDetail: ['',
+         '',
+         ''],
+        sizes: sizes,
+        category: category,
+        description: description,
+        cuidados: cuidados
+      };
+
+  
+      const filePath = path.join(__dirname, '../dataBase/productList.json');
+      const productJson = fs.readFileSync(filePath, 'utf-8');
+      const jsonData = JSON.parse(productJson);
+
+      const lastId = jsonData.results.length > 0 ? parseInt(jsonData.results[jsonData.results.length - 1].id) : 0;
+      productoNuevo.id = (lastId + 1).toString();
+
+      jsonData.results.push(productoNuevo);
+      fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
+
+      res.redirect('/product/product-admin');
+
+  
+    }
+  ],
 
 
-
-  const lastId = jsonData.results.length > 0 ? parseInt(jsonData.results[jsonData.results.length - 1].id) : 0;
-  productoNuevo.id = (lastId + 1).toString();
-
-  jsonData.results.push(productoNuevo);
-  fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
-  res.redirect('/product/product-admin');
-},
 
   productEditForm: (req, res) => {
     const { id } = req.params;

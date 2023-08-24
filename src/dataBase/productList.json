@@ -244,6 +244,25 @@
       "category": "Calzado",
       "description": "descripcion",
       "cuidados": "cuidados del producto"
+    },
+    {
+      "id": "13",
+      "title": "gtdf",
+      "price": "342423",
+      "image": "/img/img-detalle/Z1-1692846165308-926352151.png",
+      "imageDetail": [
+        "",
+        "",
+        ""
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "category": "Indumentaria",
+      "description": "rwrwe",
+      "cuidados": "rdsrfds"
     }
   ]
 }
