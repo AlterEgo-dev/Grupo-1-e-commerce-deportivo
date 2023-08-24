@@ -70,9 +70,7 @@ const productController = {
   
     }
   ],
-
-
-
+  
   productEditForm: (req, res) => {
     const { id } = req.params;
     const { results } = dataBase;
