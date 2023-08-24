@@ -39,6 +39,22 @@ Objetivos de la semana:
 -Finalizar las actividades pendientes de los Sprints anteriores.
 -Trabajar en los estilos de las diferentes Views.
 
+-> 23/08/2023
+
+En la Weekly del dia de la fecha se realizó un zondeo general de las actualizaciones de los objetivos individuales pactados de este sprint. 
+
+Objetivos realizados:
+-Vista del formulario.
+-Funcionalidad de creación de productos y de edición.
+
+Queda pendiente de finalización:
+-Mejora de estilo en el home.
+-Modificación del responsive en algunas listas.
+-Creación de la función delete.
+-Mejorar la funcionalidad general del formulario.
+
+Fuera de los objetivos del sprint, se charló también acerca de la necesidad de hacer propio el proyecto, que todos los integrantes del grupo se sientan en el derecho de modificar aquello que crean que pueden mejorar.
+
 
 
 
