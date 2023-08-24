@@ -246,39 +246,23 @@
       "cuidados": "cuidados del producto"
     },
     {
-      "id": "15",
-      "title": "Alexis Lanchiotti",
-      "price": "7364835",
-      "image": "/img/img-detalle/Z1-1692847122195-545843059.jpg",
+      "id": "13",
+      "title": "gtdf",
+      "price": "342423",
+      "image": "/img/img-detalle/Z1-1692846165308-926352151.png",
       "imageDetail": [
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg"
+        "",
+        "",
+        ""
       ],
       "sizes": [
-        "41",
-        "42",
-        "43",
-        "44"
+        "S",
+        "M",
+        "L"
       ],
-      "category": "Calzado",
-      "description": "sdfbdfsbdfbds",
-      "cuidados": "bdsfbdbdfsbdsfb"
-    },
-    {
-      "id": "16",
-      "title": "alexis lanchiotti",
-      "price": "1",
-      "image": "/img/img-detalle/Z1-1692847185786-55750736.jpg",
-      "imageDetail": [
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg",
-        "/img/img-detalle/Z1.jpg"
-      ],
-      "sizes": "XXL",
       "category": "Indumentaria",
-      "description": "alto pete",
-      "cuidados": "no se"
+      "description": "rwrwe",
+      "cuidados": "rdsrfds"
     }
   ]
 }
