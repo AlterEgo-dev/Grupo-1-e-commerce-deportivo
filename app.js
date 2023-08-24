@@ -18,19 +18,6 @@ app.use('/', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs'); 
 app.set('views', './src/views');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, '../../public/img/img-detalle'));
-  
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-      cb(null, 'Z1-' + uniqueSuffix + path.extname(file.originalname));
-    }
-  });
-  
-  const upload = multer({ storage: storage });
-
 app.use ('/', mainRoute);
 app.use ('/product', productRoute);
 

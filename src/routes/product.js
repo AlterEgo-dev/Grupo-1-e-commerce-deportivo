@@ -16,8 +16,8 @@ router.post('/product/product-edit/:id', productController.saveEditedProduct);
 
 /*** CREAR UN PRODUCTO ***/
 
-router.get('/product/crear', productController.productCreate);
-router.post('/product/crear', productController.productCreatePush);
+router.get('/product/product-create', productController.productCreate);
+router.post('/product/product-create', productController.productCreatePush);
 
 
 module.exports = router;
