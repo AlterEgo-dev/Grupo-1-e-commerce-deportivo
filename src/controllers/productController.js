@@ -100,8 +100,18 @@ const productController = {
     } else {
       res.status(404).send('Producto no encontrado');
     }
+  },
+   deleteProduct: (req, res) => {
+    const idProd = req.params.id; 
+    const ind = dataBase.results.findIndex(product => product.id === idProd);
 
-  
+    if (ind !== -1) {
+        dataBase.results.splice(ind, 1);
+        const dbFilePath = path.join(__dirname, '../dataBase/productList.json');
+        fs.writeFileSync(dbFilePath, JSON.stringify(dataBase, null, 4));
+    }
+
+    res.redirect('/product/product-admin'); 
   },
 };
 
