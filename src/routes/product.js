@@ -19,5 +19,7 @@ router.post('/product/product-edit/:id', productController.saveEditedProduct);
 router.get('/product/product-create', productController.productCreate);
 router.post('/product/product-create', productController.productCreatePush);
 
+/*** ELIMINAR PRODUCTO ***/
+router.delete('/product/product-edit/:id', productController.deleteProduct);
 
 module.exports = router;

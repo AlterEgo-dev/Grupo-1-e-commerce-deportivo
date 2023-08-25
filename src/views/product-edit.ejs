@@ -68,7 +68,9 @@
     </div>
     <button type="submit" class="boton-prod">Subir producto</button>
 </form>
-
+<form method="POST" action="/product/product-edit/<%= product.id %>?_method=DELETE" class="formulario">
+    <button type="submit" class="boton-elim">Eliminar producto</button><!-- solo puse la clase pero no esta en el css -->
+</form>
 
     <%- include ("./partials/footer") %>
     <script src="https://kit.fontawesome.com/4e61ee30bd.js" crossorigin="anonymous"></script>
