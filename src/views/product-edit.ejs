@@ -10,12 +10,86 @@
     <link rel="stylesheet" href="/css/product-create.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/img/logo-general.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 
     <!-- BOOTSTRAP Y SLIDER -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
     <%- include ("./partials/navbar") %>
+
+
+    <div class="caja-grande" >
+        <div class="box-form">
+          <div class="title-form">FORMULARIO DE EDICIÓN</div>
+            <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario" style="width: 100%;">
+                <input type="hidden" name="_method" value="PUT">
+    
+                <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
+                <input type="text" name="title" value="<%= product.title %>"  class="input-form">
+              
+                <label for="" class="label-form">CATEGORÍA</label>
+                    <div>
+                        <% if (product.category === "Calzado") { %>
+                        <label for="cat-calzado" class="form-radio">
+                        <input type="radio" name="category" value="Calzado" id="cat-calzado" checked> Calzado </label>
+                        <% } else { %>
+                        <label for="cat-indumentaria" class="form-radio">
+                        <input type="radio" name="category" value="Indumentaria" id="cat-indumentaria" checked > Indumentaria</label>
+                        <% } %>
+                    </div>
+
+                    <label for="sizes" class="label-form">TALLES</label>
+                    <% if (product.category === "Calzado") { %>
+                        <div class="form-check">
+                            <% for (let i = 35; i < 47; i++) { %>
+                                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(i.toString()) ? "checked" : ""; %>
+                                <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
+                            <% } %>
+                        </div>
+                        <% } else { %>
+                        <div class="form-check">
+                            <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
+                            <% for (let w = 0; w < tallesLetras.length; w++) { %>
+                                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
+                                <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    
+                    <label for="img" class="label-form">IMAGENES</label>
+                    <img class="imagenprinc" src="<%= product.image %>" alt="">
+                    
+                    <label for="price" class="label-form">PRECIO</label>
+                    <input type="text" name="precio" value="<%= product.price %>" class="input-form">
+                    
+                    <label for="description" class="label-form">DESCRIPCIÓN</label>
+                    <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." class="input-form" style="height:90px;"><%= product.description %></textarea>
+                    
+                    <label for="cuidados" class="label-form">CUIDADOS</label>
+                    <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." class="input-form" style="height:90px;"><%= product.cuidados %></textarea>
+
+                    <div class="div-button-edit">
+                        <button type="submit" class="button-form">EDITAR PRODUCTO</button>
+                    </div>
+                    
+            </form>
+
+                
+            <form method="POST" action="/product/product-edit/<%= product.id %>?_method=DELETE" class="formulario" style="width: 100%;">
+                <div class="div-button-edit">
+                    <button type="submit" class="button-form" >ELIMINAR PRODUCTO</button>
+                </div>
+            </form>    
+        </div>       
+    </div>
+                
+                
+
+
+
+<!--
 
 
     <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario">
@@ -69,8 +143,11 @@
     <button type="submit" class="boton-prod">Subir producto</button>
 </form>
 <form method="POST" action="/product/product-edit/<%= product.id %>?_method=DELETE" class="formulario">
-    <button type="submit" class="boton-elim">Eliminar producto</button><!-- solo puse la clase pero no esta en el css -->
+    <button type="submit" class="boton-elim">Eliminar producto</button>
 </form>
+
+-->
+
 
     <%- include ("./partials/footer") %>
     <script src="https://kit.fontawesome.com/4e61ee30bd.js" crossorigin="anonymous"></script>
