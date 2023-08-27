@@ -16,6 +16,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+/** AQUI ACABA MULTER */
+
+/** CONTROLADORES  */
+
 const productController = {
   productDetail: (req, res) => {
     const { id } = req.params;
@@ -32,6 +36,8 @@ const productController = {
   productCreate: (req, res) => {
     res.render('product-create.ejs');
   },
+
+  /** CREAR NUEVO PRODUCTO */
 
   productCreatePush: [
     upload.fields([
@@ -69,6 +75,8 @@ const productController = {
       res.redirect('/product/product-admin');
     }
   ],
+
+  /** RENDERIZACION DE LA VISTA  */
   
   productEditForm: (req, res) => {
     const { id } = req.params;
@@ -76,6 +84,8 @@ const productController = {
     const product = results.find((prod) => prod.id === id);
     res.render('product-edit.ejs', { product, products: results });
   },
+
+  /** BORRAR LA IMAGEN DE UN PRODUCTO */
   
   deleteImage: (req, res) => {
     const { id, index } = req.params;
@@ -91,6 +101,8 @@ const productController = {
   
     res.redirect(`/product/product-edit/${id}`);
   },
+
+  /** EDICIÓN DE PRODUCTO / ACTUALIZAR IMG PRINCIPAL */
 
   saveEditedProduct: [
     upload.fields([
@@ -121,7 +133,6 @@ const productController = {
           product.image = '/img/img-detalle/' + req.files['image'][0].filename;
         }
   
-        // Agregar nuevas imágenes de detalle si se cargaron
         if (req.files['imageDetail']) {
           const newImages = req.files['imageDetail'].map(file => '/img/img-detalle/' + file.filename);
           product.imageDetail = product.imageDetail.concat(newImages);
@@ -137,7 +148,7 @@ const productController = {
     }
   ],
   
-  
+  /** BORRAR UN PRODUCTO */
   
    deleteProduct: (req, res) => {
     const idProd = req.params.id; 
@@ -152,6 +163,9 @@ const productController = {
     res.redirect('/product/product-admin'); 
   },
 
+
+  /** BORRAR LAS IMAGENES DE DETALLE  */
+  
   deleteProductImage: (req, res) => {
     const { id, index } = req.params;
     const product = dataBase.results.find(prod => prod.id === id);
