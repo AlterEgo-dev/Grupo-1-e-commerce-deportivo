@@ -14,4 +14,7 @@ router.get('/product/crear', productController.productCreate);
 router.post('/product/crear', productController.productCreatePush);
 router.delete('/product/product-edit/:id', productController.deleteProduct);
 
+router.delete('/product/product-edit/:id/delete-image/:index', productController.deleteProductImage);
+
+
 module.exports = router;

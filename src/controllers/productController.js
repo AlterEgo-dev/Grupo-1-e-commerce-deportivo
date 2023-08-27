@@ -34,40 +34,39 @@ const productController = {
   },
 
   productCreatePush: [
-    upload.single('image'),
+    upload.fields([
+      { name: 'image', maxCount: 1 },
+      { name: 'imageDetail', maxCount: 3 }
+    ]),
     (req, res) => {
       const { title, price, sizes, category, description, cuidados } = req.body;
-
-      const imagePath = '/img/img-detalle/' + req.file.filename;
-
+  
+      const imagePath = '/img/img-detalle/' + req.files['image'][0].filename;
+      const imagePathDetail = req.files['imageDetail'].map(file => '/img/img-detalle/' + file.filename);
+  
       const productoNuevo = {
         id: '',
         title: title,
         price: price,
         image: imagePath,
-        imageDetail: ['/img/img-detalle/Z1.jpg',
-        '/img/img-detalle/Z1.jpg',
-        '/img/img-detalle/Z1.jpg'],
+        imageDetail: imagePathDetail,
         sizes: sizes,
         category: category,
         description: description,
         cuidados: cuidados
       };
-
   
       const filePath = path.join(__dirname, '../dataBase/productList.json');
       const productJson = fs.readFileSync(filePath, 'utf-8');
       const jsonData = JSON.parse(productJson);
-
+  
       const lastId = jsonData.results.length > 0 ? parseInt(jsonData.results[jsonData.results.length - 1].id) : 0;
       productoNuevo.id = (lastId + 1).toString();
-
+  
       jsonData.results.push(productoNuevo);
       fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
-
-      res.redirect('/product/product-admin');
-
   
+      res.redirect('/product/product-admin');
     }
   ],
   
@@ -77,30 +76,69 @@ const productController = {
     const product = results.find((prod) => prod.id === id);
     res.render('product-edit.ejs', { product, products: results });
   },
-
-  saveEditedProduct: (req, res) => {
-    const {id} = req.params;
-    const {title, precio, sizes, category, descripcion, Cuidados } = req.body;
-    const { results } = dataBase;
-
-    const product = results.find((prod) => prod.id === id);
+  
+  deleteImage: (req, res) => {
+    const { id, index } = req.params;
+    const product = dataBase.results.find((prod) => prod.id === id);
+  
     if (product) {
-      title ? product.title = title : product.title;
-      precio ? product.price = precio : product.price;
-      sizes ? product.sizes = sizes : product.sizes;
-      category ? product.category = category : product.category;
-      descripcion ? product.description = descripcion : product.description;
-      Cuidados ? product.cuidados = Cuidados : product.cuidados;
-
-
-      const filePath = path.join(__dirname, '../dataBase/productList.json');
-      fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2));
-    
-      res.redirect(`/product/detail/${id}`);
-    } else {
-      res.status(404).send('Producto no encontrado');
+      if (index >= 0 && index < product.imageDetail.length) {
+        product.imageDetail.splice(index, 1);
+        const filePath = path.join(__dirname, '../dataBase/productList.json');
+        fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
+      }
     }
+  
+    res.redirect(`/product/product-edit/${id}`);
   },
+
+  saveEditedProduct: [
+    upload.fields([
+      { name: 'image', maxCount: 1 },
+      { name: 'imageDetail', maxCount: 3 }
+    ]),
+    (req, res) => {
+      const { id } = req.params;
+      const { title, precio, sizes, category, descripcion, Cuidados } = req.body;
+      const { results } = dataBase;
+  
+      const product = results.find((prod) => prod.id === id);
+      if (product) {
+        title ? product.title = title : product.title;
+        precio ? product.price = precio : product.price;
+        sizes ? product.sizes = sizes : product.sizes;
+        category ? product.category = category : product.category;
+        descripcion ? product.description = descripcion : product.description;
+        Cuidados ? product.cuidados = Cuidados : product.cuidados;
+  
+        if (req.files['image']) {
+
+          if (product.image) {
+            const oldImagePath = path.join(__dirname, '../../public', product.image);
+            fs.unlinkSync(oldImagePath);
+          }
+  
+          product.image = '/img/img-detalle/' + req.files['image'][0].filename;
+        }
+  
+        // Agregar nuevas imágenes de detalle si se cargaron
+        if (req.files['imageDetail']) {
+          const newImages = req.files['imageDetail'].map(file => '/img/img-detalle/' + file.filename);
+          product.imageDetail = product.imageDetail.concat(newImages);
+        }
+  
+        const filePath = path.join(__dirname, '../dataBase/productList.json');
+        fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2));
+  
+        res.redirect(`/product/detail/${id}`);
+      } else {
+        res.status(404).send('Producto no encontrado');
+      }
+    }
+  ],
+  
+  
+  
    deleteProduct: (req, res) => {
     const idProd = req.params.id; 
     const ind = dataBase.results.findIndex(product => product.id === idProd);
@@ -113,6 +151,25 @@ const productController = {
 
     res.redirect('/product/product-admin'); 
   },
+
+  deleteProductImage: (req, res) => {
+    const { id, index } = req.params;
+    const product = dataBase.results.find(prod => prod.id === id);
+  
+    if (product) {
+      if (index >= 0 && index < product.imageDetail.length) {
+
+        if (product.imageDetail.length > 1) {
+          product.imageDetail.splice(index, 1);
+  
+          const filePath = path.join(__dirname, '../dataBase/productList.json');
+          fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
+        }
+      }
+    }
+  
+    res.redirect(`/product/product-edit/${id}`);
+  }
 };
 
 module.exports = productController;

@@ -22,4 +22,7 @@ router.post('/product/product-create', productController.productCreatePush);
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product/product-edit/:id', productController.deleteProduct);
 
+router.delete('/product/product-edit/:id/delete-image/:index', productController.deleteProductImage);
+
+
 module.exports = router;

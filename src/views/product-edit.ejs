@@ -23,7 +23,7 @@
     <div class="caja-grande" >
         <div class="box-form">
           <div class="title-form">FORMULARIO DE EDICIÓN</div>
-            <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario" style="width: 100%;">
+            <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario" style="width: 100%;" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
     
                 <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
@@ -58,8 +58,15 @@
                         </div>
                     <% } %>
                     
-                    <label for="img" class="label-form">IMAGENES</label>
+                    <label for="img" class="label-form">IMAGEN PRINCIPAL</label>
                     <img class="imagenprinc" src="<%= product.image %>" alt="">
+
+                    <label for="newImage" class="label-form">Actualizar Imagen Principal</label>
+                    <input type="file" name="image" accept="image/*">
+
+
+                    <label for="imageDetail" class="label-form">Actualizar imagenes de DETALLE</label>
+                    <input type="file" name="imageDetail" multiple>
                     
                     <label for="price" class="label-form">PRECIO</label>
                     <input type="text" name="precio" value="<%= product.price %>" class="input-form">
@@ -81,7 +88,20 @@
                 <div class="div-button-edit">
                     <button type="submit" class="button-form" >ELIMINAR PRODUCTO</button>
                 </div>
-            </form>    
+            </form>
+
+            <label for="img" class="label-form">IMÁGENES DE DETALLE</label>
+                    <div class="image-detail-container">
+                        <% product.imageDetail.forEach((imagePath, index) => { %>
+                            <div class="image-item">
+                                <img class="imagenprinc" src="<%= imagePath %>" alt="Detalle del producto">
+                                <form action="/product/product-edit/<%= product.id %>/delete-image/<%= index %>?_method=DELETE" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="button-form">Eliminar</button>
+                                </form>
+                            </div>
+                         <% }) %>
+                        </div>
         </div>       
     </div>
                 
