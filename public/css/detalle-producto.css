@@ -18,7 +18,7 @@ section {
 
 article {
   margin: 40px;
-  height: 70vh;
+  height: 100vh;
 }
 
 /* Carrusel */
@@ -30,6 +30,7 @@ article {
 .slide,
 .carousel-inner {
   width: 35vw;
+  max-width: 100vh;
   display: flex;
   align-items: center;
 }
@@ -37,6 +38,10 @@ article {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: #FD611A
+}
+
+.carousel-indicators button {
+  color: black;
 }
 
 

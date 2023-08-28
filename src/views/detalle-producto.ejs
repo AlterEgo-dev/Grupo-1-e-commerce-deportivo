@@ -23,7 +23,15 @@
         <!-- Carrusel -->
 
         <article>
-          <div id="carouselExample" class="carousel slide">
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active "
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            </div>
             <div class="carousel-inner">
               <% product.imageDetail.forEach((product, index)=> { %>
                 <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
@@ -31,11 +39,13 @@
                 </div>
                 <% }) %>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
@@ -61,32 +71,32 @@
               <h3>Talles</h3>
               <div class="talles-radio">
                 <% if (Array.isArray(product.sizes)) { %>
-                  <% if (product.sizes.length === 1) { %>
-                    <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= product.sizes[0] %>"
-                      id="<%= product.sizes[0] %>" checked />
+                  <% if (product.sizes.length===1) { %>
+                    <input type="radio" class="btn-check" name="talles" autocomplete="off"
+                      value="<%= product.sizes[0] %>" id="<%= product.sizes[0] %>" checked />
                     <label class="btn btn-outline-dark btn-radio" for="<%= product.sizes[0] %>">
                       <%= product.sizes[0] %>
                     </label>
-                  <% } else if (product.sizes.length > 1) { %>
-                    <% product.sizes.forEach((size, index)=> { %>
-                      <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
-                        id="<%= size %>" />
-                      <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
-                        <%= size %>
-                      </label>
-                    <% }) %>
-                  <% } else { %>
-                    <p>No hay talles disponibles.</p>
-                  <% } %>
-                <% } else if (typeof product.sizes === 'string' ) { %>
-                  <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= product.sizes %>"
-                    id="<%= product.sizes %>" checked /><label class="btn btn-outline-dark btn-radio"
-                    for="<%= product.sizes %>">
-                    <%= product.sizes %>
-                  </label>
-                <% } else { %>
-                  <p>No hay talles disponibles.</p>
-                <% } %>
+                    <% } else if (product.sizes.length> 1) { %>
+                      <% product.sizes.forEach((size, index)=> { %>
+                        <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
+                          id="<%= size %>" />
+                        <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
+                          <%= size %>
+                        </label>
+                        <% }) %>
+                          <% } else { %>
+                            <p>No hay talles disponibles.</p>
+                            <% } %>
+                              <% } else if (typeof product.sizes==='string' ) { %>
+                                <input type="radio" class="btn-check" name="talles" autocomplete="off"
+                                  value="<%= product.sizes %>" id="<%= product.sizes %>" checked /><label
+                                  class="btn btn-outline-dark btn-radio" for="<%= product.sizes %>">
+                                  <%= product.sizes %>
+                                </label>
+                                <% } else { %>
+                                  <p>No hay talles disponibles.</p>
+                                  <% } %>
               </div>
             </form>
           </div>
