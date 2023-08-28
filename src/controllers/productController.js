@@ -116,25 +116,36 @@ const productController = {
   
       const product = results.find((prod) => prod.id === id);
       if (product) {
-        title ? product.title = title : product.title;
-        precio ? product.price = precio : product.price;
-        sizes ? product.sizes = sizes : product.sizes;
-        category ? product.category = category : product.category;
-        descripcion ? product.description = descripcion : product.description;
-        Cuidados ? product.cuidados = Cuidados : product.cuidados;
+        product.title = title || product.title;
+        product.price = precio || product.price;
+
+        /** ACA FILTRA EL ARRAY DE TALLES */
+  
+        if (Array.isArray(sizes)) {
+          product.sizes = sizes.filter(size => size !== '');
+
+        /** EN CASO DE NO HABER OPCION, RELLENA CON ESPACIO VACIO PARA QUE ACTUE EL ELSE IF DEL DETALLE DE PRODUCTO */
+
+        } else {
+          product.sizes = sizes ? [sizes] : [];
+        }
+  
+        product.category = category || product.category;
+        product.description = descripcion || product.description;
+        product.cuidados = Cuidados || product.cuidados;
   
         if (req.files['image']) {
-
           if (product.image) {
             const oldImagePath = path.join(__dirname, '../../public', product.image);
             fs.unlinkSync(oldImagePath);
           }
-  
           product.image = '/img/img-detalle/' + req.files['image'][0].filename;
         }
   
         if (req.files['imageDetail']) {
-          const newImages = req.files['imageDetail'].map(file => '/img/img-detalle/' + file.filename);
+          const newImages = req.files['imageDetail'].map(
+            (file) => '/img/img-detalle/' + file.filename
+          );
           product.imageDetail = product.imageDetail.concat(newImages);
         }
   
@@ -147,6 +158,8 @@ const productController = {
       }
     }
   ],
+  
+  
   
   /** BORRAR UN PRODUCTO */
   

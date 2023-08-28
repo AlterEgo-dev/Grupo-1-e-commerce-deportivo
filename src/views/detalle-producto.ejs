@@ -61,22 +61,32 @@
               <h3>Talles</h3>
               <div class="talles-radio">
                 <% if (Array.isArray(product.sizes)) { %>
-                  <% product.sizes.forEach((size, index)=> { %>
-                    <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
-                      id="<%= size %>" />
-                    <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
-                      <%= size %>
+                  <% if (product.sizes.length === 1) { %>
+                    <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= product.sizes[0] %>"
+                      id="<%= product.sizes[0] %>" checked />
+                    <label class="btn btn-outline-dark btn-radio" for="<%= product.sizes[0] %>">
+                      <%= product.sizes[0] %>
                     </label>
+                  <% } else if (product.sizes.length > 1) { %>
+                    <% product.sizes.forEach((size, index)=> { %>
+                      <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
+                        id="<%= size %>" />
+                      <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
+                        <%= size %>
+                      </label>
                     <% }) %>
-                      <% } else if (typeof product.sizes==='string' ) { %>
-                        <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
-                          id="<%= product.sizes %>" /><label class="btn btn-outline-dark btn-radio"
-                          for="<%= product.sizes %>">
-                          <%= product.sizes %>
-                        </label>
-                        <% } else { %>
-                          <p>No hay tallas disponibles.</p>
-                          <% } %>
+                  <% } else { %>
+                    <p>No hay talles disponibles.</p>
+                  <% } %>
+                <% } else if (typeof product.sizes === 'string' ) { %>
+                  <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= product.sizes %>"
+                    id="<%= product.sizes %>" checked /><label class="btn btn-outline-dark btn-radio"
+                    for="<%= product.sizes %>">
+                    <%= product.sizes %>
+                  </label>
+                <% } else { %>
+                  <p>No hay talles disponibles.</p>
+                <% } %>
               </div>
             </form>
           </div>
