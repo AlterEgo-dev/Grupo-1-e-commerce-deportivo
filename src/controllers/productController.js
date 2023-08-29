@@ -200,14 +200,22 @@ const productController = {
   
     res.redirect(`/product/product-edit/${id}`);
   },
-  categoria: (req, res) => {
+  genero: (req, res) => {
+    const selectedGenero = req.params.genero;
+    const { results } = dataBase;
+    const result = results.filter((e)=>{
+      return e.genero == selectedGenero
+    })
+    res.render("product-category", { result })
+  },
+  category: (req, res) => {
     const selectedCategory = req.params.category;
     const { results } = dataBase;
     const result = results.filter((e)=>{
-      return e.genero == selectedCategory
+      return e.category == selectedCategory
     })
     res.render("product-category", { result })
-  }
+  },
 };
 
 module.exports = productController;

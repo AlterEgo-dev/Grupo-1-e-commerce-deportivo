@@ -8,7 +8,8 @@ router.get('/detail/:id', productController.productDetail);
 /*** VISTA PRODUCTOS EN LISTA ***/
 
 router.get('/product/product-admin', productController.productAdminList);
-router.get("/category/:category", productController.categoria)
+router.get("/category/:category", productController.category)
+router.get("/category/genero/:genero", productController.genero)
 
 /*** EDITAR PRODUCTO ***/
 
