@@ -1,0 +1,30 @@
+a{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
+
+.card-category{
+    width: 90%;
+    margin: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.img-category{
+    width: 100%;
+}
+
+.title-category, .price-category{
+    font-family: roboto;
+    color: #FD611A;
+    text-decoration: none;
+}
+
+.title-category{
+    font-weight: bold;
+}

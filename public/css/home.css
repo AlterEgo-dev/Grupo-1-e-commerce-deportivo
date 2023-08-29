@@ -105,10 +105,10 @@
   }
   
   
-  .swiffy-slider.slider-item-show5 ul.slider-container li {
+  /*.swiffy-slider.slider-item-show5 ul.slider-container li {
     transition: transform 0.3s;
   }
   
   .swiffy-slider.slider-item-show5 ul.slider-container li:hover {
     animation: agrandamiento-facherito 0.3s forwards;
-  }
+  }*/

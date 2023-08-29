@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const dataBase = require('../dataBase/productList.json');
 const multer = require('multer');
+const { log } = require('console');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,6 +37,8 @@ const productController = {
   productCreate: (req, res) => {
     res.render('product-create.ejs');
   },
+
+
 
   /** CREAR NUEVO PRODUCTO */
 
@@ -196,6 +199,14 @@ const productController = {
     }
   
     res.redirect(`/product/product-edit/${id}`);
+  },
+  categoria: (req, res) => {
+    const selectedCategory = req.params.category;
+    const { results } = dataBase;
+    const result = results.filter((e)=>{
+      return e.genero == selectedCategory
+    })
+    res.render("product-category", { result })
   }
 };
 
