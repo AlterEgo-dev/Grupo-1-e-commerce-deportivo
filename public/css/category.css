@@ -1,15 +1,18 @@
 a{
     text-decoration: none;
 }
-a:active{
-    text-decoration: none;
+
+.col-category{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .card-category{
-    width: 90%;
+    width: 95%;
     margin: 30px;
     background-color: white;
-    box-shadow: 1px 1px 10px gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,13 +21,23 @@ a:active{
 .img-category{
     width: 100%;
 }
+.text-category{
+    width: 100%;
+    margin: 10px; 
+    
+}
 
 .title-category, .price-category{
     font-family: roboto;
+    width: 95%;
     color: #FD611A;
-    text-decoration: none;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .title-category{
     font-weight: bold;
+    color: black;  
+
 }
