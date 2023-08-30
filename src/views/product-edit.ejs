@@ -60,13 +60,17 @@
                     
                     <label for="img" class="label-form">IMAGEN PRINCIPAL</label>
                     <img class="imagenprinc" src="<%= product.image %>" alt="">
-
                     <label for="newImage" class="label-form">Actualizar Imagen Principal</label>
-                    <input type="file" name="image" accept="image/*">
-
+                    <div class="label-inpu">
+                        <p>Subir imagen</p>
+                        <input type="file" name="image" accept="image/*" >
+                    </div>
 
                     <label for="imageDetail" class="label-form">Actualizar imagenes de DETALLE</label>
-                    <input type="file" name="imageDetail" multiple>
+                    <div class="label-inpu">
+                        <p>Subir imagen/es</p>
+                        <input type="file" name="imageDetail" multiple>
+                    </div>
                     
                     <label for="price" class="label-form">PRECIO</label>
                     <input type="text" name="precio" value="<%= product.price %>" class="input-form">

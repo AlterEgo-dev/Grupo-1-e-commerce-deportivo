@@ -10,8 +10,8 @@ router.get('/carrito', mainController.carrito);
 router.get('/product/product-edit/:id', productController.productEditForm);
 router.put('/product/product-edit/:id', productController.saveEditedProduct);
 router.get('/product/product-admin', productController.productAdminList);
-router.get('/product/crear', productController.productCreate);
-router.post('/product/crear', productController.productCreatePush);
+router.get('/product/product-create', productController.productCreate);
+router.post('/product/product-create', productController.productCreatePush);
 router.delete('/product/product-edit/:id', productController.deleteProduct);
 
 router.delete('/product/product-edit/:id/delete-image/:index', productController.deleteProductImage);
