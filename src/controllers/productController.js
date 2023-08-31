@@ -6,7 +6,7 @@ const { log } = require('console');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../../public/img/img-detalle'));
+    cb(null, path.join(__dirname, '../../public/img/productos'));
 
   },
   filename: function (req, file, cb) {
@@ -38,8 +38,6 @@ const productController = {
     res.render('product-create.ejs');
   },
 
-
-
   /** CREAR NUEVO PRODUCTO */
 
   productCreatePush: [
@@ -50,8 +48,8 @@ const productController = {
     (req, res) => {
       const { title, price, sizes, category, description, cuidados } = req.body;
   
-      const imagePath = '/img/img-detalle/' + req.files['image'][0].filename;
-      const imagePathDetail = req.files['imageDetail'].map(file => '/img/img-detalle/' + file.filename);
+      const imagePath = '/img/productos/' + req.files['image'][0].filename;
+      const imagePathDetail = req.files['imageDetail'].map(file => '/img/productos/' + file.filename);
   
       const productoNuevo = {
         id: '',
@@ -142,12 +140,12 @@ const productController = {
             const oldImagePath = path.join(__dirname, '../../public', product.image);
             fs.unlinkSync(oldImagePath);
           }
-          product.image = '/img/img-detalle/' + req.files['image'][0].filename;
+          product.image = '/img/productos/' + req.files['image'][0].filename;
         }
   
         if (req.files['imageDetail']) {
           const newImages = req.files['imageDetail'].map(
-            (file) => '/img/img-detalle/' + file.filename
+            (file) => '/img/productos/' + file.filename
           );
           product.imageDetail = product.imageDetail.concat(newImages);
         }

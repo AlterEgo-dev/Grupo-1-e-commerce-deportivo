@@ -14,7 +14,7 @@ router.get("/category/genero/:genero", productController.genero)
 /*** EDITAR PRODUCTO ***/
 
 router.get('/product-edit/:id', productController.productEditForm);
-router.post('/product-edit/:id', productController.saveEditedProduct);
+router.put('/product-edit/:id', productController.saveEditedProduct);
 
 /*** CREAR UN PRODUCTO ***/
 

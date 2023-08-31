@@ -175,7 +175,7 @@
     },
     {
       "id": "11",
-      "title": "Pantalón Urbano Lotto Essencial Hombre",
+      "title": "Pantalón Urbano Lotto Essencial Hombr",
       "price": "2323",
       "image": "/img/productos/LONIFW230025-1.jfif",
       "imageDetail": [
@@ -184,7 +184,8 @@
         "/img/productos/LONIFW230025-4.jfif"
       ],
       "sizes": [
-        "S"
+        "S",
+        "L"
       ],
       "category": "Indumentaria",
       "description": "El Pantalón Urbano Lotto Essencial Hombre es una prenda esencial para los hombres que valoran el estilo y la comodidad. Confeccionado con materiales de alta calidad, te brinda una sensación de suavidad y confort durante todo el día. Su diseño urbano y contemporáneo agrega un toque moderno a tu look casual. Ya sea para relajarte en casa o para salir a la calle, será tu compañero perfecto.",

@@ -8,6 +8,12 @@ const mainController = {
         
         res.render('home.ejs', {data: results});
     },
+
+    popularHome: (req, res) => {
+        const { data } = dataBase;
+        res.render('home.ejs', { data: popularProduct });
+    },       
+
     register: (req, res) => {
         res.render('login-register.ejs');
     },
