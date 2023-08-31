@@ -1,0 +1,58 @@
+{
+    "results": [
+        {
+            "id": "01",
+            "nombre": "Jorge",
+            "apellido": "Amaya",
+            "email": "jorgeamaya@gmail.com",
+            "contraseña": "jorgeamaya123",
+            "categoria": "administrador",
+            "imagen": ""
+        },
+        {
+            "id": "02",
+            "nombre": "Carlos",
+            "apellido": "Ramirez",
+            "email": "carlosramirez@gmail.com",
+            "contraseña": "carlosramirez123",
+            "categoria": "usuario",
+            "imagen": ""
+        },
+        {
+            "id": "03",
+            "nombre": "Lucia",
+            "apellido": "Cardozo",
+            "email": "luciacardozo@gmail.com",
+            "contraseña": "luciacadozo123",
+            "categoria": "usuario",
+            "imagen": ""
+        },
+        {
+            "id": "04",
+            "nombre": "Pedro",
+            "apellido": "Picapiedras",
+            "email": "pedropicapiedras@gmail.com",
+            "contraseña": "pedropicapiedras123",
+            "categoria": "usuario",
+            "imagen": ""
+        },
+        {
+            "id": "05",
+            "nombre": "Ana",
+            "apellido": "Gonzalez",
+            "email": "anagonzalez@gmail.com",
+            "contraseña": "anagonzalez123",
+            "categoria": "usuario",
+            "imagen": ""
+        },
+        {
+            "id": "06",
+            "nombre": "Juan",
+            "apellido": "Perez",
+            "email": "juanperez@gmail.com",
+            "contraseña": "juanperez123",
+            "categoria": "usuario",
+            "imagen": ""
+        }
+    ]
+}
