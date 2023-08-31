@@ -23,3 +23,13 @@ La implementación de las Weekly mejoró la comunicación grupal, permitiendo co
 Acciones de mejora: 
 -Se espera para el siguiente sprint: mejorar progresivamente la comunicación y la gestión del tiempo en cuanto a fechas límites de entrega de actividades.
 -Lograr que cada uno de los compañeros pueda sortear las dificultades que surgan, tanto personales como de conocimiento específico de los temas dados.
+
+
+------RETROSPECTIVA SPRINT 3------
+
+Resumen del Sprint:
+En este Sprint hemos logrado finalizar todos los objetivos que fueron planteados, cosa que no se había podido lograr anteriormente. Asimismo se identificaron errores puntuales que fueron mejorándose en cuanto a la lógica y a las vistas, quedando pendiente algunos que se irán puliendo con el tiempo.
+
+Acciones de mejora: 
+-Se espera para el siguiente sprint: Una mayor presencialidad los días de las Weekly para mejor organización del proyecto y resolución de los conflictos que vayan generándose.
+

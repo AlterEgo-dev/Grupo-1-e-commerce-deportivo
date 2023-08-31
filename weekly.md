@@ -55,6 +55,20 @@ Queda pendiente de finalización:
 
 Fuera de los objetivos del sprint, se charló también acerca de la necesidad de hacer propio el proyecto, que todos los integrantes del grupo se sientan en el derecho de modificar aquello que crean que pueden mejorar.
 
+SPRINT 5
+-> 30/08/2023
+
+En la Weekly de hoy se realizó un chequeo general de las actividades pendientes del Sprint que finalizó, acreditando que todos hayan sido cumplidos en tiempo y forma.
+Luego se revisaron los objetivos del nuevo Sprint, que si bien fueron identificados todos, algunos quedan pendientes de asignación de responsables ya que son actividades que deben dividirse y hacerse, en algunos casos, grupalmente. 
+
+Objetivos de la semana:
+-Asignar responsables a todas las actividades.
+-Mejorar detalles en las vistas.
+-Solucionar algunos problemas de código.
+
+
+
+
 
 
 
