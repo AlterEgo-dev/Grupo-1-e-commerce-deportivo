@@ -21,7 +21,7 @@
 <div class="caja-grande" >
     <div class="box-form">
       <div class="title-form">FORMULARIO DE CREACIÓN</div>
-        <form action="/product/crear" method="post" class="formulario" enctype="multipart/form-data" style="width: 100%;">
+        <form action="/product/product-create" method="post" class="formulario" enctype="multipart/form-data" style="width: 100%;">
 
           <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
           <input type="text" name="title" required class="input-form">
@@ -58,9 +58,15 @@
         </div>
 
         <label for="image" class="label-form">IMAGEN PRINCIPAL</label>
-        <input type="file" name="image">
+        <div class="label-inpu">
+          <p>Subir imagen</p>
+          <input type="file" name="image">
+        </div>
         <label for="imageDetail" class="label-form">IMÁGENES DE DETALLE</label>
-        <input type="file" name="imageDetail" multiple>
+        <div class="label-inpu">
+          <p>Subir imagen/es</p>
+          <input type="file" name="imageDetail" multiple>
+        </div>
 
         <label for="price" class="label-form">PRECIO</label>
         <input type="text" name="price" required class="input-form">
@@ -78,64 +84,6 @@
         </form>
     </div>
 </div>
-
-
-
-  <!--
-    <form action="/product/crear" method="post" class="formulario" enctype="multipart/form-data">
-        <div class="nombre">
-          <label for="title">Nombre del producto: </label>
-          <input type="text" name="title" placeholder="Ej: camiseta de messi..." required>
-        </div>
-        <label for="">Categoría:</label>
-        <div class="cate">
-          <label for="cat-calzado"><input type="radio" name="category" value="Calzado" id="cat-calzado" required> Calzado</label>
-          <label for="cat-indumentaria"><input type="radio" name="category" value="Indumentaria" id="cat-indumentaria" required> Indumentaria</label>
-        </div>
-
-
-        <label for="sizes">Talles:</label>
-        <div class="talles">
-          <label for="talle-35"><input type="checkbox" name="sizes" value="35" id="talle-35"> 35 </label>
-          <label for="talle-36"><input type="checkbox" name="sizes" value="36" id="talle-36"> 36 </label>
-          <label for="talle-37"><input type="checkbox" name="sizes" value="37" id="talle-37"> 37 </label>
-          <label for="talle-38"><input type="checkbox" name="sizes" value="38" id="talle-38"> 38 </label>
-          <label for="talle-39"><input type="checkbox" name="sizes" value="39" id="talle-39"> 39 </label>
-          <label for="talle-40"><input type="checkbox" name="sizes" value="40" id="talle-40"> 40 </label>
-          <label for="talle-41"><input type="checkbox" name="sizes" value="41" id="talle-41"> 41 </label>
-          <label for="talle-42"><input type="checkbox" name="sizes" value="42" id="talle-42"> 42 </label>
-          <label for="talle-43"><input type="checkbox" name="sizes" value="43" id="talle-43"> 43 </label>
-          <label for="talle-44"><input type="checkbox" name="sizes" value="44" id="talle-44"> 44 </label>
-          <label for="talle-45"><input type="checkbox" name="sizes" value="45" id="talle-45"> 45 </label>
-          <label for="talle-46"><input type="checkbox" name="sizes" value="46" id="talle-46"> 46 </label>
-        </div>
-        <div class="talles">
-          <label for="talle-s"><input type="checkbox" name="sizes" value="S" id="talle-s"> S </label>
-          <label for="talle-m"><input type="checkbox" name="sizes" value="M" id="talle-m"> M </label>
-          <label for="talle-l"><input type="checkbox" name="sizes" value="L" id="talle-l"> L </label>
-          <label for="talle-xl"><input type="checkbox" name="sizes" value="XL" id="talle-xl"> XL </label>
-          <label for="talle-xxl"><input type="checkbox" name="sizes" value="XXL" id="talle-xxl"> XXL </label>
-        </div>
-
-
-        <label for="image">Imágenes:</label>
-        <input type="file" name="image">
-        <div class="precio">
-          <label for="price">Precio: </label>
-          <input type="text" name="price" placeholder="$$$" required>
-        </div>
-        <div class="textT">
-          <div class="descYCuid">
-            <label for="description">Descripción:</label>
-            <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." required></textarea>
-          </div>
-          <div class="descYCuid">
-            <label for="cuidados">Cuidados:</label>
-            <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." required></textarea>
-          </div>
-        </div>
-        <button type="submit" class="boton-prod">Subir producto</button>
-      </form>-->
       
 
     <%- include ("./partials/footer") %>

@@ -10,7 +10,11 @@
         "/img/productos/PU384287-27-2.jfif",
         "/img/productos/PU384287-27-3.jfif"
       ],
-      "sizes": ["40", "41", "42"],
+      "sizes": [
+        "40",
+        "41",
+        "42"
+      ],
       "category": "Calzado",
       "description": "Las Zapatillas Puma Graviton cuentan con una capellada de mesh y sintético que combinan transpirabilidad con durabilidad para emplearlas en cualquier plan. La suela de goma se adhiere a todo tipo de superficies para que tus hijos se desplacen con total libertad y sin preocupaciones. Su versatilidad permite utilizarlas para una tarde de juegos en el parque o en una cena a la noche con amigos. Este calzado es increíblemente cómodo, liviano y dueño de un estilo único.",
       "cuidados": "Capellada: Mesh y Gamuza / Suela: Goma, no meter al lavarropas, no lavar con agua caliente.",
@@ -88,7 +92,11 @@
         "/img/productos/PU391436-18-2.jfif",
         "/img/productos/PU391436-18-4.jfif"
       ],
-      "sizes": ["39", "41", "44"],
+      "sizes": [
+        "39",
+        "41",
+        "44"
+      ],
       "category": "Calzado",
       "description": "Las Zapatillas Puma Rebound Layup son ideales para las tardes a pura diversión. Su capellada de sintético aporta durabilidad y confort en cada pisada, mientras que la suela de goma antideslizante proporciona un agarre excepcional en cualquier superficie. Gracias a su diseño altamente moderno e innovador, podrá combinarlas con sus atuendos favoritos para lucir un look urbano premium en cualquier ocasión. Brindales confianza y calidad durante todo el día.",
       "cuidados": "Mix de materiales sintéticos. No lavar en lavarropa",
@@ -121,9 +129,9 @@
       "image": "/img/productos/TO165327-1.jfif",
       "imageDetail": [
         "/img/productos/TO165327-2.jfif",
-      "/img/productos/TO165327-3.jfif",
-      "/img/productos/TO165327-4.jfif"
-    ],
+        "/img/productos/TO165327-3.jfif",
+        "/img/productos/TO165327-4.jfif"
+      ],
       "sizes": "XL",
       "category": "Indumentaria",
       "description": "Mostrá tu estilo con la Campera Topper Roy Urb. Su material de confección que rompe el viento te brindará comodidad y ligereza. Los detalles son lo más importante: la capucha, el cuello alto, los puños y cintura con elástico interno y bolsillos laterales hacen una campera ideal.",
