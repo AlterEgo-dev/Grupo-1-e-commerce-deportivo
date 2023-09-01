@@ -27,6 +27,7 @@ main{
     align-items: center;
     padding: 10px;
     border: 1px solid black;
+    margin: 12px;
 }
 
 .img-prod-carrito{
@@ -91,11 +92,23 @@ main{
     font-size: 1.2em;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 .boton-comprar{
     border: none;
     background-color: #FD611A;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.boton-comprar:hover{
+    background-color: #e77641;
+    color: rgb(170, 214, 200);
 }
 
 @media (max-width: 420px){

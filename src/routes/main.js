@@ -5,6 +5,6 @@ const productController = require('../controllers/productController');
 
 router.get('/', mainController.home);
 router.get('/login-register', mainController.register);
-router.get('/carrito', mainController.carrito);
+router.get('/carrito/:id', mainController.carrito);
 
 module.exports = router;
