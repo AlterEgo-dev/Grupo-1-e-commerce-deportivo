@@ -25,7 +25,7 @@
         <!-- LOGIN FORM -->
 
         <section>
-          <div class="container-form" id="login-form"> 
+            <div class="container-form" id="login-form"> 
                 <div class="logo-form">
                     <img src="/img/logo_login.png" alt="Logo Dexter">
                 </div>
@@ -37,20 +37,24 @@
                 <form action="/user/login" method="post">
                     <div class="login">
                         <div class="caja-usuario">
-                            <label for="usernameEmail">Email</label>
-                            <input type="email" name="usernameEmail" id="usernameEmail">
+                            <label for="userEmail">Email</label>
+                            <input type="email" name="userEmail" id="userEmail" value="<%= (locals.old && old.userEmail) ? old.userEmail : '' %> ">
+                            
+                           
                         </div>
                         <div class="caja-password">
-                            <label for="password-db">Contraseña</label>
-                            <input type="password" name="password" id="password">
+                            <label for="userPassword">Contraseña</label>
+                            <input type="password" name="userPassword" id="userPassword">
+                            
+                            <% if (locals.error) { %>
+                                <p><%= locals.error %></p>
+                            <% } %>
                         </div>
                         <div class="caja-checkbox">
                             <input type="checkbox">
                             <label for="recordar-password">Recordarme</label>
                         </div>
                     </div>
-                    
-                    
                     <div class="caja-sesion">
                         <button type="submit">
                             <p>Iniciar Sesion</p>
@@ -58,14 +62,11 @@
                                 <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
                             </svg>
                         </button>
-                        
                     </div>
                 </form>
             </div>
-          </div>
-          </section>
-
-
+        </section>
+        
     </main>
 
 

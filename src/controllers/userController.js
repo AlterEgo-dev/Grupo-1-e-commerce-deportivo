@@ -5,7 +5,7 @@ const userController = {
     },
 
     login: (req, res) =>{
-        res.send('Logueado')
+        res.redirect('/')
     },
 
 
@@ -14,7 +14,7 @@ const userController = {
     },
 
     register: (req, res) => {
-        res.redirect('/')
+        res.redirect('/login')
     }
 
 }
