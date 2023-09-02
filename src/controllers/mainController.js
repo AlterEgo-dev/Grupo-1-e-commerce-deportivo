@@ -9,7 +9,10 @@ const mainController = {
     },
 
     carrito: (req, res) => {
-        res.render('carrito.ejs');
+        const { id } = req.params;
+        const { results } = dataBase;
+        const product = results.find((prod) => prod.id === id);
+        res.render('carrito.ejs', { product });
     }
 }
 

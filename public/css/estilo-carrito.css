@@ -14,10 +14,11 @@ main{
 .contenedor-prod-precio{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .contenedor-productos{
-    width: 60%;
+    width: 70%;
 }
 
 .producto-seleccionado{
@@ -27,6 +28,7 @@ main{
     align-items: center;
     padding: 10px;
     border: 1px solid black;
+    margin: 12px;
 }
 
 .img-prod-carrito{
@@ -91,20 +93,34 @@ main{
     font-size: 1.2em;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 .boton-comprar{
     border: none;
     background-color: #FD611A;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.boton-comprar:hover{
+    background-color: #e77641;
+    color: rgb(170, 214, 200);
 }
 
 @media (max-width: 420px){
     .contenedor-prod-precio{
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
     .contenedor-productos{
-        width: 90vw;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
     .img-prod-carrito{
         width: 35%;
@@ -121,10 +137,10 @@ main{
     .pago-total{
         position: relative;
         flex-direction: row;
-        width: 90vw;
+        width: 100%;
         border: 1px solid black;
-        padding: 20px 10px 50px 10px;
-
+        padding: 10px;
+        margin-bottom: 15px;
     }
     .calculo-pago{
         display: flex;
@@ -139,9 +155,8 @@ main{
         align-items: flex-start;
         padding: 10px;
     }
-    .boton-comprar{
-        position: absolute;
-        left: 35%;
+    .producto-seleccionado{
+        margin: 20px 0;
+        padding: 20px 0;
     }
-    
 }
