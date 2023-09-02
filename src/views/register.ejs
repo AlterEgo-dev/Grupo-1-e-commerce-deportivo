@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ESTILO BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- NUESTROS ESTILOS -->
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/logo-general.png">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+     <!--HEADER-->
+     <%- include ("./partials/navbar") %>
+
+    <!-- MAIN -->
+
+
+    <main>
+
+        <!-- LOGIN FORM -->
+
+        <section>
+          <div class="container-form" id="login-form"> 
+                <div class="logo-form">
+                    <img src="/img/logo_login.png" alt="Logo Dexter">
+                </div>
+                <div class="texto">
+                    <h2>Tus beneficios te esperan</h2>
+                    <p>Registrandote... Obtén envío gratis, cupones de descuento y productos solo para miembros cuando estés en DexterClub.</p>
+                    <a href="/user/login">¿Ya tienes cuenta? Inicia aquí</a>
+                </div>
+                <form action="/user/register" method="post">
+                    <div class="login">
+                        <div class="caja-usuario">
+                            <label for="username">Usuario</label>
+                            <input type="text" name="username" id="username" value="<%= ( locals.old && old.username ) ? old.username : '' %> ">
+
+                            <% if( locals.errors && errors.username ){ %>
+                                <i>
+                                    <%= errors.username.msg %>
+                                </i>
+                            <% } %>
+
+                        </div>
+                        <div class="caja-email">
+                            <label for="userEmail">E-Mail</label>
+                            <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
+
+                            <% if( locals.errors && errors.userEmail ){ %>
+                                <i>
+                                    <%= errors.userEmail.msg %>
+                                </i>
+                            <% } %>
+
+                        </div>
+                        <div class="caja-password">
+                            <label for="userPassword">Crear Contraseña</label>
+                            <input type="password" name="userPassword" id="userPassword">
+
+                            <% if( locals.errors && errors.userPassword ){ %>
+                                <i>
+                                    <%= errors.userPassword.msg %>
+                                </i>
+                            <% } %>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="caja-sesion">
+                        <button type="submit">
+                            <p>Registrarme</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                            </svg>
+                        </button>
+                        
+                    </div>
+                </form>
+            </div>
+          </div>
+          </section>
+
+
+    </main>
+
+
+   <!-- FOOTER -->
+   <%- include ("./partials/footer") %>
+
+    <!-- JS DEL LOGIN -->
+    <script src="/js/login-slider.js"></script>
+
+
+    <!-- JS BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!-- JS FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/4e61ee30bd.js" crossorigin="anonymous"></script>
+</body>
+</html>
