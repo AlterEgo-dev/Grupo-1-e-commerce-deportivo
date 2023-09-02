@@ -19,7 +19,8 @@ const mainController = {
     },
     carrito: (req, res) => {
         res.render('carrito.ejs');
-    }
+    },
+
 }
 
 module.exports = mainController;
