@@ -20,4 +20,7 @@ router.post('/login', validacionesInicioSesion, resultadoInicioSesion, userContr
 router.get('/register', userController.formRegister);
 router.post('/register', validacionesRegistro, resultadoValidacion, userController.register);
 
+//RUTA AL PERFIL
+router.get('/perfil/:id', userController.perfil)
+
 module.exports = router;

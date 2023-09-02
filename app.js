@@ -27,13 +27,11 @@ app.set('views', './src/views');
 
 app.use ('/', mainRoute);
 app.use ('/product', productRoute);
-<<<<<<< HEAD
+app.use ('/user', userRoute);
+
 app.use((req, res) => {
     res.status(404).render('error-404');
   });
-=======
-app.use ('/user', userRoute);
->>>>>>> 0eacb81c47b40fb5789da03ed995747de4464e04
 
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);
