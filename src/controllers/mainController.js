@@ -13,8 +13,8 @@ const mainController = {
     carrito: (req, res) => {
         const { id } = req.params;
         const { results } = dataBase;
-        const product = results.find((prod) => prod.id === id);
-        res.render('carrito.ejs', { product });
+        const result = results.find((prod) => prod.id === id);
+        res.render('carrito.ejs', { result });
     }
 }
 

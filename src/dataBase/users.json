@@ -1,7 +1,7 @@
 {
     "results": [
         {
-            "id": "01",
+            "id": "1",
             "nombre": "Jorge",
             "apellido": "Amaya",
             "email": "jorgeamaya@gmail.com",
@@ -10,7 +10,7 @@
             "imagen": ""
         },
         {
-            "id": "02",
+            "id": "2",
             "nombre": "Carlos",
             "apellido": "Ramirez",
             "email": "carlosramirez@gmail.com",
@@ -19,7 +19,7 @@
             "imagen": ""
         },
         {
-            "id": "03",
+            "id": "3",
             "nombre": "Lucia",
             "apellido": "Cardozo",
             "email": "luciacardozo@gmail.com",
@@ -28,7 +28,7 @@
             "imagen": ""
         },
         {
-            "id": "04",
+            "id": "4",
             "nombre": "Pedro",
             "apellido": "Picapiedras",
             "email": "pedropicapiedras@gmail.com",
@@ -37,7 +37,7 @@
             "imagen": ""
         },
         {
-            "id": "05",
+            "id": "5",
             "nombre": "Ana",
             "apellido": "Gonzalez",
             "email": "anagonzalez@gmail.com",
@@ -46,7 +46,7 @@
             "imagen": ""
         },
         {
-            "id": "06",
+            "id": "6",
             "nombre": "Juan",
             "apellido": "Perez",
             "email": "juanperez@gmail.com",

@@ -25,4 +25,8 @@ router.post('/register', validacionesRegistro, resultadoValidacion, userControll
 
 router.get('/logout', authSession, userController.logout);
 
+//RUTA AL PERFIL
+
+router.get('/perfil/:id', userController.perfil)
+
 module.exports = router;

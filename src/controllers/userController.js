@@ -1,3 +1,7 @@
+const {results} = require('../dataBase/users.json');
+const dataBaseProduct = require('../dataBase/productList.json');
+
+
 const userController = {
     formLogin: (req, res) => {
         res.render('login.ejs');
@@ -22,12 +26,26 @@ const userController = {
             }
             res.redirect('/');
         });
+        res.redirect('/login')
     },
+    
+    perfil: (req, res) => {
+        /*id user*/
+        const { id } = req.params;
+        const user = results.find((e) => e.id === id);
+     
+        /*producto aleatorio*/
+        const randomIndex = Math.floor(Math.random() * dataBaseProduct.results.length);
+        const products = dataBaseProduct.results[randomIndex];
 
+        res.render('perfil.ejs', {user, products})
+    },
+    
         navbar: (req, res) => {
             const isLoggedIn = req.session.userId ? true : false;
             res.render('navbar.ejs', { isLoggedIn });
         }
+
     };
 
 module.exports = userController;

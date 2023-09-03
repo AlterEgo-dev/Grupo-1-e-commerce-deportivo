@@ -1,5 +1,16 @@
+body{
+    width: 100vw;
+}
+
 a{
     text-decoration: none;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
 }
 
 .col-category{
