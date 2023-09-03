@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 
+
 app.set('view engine', 'ejs'); 
 app.set('views', './src/views');
 
@@ -27,6 +28,10 @@ app.set('views', './src/views');
 app.use ('/', mainRoute);
 app.use ('/product', productRoute);
 app.use ('/user', userRoute);
+
+app.use((req, res) => {
+    res.status(404).render('error-404');
+  });
 
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);

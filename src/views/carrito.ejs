@@ -23,11 +23,11 @@
         <div class="contenedor-productos">
           <a href="/" class="boton-comprar">Agregar al carrito</a>
             <div class="producto-seleccionado">
-                  <img src="<%= result.image %>" alt="producto" class="img-prod-carrito">
+                  <img src="<%= product.image %>" alt="producto" class="img-prod-carrito">
                   <div class="nombre-prod-talle">
-                    <p class="sector-prod-talle nombre-prod"><%= result.title %></p>
-                    <p class="sector-prod-talle">Talle: <%= result.sizes %></p>
-                    <p class="sector-prod-talle">Item Nº: <%= result.id %></p>
+                    <p class="sector-prod-talle nombre-prod"><%= product.title %></p>
+                    <p class="sector-prod-talle">Talle: <%= product.sizes %></p>
+                    <p class="sector-prod-talle">Item Nº: <%= product.id %></p>
                     <a class="sector-prod-talle editar-prod" href="#">Editar Producto</a>
                   </div>
                   <div class="cantidad-producto">
@@ -46,7 +46,7 @@
                           <option value="10">10</option>
                         </select>
                       </form>
-                      <p class="precio-total">Total: <%= result.price %></p>
+                      <p class="precio-total">Total: <%= product.price %></p>
                   </div>
                 <i class="fa-solid fa-trash-can canasto"></i>
               </div>

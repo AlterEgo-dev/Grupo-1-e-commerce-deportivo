@@ -37,32 +37,36 @@
                 <form action="/user/register" method="post">
                     <div class="login">
                         <div class="caja-usuario">
-                            <label for="userRegister">Usuario</label>
-                            <input type="text" name="userRegister" id="userRegister">
+                            <label for="username">Usuario</label>
+                            <input type="text" name="username" id="username" value="<%= ( locals.old && old.username ) ? old.username : '' %> ">
 
-                           <!-- <% if (locals.errors && errors.userRegister.msg) { %>
-                                <i class="error-i">!</i>
-                                <span class="error-message"><%= errors.userRegister.msg %></span>
-                            <% } %> -->
+                            <% if( locals.errors && errors.username ){ %>
+                                <i>
+                                    <%= errors.username.msg %>
+                                </i>
+                            <% } %>
 
                         </div>
                         <div class="caja-email">
-                            <label for="emailRegister">E-Mail</label>
-                            <input type="email" name="emailRegister" id="emailRegister">
+                            <label for="userEmail">E-Mail</label>
+                            <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
 
-                            <!-- <% if (locals.errors && errors.userRegister.msg) { %>
-                                <i class="error-i">!</i>
-                                <span class="error-message"><%= errors.userRegister.msg %></span>
-                            <% } %> -->
+                            <% if( locals.errors && errors.userEmail ){ %>
+                                <i>
+                                    <%= errors.userEmail.msg %>
+                                </i>
+                            <% } %>
+
                         </div>
                         <div class="caja-password">
-                            <label for="passwordRegister">Crear Contraseña</label>
-                            <input type="password" name="passwordRegister" id="passwordRegister">
+                            <label for="userPassword">Crear Contraseña</label>
+                            <input type="password" name="userPassword" id="userPassword">
 
-                            <!-- <% if (locals.errors && errors.userRegister.msg) { %>
-                                <i class="error-i">!</i>
-                                <span class="error-message"><%= errors.userRegister.msg %></span>
-                            <% } %> -->
+                            <% if( locals.errors && errors.userPassword ){ %>
+                                <i>
+                                    <%= errors.userPassword.msg %>
+                                </i>
+                            <% } %>
                         </div>
                     </div>
                     

@@ -1,0 +1,62 @@
+.display-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.foto-perfil{
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-size: contain;
+    border: solid 4px gainsboro;
+    border-radius: 50%;
+}
+
+.fuentes-perfil{
+    font-family: roboto;
+    color: gray;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.compras-historial{
+    padding-top: 7px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.titulo-historial {
+    font-family: roboto;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: solid grey 2px;
+}
+
+.compras-historial li{
+    font-family: roboto;
+    font-size: small;
+    list-style-type: none;
+    color: gray;;
+    padding-top: 5px;
+}
+.img-product-us img {
+    width: 150px;
+}
+
+.product-usuario{
+    margin: 20px 00px 20px 10px;
+    display: flex;
+    flex-direction: row;
+}
+.texto-product-us{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.texto-product-us p{
+    font-family: roboto;
+}

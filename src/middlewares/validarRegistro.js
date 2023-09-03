@@ -3,34 +3,43 @@ const arrData = require('../dataBase/newUser.json');
 const path = require('path');
 const fs = require('fs');
 const { hashSync } = require('bcryptjs');
+const { emitWarning } = require('process');
 
 // JSON
 
 const pathFile = path.join(__dirname, '..', 'dataBase', 'newUser.json')
 
 const validacionesRegistro = [
-    body('userRegister').notEmpty().withMessage('Ingresa un nombre').bail().isLength({min:5, max: 30}).withMessage('Al menos 5 caracteres'),
-    body('emailRegister').notEmpty().withMessage('Ingresa un email').bail().isEmail().withMessage('Debe ingresar un email valido'),
-    body('passwordRegister').notEmpty().withMessage('Ingresa una contraseña').bail().withMessage('Una contraseña mas fuerte, capo')
-]
+    body('username').notEmpty().withMessage('El nombre es obligatorio').bail(),
+
+    body('userEmail').bail().notEmpty().withMessage('El correo electrónico es obligatorio').isEmail().withMessage('Debe ingresar un correo electrónico válido').bail(),
+
+    body('userPassword').notEmpty().withMessage('La contraseña es obligatoria').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/).withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial').bail(),
+];
 
 const resultadoValidacion = (req, res, next) => {
     const errors = validationResult(req);
+
+
+    console.log(errors.array());
+    // REVISAMOS QUE LOS CAMPOS NO ESTEN VACIOS
 
     if(errors.isEmpty() === true){
 
         const newUser = {
             id: `${arrData.length + 1}`,
             ...req.body,
-            passwordRegister: hashSync(req.body.passwordRegister, 10)
+            userPassword: hashSync(req.body.userPassword, 10)
         };
+
+        // HACE EL PUSH SI NO LO ESTAN
 
         arrData.push(newUser);
         fs.writeFileSync(pathFile, JSON.stringify(arrData))
 
-        console.log(req.body)
-
         next()
+
+        // SI HAY CAMPOS VACIOS RETORNAMOS Y VALIDAMOS 
 
     } else {
         res.render('register', {
