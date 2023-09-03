@@ -21,36 +21,35 @@
       <h1>Mi carrito</h1>
       <div class="contenedor-prod-precio">
         <div class="contenedor-productos">
-          <p>Cantidad productos en el carrito</p>
           <a href="/" class="boton-comprar">Agregar al carrito</a>
-          <div class="producto-seleccionado">
-              <img src="<%= product.image %>" alt="producto" class="img-prod-carrito">
-              <div class="nombre-prod-talle">
-                <p class="sector-prod-talle nombre-prod"><%= product.title %></p>
-                <p class="sector-prod-talle">Talle: <%= product.sizes %></p>
-                <p class="sector-prod-talle">Item Nº: <%= product.id %></p>
-                <a class="sector-prod-talle editar-prod" href="#">Editar Producto</a>
+            <div class="producto-seleccionado">
+                  <img src="<%= result.image %>" alt="producto" class="img-prod-carrito">
+                  <div class="nombre-prod-talle">
+                    <p class="sector-prod-talle nombre-prod"><%= result.title %></p>
+                    <p class="sector-prod-talle">Talle: <%= result.sizes %></p>
+                    <p class="sector-prod-talle">Item Nº: <%= result.id %></p>
+                    <a class="sector-prod-talle editar-prod" href="#">Editar Producto</a>
+                  </div>
+                  <div class="cantidad-producto">
+                      <form action="/carrito" method="post">
+                        <label for="cantidad">Cantidad</label>
+                        <select name="cantidad" id="cantidad">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                      </form>
+                      <p class="precio-total">Total: <%= result.price %></p>
+                  </div>
+                <i class="fa-solid fa-trash-can canasto"></i>
               </div>
-              <div class="cantidad-producto">
-                  <form action="/carrito" method="post">
-                    <label for="cantidad">Cantidad</label>
-                    <select name="cantidad" id="cantidad">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>
-                  </form>
-                  <p class="precio-total">Total: <%= product.price %></p>
-              </div>
-              <i class="fa-solid fa-trash-can canasto"></i>
-          </div>
         </div>
         <div class="pago-total">
           <div class="calculo-pago">
@@ -76,7 +75,7 @@
             </div>
           </form>
         </div>
-        <button class="boton-comprar">Comprar</button>
+        <button class="boton-comprar">Comprar</button>  
       </div>
     </main>
 
