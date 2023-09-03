@@ -39,6 +39,10 @@ const resultadoInicioSesion = (req, res, next) => {
         return res.render('login', { error: 'Credenciales incorrectas' });
     }
 
+    // DEVUELVE EL ID DEL USUARIO
+
+    req.session.userId = user.id;
+
     req.user = user;
 
     next();

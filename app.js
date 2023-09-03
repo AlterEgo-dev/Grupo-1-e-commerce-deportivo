@@ -1,15 +1,33 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const multer = require('multer'); // Agrega esta línea
+const multer = require('multer');
 const app = express();
-const mainRoute = require ('./src/routes/main');
-const productRoute = require ('./src/routes/product');
+const mainRoute = require('./src/routes/main');
+const productRoute = require('./src/routes/product');
 const userRoute = require('./src/routes/user');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const cookies = require('cookie-parser');
-const mainController = require('./src/controllers/mainController');
+const cookieParser = require('cookie-parser');
+
+// DEFINIMOS SESSION
+
+app.use(session({
+    secret: 'cadena_secreta',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+// Agregar cookie-parser middleware
+app.use(cookieParser());
+
+// UN MIDDLEWARE GLOBAL PARA VERIFICAR LA SESION
+app.use((req, res, next) => {
+    
+    res.locals.isLoggedIn = req.session.userId ? true : false;
+    next();
+
+});
 
 app.use(methodOverride('_method'));
 
@@ -22,11 +40,10 @@ app.use('/', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs'); 
 app.set('views', './src/views');
 
-/*** NUESTRO ENTRYPOINT ***/
-
-app.use ('/', mainRoute);
-app.use ('/product', productRoute);
-app.use ('/user', userRoute);
+// Rutas
+app.use('/', mainRoute);
+app.use('/product', productRoute);
+app.use('/user', userRoute);
 
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);

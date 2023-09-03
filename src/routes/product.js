@@ -2,29 +2,32 @@ const express = require ('express');
 const router = express.Router();
 const productController = require ('../controllers/productController');
 const path = require('path');
+const { authRedirectSession, authSession } = require('../middlewares/authSession');
+
 
 router.get('/detail/:id', productController.productDetail);
 
 /*** VISTA PRODUCTOS EN LISTA ***/
 
-router.get('/product-admin', productController.productAdminList);
+router.get('/product-admin', authSession, productController.productAdminList); /* pueden editar el "autenticationMiddleware" por el de ustedes, por ejemplo Alexis tendrias que hacer tu middleware para ocultar la vista a los usuarios */
+
 router.get("/category/:category", productController.category)
 router.get("/category/genero/:genero", productController.genero)
 
 /*** EDITAR PRODUCTO ***/
 
-router.get('/product-edit/:id', productController.productEditForm);
-router.put('/product-edit/:id', productController.saveEditedProduct);
+router.get('/product-edit/:id', authSession, productController.productEditForm);
+router.put('/product-edit/:id', authSession, productController.saveEditedProduct);
 
 /*** CREAR UN PRODUCTO ***/
 
-router.get('/product-create', productController.productCreate);
-router.post('/product-create', productController.productCreatePush);
+router.get('/product-create', authSession, productController.productCreate);
+router.post('/product-create', authSession, productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
-router.delete('/product-edit/:id', productController.deleteProduct);
+router.delete('/product-edit/:id', authSession, productController.deleteProduct);
 
-router.delete('/product-edit/:id/delete-image/:index', productController.deleteProductImage);
+router.delete('/product-edit/:id/delete-image/:index', authSession, productController.deleteProductImage);
 
 
 module.exports = router;

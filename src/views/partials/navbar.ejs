@@ -31,12 +31,17 @@
           </ul>
         </div>
         <div class="second-part">
-            <ul>
-                <a href="/user/login"><i class="fa-solid fa-user"></i></a>
-                <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-                <!-- <a href="/product/product-admin"><i class="fa-solid fa-screwdriver-wrench"></i></a> -->
-            </ul>
-        </div>
+          <ul>
+              <a href="<%= isLoggedIn ? '/user/logout' : '/user/login' %>">
+                  <% if (isLoggedIn) { %>
+                      <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                  <% } else { %>
+                      <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                  <% } %>
+              </a>
+          </ul>
+      </div>
+
     </div>
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

@@ -39,17 +39,30 @@
                         <div class="caja-usuario">
                             <label for="userEmail">Email</label>
                             <input type="email" name="userEmail" id="userEmail" value="<%= (locals.old && old.userEmail) ? old.userEmail : '' %> ">
+
+                            <% if( locals.errors && errors.userEmail ){ %>
+                                <i>
+                                    <%= errors.userEmail.msg %>
+                                </i>
+                            <% } %>
                             
-                           
                         </div>
                         <div class="caja-password">
                             <label for="userPassword">Contraseña</label>
                             <input type="password" name="userPassword" id="userPassword">
-                            
-                            <% if (locals.error) { %>
-                                <p><%= locals.error %></p>
+
+                            <% if( locals.errors && errors.userPassword ){ %>
+                                <i>
+                                    <%= errors.userPassword.msg %>
+                                </i>
                             <% } %>
+
                         </div>
+
+                        <% if (locals.error) { %>
+                            <p><%= locals.error %></p>
+                        <% } %>
+
                         <div class="caja-checkbox">
                             <input type="checkbox">
                             <label for="recordar-password">Recordarme</label>
