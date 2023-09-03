@@ -16,6 +16,7 @@ app.use(session({
     secret: 'cadena_secreta',
     resave: false,
     saveUninitialized: true,
+    cookie: { secure: false }
 }));
 
 // Agregar cookie-parser middleware

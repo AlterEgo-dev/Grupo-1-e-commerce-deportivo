@@ -26,7 +26,7 @@ const userController = {
             }
             res.redirect('/');
         });
-        res.redirect('/login')
+        
     },
     
     perfil: (req, res) => {
