@@ -9,6 +9,7 @@ const userRoute = require('./src/routes/user');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const dataUser = require('./src/dataBase/newUser.json');
 
 // DEFINIMOS SESSION
 
@@ -26,6 +27,15 @@ app.use(cookieParser());
 app.use((req, res, next) => {
     
     res.locals.isLoggedIn = req.session.userId ? true : false;
+    next();
+
+});
+
+app.use((req, res, next) => {
+    if(req.session.userId){
+        const datoUser = dataUser.find((User) => User.id == req.session.userId)
+        res.locals.isAdmin = datoUser.category == "Admin" ? true : false;
+    }
     next();
 
 });

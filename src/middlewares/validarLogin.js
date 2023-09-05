@@ -14,8 +14,6 @@ const validacionesInicioSesion = [
 const resultadoInicioSesion = (req, res, next) => {
     const errors = validationResult(req);
 
-    console.log(errors.array());
-
     // SI HAY CAMPOS VACIOS RETORNA
 
     if (!errors.isEmpty()) {

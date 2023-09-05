@@ -29,12 +29,12 @@ const validacionesRegistro = [
 const resultadoValidacion = (req, res, next) => {
     const errors = validationResult(req);
 
-    console.log(errors.array());
     // REVISAMOS QUE LOS CAMPOS NO ESTÉN VACÍOS
 
     if (errors.isEmpty()) {
         const newUser = {
             id: `${arrData.length + 1}`,
+            category: 'User',
             ...req.body,
             userPassword: hashSync(req.body.userPassword, 10)
         };

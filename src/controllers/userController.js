@@ -1,6 +1,6 @@
 const {results} = require('../dataBase/users.json');
 const dataBaseProduct = require('../dataBase/productList.json');
-
+const dataUser = require('../dataBase/newUser.json');
 
 const userController = {
     formLogin: (req, res) => {
@@ -43,7 +43,12 @@ const userController = {
     
         navbar: (req, res) => {
             const isLoggedIn = req.session.userId ? true : false;
-            res.render('navbar.ejs', { isLoggedIn });
+            let isAdmin = false;
+            if(req.session.userId){
+                const datoUser = dataUser.find((User) => User.id == req.params.id)
+                isAdmin = datoUser.category == "Admin" ? true : false;
+            }
+            res.render('navbar.ejs', { isLoggedIn, isAdmin });
         }
 
     };

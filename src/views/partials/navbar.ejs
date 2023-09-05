@@ -40,6 +40,14 @@
                   <% } %>
               </a>
           </ul>
+          <% if(isLoggedIn) { %>
+            <%if(isAdmin){%>
+          <ul>
+            <a href="/product/product-admin">
+              <i class="fa-solid fa-gear"></i>
+            </a>
+          </ul>
+          <%}}%>
       </div>
 
     </div>
