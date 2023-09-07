@@ -27,6 +27,7 @@ app.use(cookieParser());
 app.use((req, res, next) => {
     
     res.locals.isLoggedIn = req.session.userId ? true : false;
+    res.locals.userId = req.session.userId;
     next();
 
 });
