@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const { emitWarning } = require('process');
 
-const pathFile = path.join(__dirname, '..', 'dataBase', 'newUser.json');
+const pathFile = path.join(__dirname, '..', 'dataBase', 'users.json');
 
 const validacionesInicioSesion = [
     body('userEmail').notEmpty().withMessage('El correo electrónico es obligatorio').bail(),

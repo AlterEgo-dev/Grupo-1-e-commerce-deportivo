@@ -1,6 +1,5 @@
-const {results} = require('../dataBase/users.json');
 const dataBaseProduct = require('../dataBase/productList.json');
-const dataUser = require('../dataBase/newUser.json');
+const results = require('../dataBase/users.json');
 
 const userController = {
     formLogin: (req, res) => {

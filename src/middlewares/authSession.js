@@ -1,4 +1,4 @@
-const arrData = require('../dataBase/newUser.json');
+const arrData = require('../dataBase/users.json');
 
 // RETORNA AL HOME Y NO PERMITE INGRESAR AL FORM DE LOGIN Y REGISTER EN CASO DE ESTAR VERIFICADO
 

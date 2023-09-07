@@ -1,12 +1,12 @@
 const { body, validationResult } = require('express-validator');
-const arrData = require('../dataBase/newUser.json');
+const arrData = require('../dataBase/users.json');
 const path = require('path');
 const fs = require('fs');
 const { hashSync } = require('bcryptjs');
 const { emitWarning } = require('process');
 
 // JSON
-const pathFile = path.join(__dirname, '..', 'dataBase', 'newUser.json')
+const pathFile = path.join(__dirname, '..', 'dataBase', 'users.json')
 
 const validacionesRegistro = [
     body('username').notEmpty().withMessage('El nombre es obligatorio').bail(),
