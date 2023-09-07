@@ -66,6 +66,13 @@ Objetivos de la semana:
 -Mejorar detalles en las vistas.
 -Solucionar algunos problemas de código.
 
+->06/09/2023
+
+En la Weekly del día de la fecha se realizó una lectura pausada sobre los objetivos del Sprint, habiendo cumplido casi en su totalidad antes del tiempo pautado la mayoría de las tareas.
+Hubo una mayor concurrencia, faltando solo un integrante, lo cual favorece notablemente la organización y la comunicación del grupo; queda pendiente elegir un nuevo día y horario para mantener esta concurrencia activa.
+
+Fuera de los objetivos del Sprint, se organizaron en Trello actividades puntuales (algunas sin asignación de responsables) para la mejora de la vista general de la página como así también su funcionalidad.
+
 
 
 
