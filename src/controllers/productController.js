@@ -204,7 +204,7 @@ const productController = {
     const result = results.filter((e)=>{
       return e.genero == selectedGenero
     })
-    res.render("product-category", { result })
+    res.render("product-category.ejs", { result })
   },
   category: (req, res) => {
     const selectedCategory = req.params.category;
@@ -212,7 +212,7 @@ const productController = {
     const result = results.filter((e)=>{
       return e.category == selectedCategory
     })
-    res.render("product-category", { result })
+    res.render("product-category.ejs", { result })
   },
 };
 

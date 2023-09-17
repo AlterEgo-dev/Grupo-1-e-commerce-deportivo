@@ -49,9 +49,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', express.static(__dirname + '/public'));
 
+app.use('/views', express.static('./src/views'));//sirve para que hagamos el res.render sin especificar la ruta de /views
 
 app.set('view engine', 'ejs'); 
-app.set('views', './src/views');
+app.set('views',['./src/views', './src/views/users', './src/views/products']);
+
 
 // Rutas
 app.use('/', mainRoute);

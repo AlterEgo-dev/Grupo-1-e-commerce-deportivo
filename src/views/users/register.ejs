@@ -15,7 +15,7 @@
 </head>
 <body>
      <!--HEADER-->
-     <%- include ("./partials/navbar") %>
+     <%- include ("../partials/navbar") %>
 
     <!-- MAIN -->
 
@@ -25,66 +25,75 @@
         <!-- LOGIN FORM -->
 
         <section>
-            <div class="container-form" id="login-form"> 
+          <div class="container-form" id="login-form"> 
                 <div class="logo-form">
                     <img src="/img/logo_login.png" alt="Logo Dexter">
                 </div>
                 <div class="texto">
                     <h2>Tus beneficios te esperan</h2>
-                    <p>Obtén envío gratis, cupones de descuento y productos solo para miembros cuando estés en DexterClub.</p>
-                    <a href="/user/register">Registrate aquí</a>
+                    <p>Registrandote... Obtén envío gratis, cupones de descuento y productos solo para miembros cuando estés en DexterClub.</p>
+                    <a href="/user/login">¿Ya tienes cuenta? Inicia aquí</a>
                 </div>
-                <form action="/user/login" method="post">
+                <form action="/user/register" method="post">
                     <div class="login">
                         <div class="caja-usuario">
-                            <label for="userEmail">Email</label>
-                            <input type="email" name="userEmail" id="userEmail" value="<%= (locals.old && old.userEmail) ? old.userEmail : '' %> ">
+                            <label for="username">Usuario</label>
+                            <input type="text" name="username" id="username" value="<%= ( locals.old && old.username ) ? old.username : '' %> ">
+
+                            <% if( locals.errors && errors.username ){ %>
+                                <i>
+                                    <br>
+                                    <%= errors.username.msg %>
+                                </i>
+                            <% } %>
+
+                        </div>
+                        <div class="caja-email">
+                            <label for="userEmail">E-Mail</label>
+                            <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
 
                             <% if( locals.errors && errors.userEmail ){ %>
                                 <i>
+                                    <br>
                                     <%= errors.userEmail.msg %>
                                 </i>
                             <% } %>
-                            
+
                         </div>
                         <div class="caja-password">
-                            <label for="userPassword">Contraseña</label>
+                            <label for="userPassword">Crear Contraseña</label>
                             <input type="password" name="userPassword" id="userPassword">
 
                             <% if( locals.errors && errors.userPassword ){ %>
                                 <i>
+                                    <br>
                                     <%= errors.userPassword.msg %>
                                 </i>
                             <% } %>
-
-                        </div>
-
-                        <% if (locals.error) { %>
-                            <p><%= locals.error %></p>
-                        <% } %>
-
-                        <div class="caja-checkbox">
-                            <input type="checkbox">
-                            <label for="recordar-password">Recordarme</label>
                         </div>
                     </div>
+                    
+                    
                     <div class="caja-sesion">
                         <button type="submit">
-                            <p>Iniciar Sesion</p>
+                            <p>Registrarme</p>
                             <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
                                 <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
                             </svg>
                         </button>
+                        
                     </div>
                 </form>
             </div>
-        </section>
-        
+          </div>
+          </section>
+
+
     </main>
 
 
    <!-- FOOTER -->
-   <%- include ("./partials/footer") %>
+   <%- include ("../partials/footer") %>
 
     <!-- JS DEL LOGIN -->
     <script src="/js/login-slider.js"></script>
