@@ -8,16 +8,52 @@
     width: 200px;
     height: 200px;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     border: solid 4px gainsboro;
     border-radius: 50%;
+}
+
+.subir-perfil{
+    border: solid gainsboro 3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: grey;
+    position: absolute;
+    left: 150px;
+    bottom: 13px;
+}
+
+.fa-camera{
+    color: white;
+}
+
+.crud-boton{
+    border: solid gainsboro 2px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: white;
+    position: absolute;
+    color: orangered;
+    
+}
+
+.submit-foto{
+    left: 197px;
+    bottom: 30px;
+}
+
+.delete-foto{
+    left: 190px;
+    bottom: 0px;
 }
 
 .fuentes-perfil{
     font-family: roboto;
     color: gray;
     font-weight: bold;
-    padding-top: 5px;
+    margin-top: 7px;
 }
 
 .compras-historial{

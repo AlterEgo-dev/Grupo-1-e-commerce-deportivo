@@ -14,11 +14,28 @@
     <title>Perfil</title>
 </head>
 <body>
-    <%- include ("../partials/navbar") %>
+    <%- include ("./partials/navbar") %>
     <div class="row" style="margin-top: 30px;">
         <div class="col-12 col-md-7">
             <div class="display-center" style="height: 100%;">
-                <div class="foto-perfil" style="background-image: url(/img/sin-perfil.png);">
+                <div class="box-perfil" style="position: relative;">
+                    <div class="foto-perfil" style="background-image: url(/img/img-perfil/<%=user.img%>);">
+                    </div>       
+                    <form action="/user/perfil/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+                        <!--boton para seleccionar la foto (subir-perfil)-->
+                        <label for="subir-perfil" class="subir-perfil display-center">
+                            <i class="fa-solid fa-camera display-center"></i>
+                        </label>
+                        <input type="file" name="img" id="subir-perfil" style="display:none;">
+                        <!--boton submit (submit-foto)-->
+                        <button type="submit" class="crud-boton submit-foto">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </form> 
+                    <!--boton eliminar foto perfil-->
+                    <form action="/user/perfil/<%=user.id%>?_method=delete" method="post">
+                        <button type="submit" class="crud-boton delete-foto"><i class="fa-solid fa-xmark"></i></i></button>
+                    </form>                 
                 </div>
                 <div class="fuentes-perfil" style="font-size: x-large;">
                     <%=user.username%>
@@ -60,7 +77,7 @@
     </div>
 </div>
 
-    <%- include ("../partials/footer") %>
+    <%- include ("./partials/footer") %>
             
 </body>
 </html>

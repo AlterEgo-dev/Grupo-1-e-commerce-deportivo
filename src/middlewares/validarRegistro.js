@@ -36,6 +36,7 @@ const resultadoValidacion = (req, res, next) => {
             id: `${arrData.length + 1}`,
             category: 'User',
             ...req.body,
+            img:"sin-perfil.png",
             userPassword: hashSync(req.body.userPassword, 10)
         };
 
