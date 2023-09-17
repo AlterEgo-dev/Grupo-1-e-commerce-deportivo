@@ -73,6 +73,19 @@ Hubo una mayor concurrencia, faltando solo un integrante, lo cual favorece notab
 
 Fuera de los objetivos del Sprint, se organizaron en Trello actividades puntuales (algunas sin asignación de responsables) para la mejora de la vista general de la página como así también su funcionalidad.
 
+-->17/09/2023
+
+La Weekly de hoy fue realizada un día domingo, donde estuvieron presentes 5 de los 6 integrantes, lo que nos acerca al objetivo de la Weekly anterior de intentar tener una reunión con la totalidad del grupo. Queda pendiente pactar un dia fijo nuevamente.
+
+Se realizó una lectura de los objetivos del Sprint y más allá de que anteriormente habíamos realizado la totalidad de los objetivos planteados, se charlaron detalles a pulir.
+
+Objetivos para la próxima semana:
+-Agregar las cookies para recordar usuario una vez que se registre.
+-Elegir nuevo día y horario para la Weekly.
+-Intentar que la totalidad del grupo maneje de manera individual la gestión de tareas del Trello una vez que se hayan realizado los objetivos en el código.
+-Revisar las tareas asignadas obligatorias e intentar sumar a las tareas compartidas para avanzar sobre la estética de la página.
+-Comentar los códigos cada vez que se realice un cambio significativo.
+
 
 
 
