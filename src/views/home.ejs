@@ -102,37 +102,6 @@
             </div>  
         </section>
 
-       <!--
-        <h1 class="titulo-productos">→ Novedades</h1>
-        <div class="swiffy-slider slider-item-show5 slider-nav-caretfill slider-nav-dark slider-nav-outside slider-nav-visible slider-nav-page slider-indicators-dark slider-indicators-outside productos">
-            
-            <ul class="slider-container slider-item-show5 slider-item-show2-sm ">
-                <% data.map((results) => { %>
-                    <article id="sport">
-                <li>
-                    <a href="/product/detail/<%= results.id %>">
-                        <img src="<%= results.image %>">
-                        <p>
-                            <%= results.title %>
-                        </p>
-                        <b>
-                            <%= results.price %>
-                        </b>
-                    </a>
-                </li>
-                    </article>
-                    <% }) %>                
-    
-            </ul>
-            <button type="button" class="slider-nav"></button>
-            <button type="button" class="slider-nav slider-nav-next slider-nav-outside"></button>
-        
-            <div class="slider-indicators slider-indicators-round slider-indicators-dark">
-                <button class="active"></button>
-                <button></button>
-            </div>
-        </div>
-        -->
 
         <!--BANNER -->
         
@@ -143,7 +112,8 @@
         <!--PODRIA INTERESARTE-->
 
         <h1 class="titulo-productos">→ Podría interesarte</h1>
-        <div class="row">
+        <div class="contain-interes">
+            <div class="row row-interes">
             <div class="col-12 col-sm-4 img-interes" style="background-image: url(/img/imagenes-home/prop1.jpg);">
                 <a href="/product/category/genero/Hombre" style="text-decoration: none; margin: 30px;">
                     <div class="title-interes text-interes">HOMBRE</div>
@@ -162,18 +132,8 @@
                     <div class="text-interes">Ver categoría</div>
                 </a>
             </div>
+            </div>
         </div>
-        
-        
-<!--
-        <div class="modelos">            
-            <section class="imgModel">
-                <img src="/img/imagenes-home/prop1.jpg" alt="modelo 1">
-                <img src="/img/imagenes-home/prop2.jpg" alt="modelo 2">
-                <img src="/img/imagenes-home/prop3.jpg" alt="modelo 3">
-                <img src="/img/imagenes-home/prop4.jpg" alt="modelo 3">
-            </section>
-        </div>-->
     </main>
     
     <!-- FOOTER -->
