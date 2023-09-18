@@ -215,6 +215,12 @@ const productController = {
     })
     res.render("product-category.ejs", { result })
   },
+  search: (req, res) =>{
+    const busqueda = req.query.search
+    const arrBusqueda = results.filter((e)=>{ 
+      return e.title.includes(busqueda)})
+    res.render('product-search.ejs', { arrBusqueda })
+  }
 };
 
 module.exports = productController;
