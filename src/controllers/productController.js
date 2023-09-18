@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const dataBase = require('../dataBase/productList.json');
+const {results} = require('../dataBase/productList.json')
 const multer = require('multer');
 const { log } = require('console');
 
