@@ -8,7 +8,11 @@ router.get('/detail/:id', productController.productDetail);
 
 /*** VISTA PRODUCTOS EN LISTA ***/
 
-router.get('/product-admin',adminSession, productController.productAdminList); /* pueden editar el "autenticationMiddleware" por el de ustedes, por ejemplo Alexis tendrias que hacer tu middleware para ocultar la vista a los usuarios */
+/*Buscador del navbar*/
+router.get('/search', productController.search);
+
+router.get('/product-admin',adminSession, productController.productAdminList); 
+/* pueden editar el "autenticationMiddleware" por el de ustedes, por ejemplo Alexis tendrias que hacer tu middleware para ocultar la vista a los usuarios */
 
 router.get("/category/:category", productController.category)
 router.get("/category/genero/:genero", productController.genero)

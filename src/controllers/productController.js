@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const dataBase = require('../dataBase/productList.json');
+const {results} = require('../dataBase/productList.json')
 const multer = require('multer');
 const { log } = require('console');
 
@@ -214,6 +215,12 @@ const productController = {
     })
     res.render("product-category.ejs", { result })
   },
+  search: (req, res) =>{
+    const busqueda = req.query.search
+    const arrBusqueda = results.filter((e)=>{ 
+      return e.title.includes(busqueda)})
+    res.render('product-search.ejs', { arrBusqueda })
+  }
 };
 
 module.exports = productController;

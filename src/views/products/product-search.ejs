@@ -17,13 +17,11 @@
     <!-- BOOTSTRAP Y SLIDER -->
    
 </head>
+
 <body>
-
-
-<%- include ("../partials/navbar") %>
-
-<div class="row">
-    <% for (const products of result) { %>
+    <%- include ("../partials/navbar") %>
+    <div class="row row-flex-1">
+    <% for (const products of arrBusqueda) { %>
     <div class="col-3 col-category">
         <a href="/product/detail/<%=products.id%>" class="card-category">
             <img class="img-category" src="<%=products.image%>" alt="">
@@ -38,11 +36,7 @@
         </a>
     </div>
     <% } %>
-</div>
-
-<%- include ("../partials/footer") %>
-
-
-
+    </div>
+    <%- include ("../partials/footer") %>
 </body>
 </html>
