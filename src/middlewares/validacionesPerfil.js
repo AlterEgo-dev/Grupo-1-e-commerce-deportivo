@@ -12,7 +12,23 @@ const storage = multer.diskStorage({
         const filename="perfil-"+id+Date.now()+path.extname(file.originalname);
         cb(null, filename)
     }
-})
+});
+
+const authEditProfile = (req, res, next) => {
+    const profileId = req.params.id; // requerimos el id del usuario
+    const userId = req.session.userId; // requrimos id de session
+
+    if (userId === profileId) { // comparamos
+        
+        return next(); // next si coinciden
+    } else {
+        return res.redirect("/user/perfil/"+profileId) // redireccion si no coinciden
+    }
+};
+
 const upload =multer({storage})
 
-module.exports={upload}
+module.exports={
+    upload,
+    authEditProfile
+}

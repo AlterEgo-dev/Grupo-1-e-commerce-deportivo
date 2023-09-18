@@ -3,9 +3,9 @@ const arrData = require('../dataBase/users.json');
 // RETORNA AL HOME Y NO PERMITE INGRESAR AL FORM DE LOGIN Y REGISTER EN CASO DE ESTAR VERIFICADO
 
 const authRedirectSession = (req, res, next) => {
-    if (req.session && req.session.userId) {
+    if (req.session && req.session.userId) { // requerimos si hay una sesion registrada
     
-        return res.redirect('/');
+        return res.redirect('/'); // si la hay redirecciona para evitar que ingrese al login/register
     }
     next(); 
 };
@@ -33,7 +33,6 @@ const adminSession = (req, res, next) => {
     }else{
         return res.redirect('/user/login');
     }
-
 }
 module.exports = {
     authRedirectSession,

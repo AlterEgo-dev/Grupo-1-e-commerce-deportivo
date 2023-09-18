@@ -4,8 +4,6 @@ const fs = require ("fs")
 const path = require ("path")
 const usersFile = path.join(__dirname, "..", "dataBase", "users.json");
 
-
-
 const userController = {
     formLogin: (req, res) => {
         res.render('login.ejs');
@@ -66,9 +64,11 @@ const userController = {
     subirFoto: (req, res) => {
         const {id} = req.params
         const usuario = usuarios.find((user) => user.id === id);
-        usuario.img=req.file.filename;
 
-        fs.writeFileSync(usersFile, JSON.stringify(usuarios, null, 2));  
+        if (req.file) {
+            usuario.img = req.file.filename;
+            fs.writeFileSync(usersFile, JSON.stringify(usuarios, null, 2));
+        } 
 
         res.redirect("/user/perfil/"+id)
     },

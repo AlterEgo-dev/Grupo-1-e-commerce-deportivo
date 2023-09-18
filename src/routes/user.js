@@ -10,6 +10,7 @@ const userController = require('../controllers/userController');
 const { validacionesRegistro, resultadoValidacion } = require('../middlewares/validarRegistro');
 const { validacionesInicioSesion, resultadoInicioSesion } = require('../middlewares/validarLogin');
 const { authRedirectSession, authSession } = require('../middlewares/authSession');
+const { authEditProfile } = require('../middlewares/validacionesPerfil')
 const {upload} = require ('../middlewares/validacionesPerfil')
 
 // RUTA DEL LOGIN
@@ -28,8 +29,8 @@ router.get('/logout', authSession, userController.logout);
 
 //RUTAS Y FORMULARIOS DEL PERFIL
 
-router.get('/perfil/:id', userController.perfil);
-router.put('/perfil/:id' , upload.single("img"), userController.subirFoto);
-router.delete('/perfil/:id', userController.eliminarFoto)
+router.get('/perfil/:id', authSession, userController.perfil);
+router.put('/perfil/:id' , authSession, authEditProfile, upload.single("img"), userController.subirFoto);
+router.delete('/perfil/:id', authSession, authEditProfile, userController.eliminarFoto)
 
 module.exports = router;
