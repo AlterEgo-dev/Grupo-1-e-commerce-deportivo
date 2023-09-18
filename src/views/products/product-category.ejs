@@ -17,11 +17,9 @@
    
 </head>
 <body>
-
-
 <%- include ("../partials/navbar") %>
 
-<div class="row">
+<div class="row row-flex-1">
     <% for (const products of result) { %>
     <div class="col-3 col-category">
         <a href="/product/detail/<%=products.id%>" class="card-category">
