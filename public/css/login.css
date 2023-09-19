@@ -1,12 +1,132 @@
+p{
+    font-family: 'Roboto';
+}
+
+.display-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.recuadro-session{
+    width: 450px;
+    margin: 20px;
+}
+
+.titulo-session {
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 7px;
+    font-weight: bolder;
+    border-bottom: solid 2px orangered;
+    font-size:larger;
+}
+
+.caja-usuario{
+    width: 100%;
+}
+
+.caja-usuario label{
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    font-family: 'Roboto';
+    font-weight: 450;
+}
+
+.caja-usuario input{
+    width: 100%;
+    height: 35px;
+    padding-left: 5px;
+    border: none;
+}
+
+.caja-error{
+    width: 100%;
+    color: orangered;
+    font-size: small;
+    font-family: 'Roboto';
+    color: gray;
+}
+
+.caja-checkbox{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 15px
+}
+
+.caja-checkbox label{
+    margin-left: 7px;
+}
+
+.button-form {
+    background-color:orangered;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    transition: 1s;
+    margin-top: 15px
+}
+
+.texto-session{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.benef-login{
+    text-align: center;
+    font-weight: bold;
+}
+
+.texto-session h5{
+    text-align: center;
+    font-weight: bold;
+}
+
+.texto-session p{
+    text-align: center;
+}
+
+.button-form:hover {
+    background-color: gainsboro;
+    background-color: #ff9b6d;
+}
+
+.registro-session{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px;
+}
+
+
+
+
+
+
+
+
+/*
 .font-all {
     font-family: var(--roboto);
 }
-
+*/
 
 /* ----------- FORM LOGIN ---------- */
 
 
-section {
+/*section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -111,11 +231,11 @@ section {
 .logo-form img {
     width: 120px;
     height: 50px;
-}
+}*/
 
 /* ---------- MOBILE LOGIN ----------- */
 
-@media screen and (max-width: 550px) {
+/*@media screen and (max-width: 550px) {
 
     #register-form.registro {
         border: 0;
@@ -209,4 +329,4 @@ section {
     #register-form.registro {
         width: auto;
     }
-}
+}*/
