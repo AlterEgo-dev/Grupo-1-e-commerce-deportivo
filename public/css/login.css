@@ -32,6 +32,7 @@ body{
 
 .caja-usuario{
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .caja-usuario label{
@@ -47,14 +48,17 @@ body{
     height: 35px;
     padding-left: 5px;
     border: none;
+    background-color:gainsboro;
 }
 
 .caja-error{
     width: 100%;
-    color: orangered;
+}
+
+.caja-error i{
+    color: orangered;  
     font-size: small;
     font-family: 'Roboto';
-    color: gray;
 }
 
 .caja-checkbox{

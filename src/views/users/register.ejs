@@ -19,12 +19,56 @@
 
     <!-- MAIN -->
 
+    <main class="display-center">     
+        <div class="recuadro-session">
+            <p class="titulo-session">Registrarse</p>
+            <div class="texto-session">
+                <div class="benef-login"> Tus beneficios te esperan!</div>
+                <p>Obtén envío gratis, cupones de descuento y productos solo para miembros cuando estés en DexterClub.</p>
+            </div>
+            <form action="/user/register" method="post">
 
-    <main>
+                <div class="caja-usuario">
+                    <label for="username">Usuario</label>
+                    <input type="text" name="username" id="username" value="<%= ( locals.old && old.username ) ? old.username : '' %> ">
+                    <div class="caja-error">
+                        <% if( locals.errors && errors.username ){ %>
+                            <i><%= errors.username.msg %></i>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="caja-usuario">
+                    <label for="userEmail">E-mail</label>
+                    <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
+                    <div class="caja-error">
+                        <% if( locals.errors && errors.userEmail ){ %>
+                            <i><%= errors.userEmail.msg %></i>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="caja-usuario">
+                    <label for="userPassword">Crear Contraseña</label>
+                    <input type="password" name="userPassword" id="userPassword">
+                    <div class="caja-error">
+                        <% if( locals.errors && errors.userPassword ){ %>
+                            <i><%= errors.userPassword.msg %></i>
+                        <% } %>
+                    </div>
+                </div>
+                
+                <div class="caja-usuario">
+                    <button type="submit" class="button-form">Registrarme</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    
 
         <!-- LOGIN FORM -->
 
-        <section>
+        <!--<section><main>
           <div class="container-form" id="login-form"> 
                 <div class="logo-form">
                     <img src="/img/logo_login.png" alt="Logo Dexter">
@@ -48,6 +92,8 @@
                             <% } %>
 
                         </div>
+
+
                         <div class="caja-email">
                             <label for="userEmail">E-Mail</label>
                             <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
@@ -89,7 +135,7 @@
           </section>
 
 
-    </main>
+    </main>-->
 
 
    <!-- FOOTER -->
