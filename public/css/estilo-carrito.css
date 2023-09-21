@@ -33,7 +33,7 @@ main {
 .contenedor-productos {
     width: 70%;
     background-color: white;
-    box-shadow: 1px 1px 10px gray;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
@@ -95,7 +95,7 @@ main {
 .pago-total {
     background-color: white;
     color: black;
-    box-shadow: 1px 1px 10px gray;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     margin-left: 10px;
     display: flex;
     flex-direction: column;
