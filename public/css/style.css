@@ -37,26 +37,28 @@ header {
     font-weight: 400;
     margin-left: 5px;
 }
+
 /*--------NUEVO NAVBAR*------------*/
-.display-center{
+.display-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.row-nav{
+
+.row-nav {
     height: 150px;
     width: 100%;
 }
 
-.search-nav{
+.search-nav {
     background-color: white;
     color: rgb(197, 195, 195);
     font-family: roboto;
@@ -68,28 +70,39 @@ header {
     border: none;
 }
 
-.fa-search{
+.fa-search {
     background-color: transparent;
     border: none;
-    position:absolute;
-    font-size:larger;
+    position: absolute;
+    font-size: larger;
     right: 10px;
     top: 7px;
 }
 
-.categ-nav{
+.categ-nav {
     text-decoration: none;
     color: white;
-    font-size:large;
+    font-size: large;
     margin: 5px;
+    padding: 10px;
 }
 
-.fa-bars{
+.categ-nav:hover {
+    background-color: #00000017;
+    color: black;
+    font-weight: bolder;
+    border-radius: 5px;
+    transition: 0.5s;
+
+}
+
+.fa-bars {
     font-size: xx-large;
     margin: 10px;
     padding: 3px;
     color: white;
 }
+
 /* ---------- BUSCADOR -------------- */
 /*
 header {
@@ -234,9 +247,14 @@ footer {
     font-size: 13px;
 }
 
-.options-footer a {
+.item-footer {
     text-decoration: none;
     color: white;
+}
+
+.item-footer:hover {
+    color: black;
+    font-weight: bolder;
 }
 
 .part-qr-footer {
@@ -400,31 +418,36 @@ nav ul a:hover,
 /* --------------- MOBILE FOOTER ----------- */
 
 @media (max-width:768px) {
-    
+
     .col-dos,
     .col-tres {
         display: none;
     }
-    .col-uno{
+
+    .col-uno {
         height: 100px;
     }
+
     .qr-footer {
         display: none;
     }
+
     .marca-footer {
         width: 90%;
     }
+
     .part-qr-footer {
         width: 40%;
     }
+
     .part-icon {
         margin-top: 0px;
     }
 }
 
-@media (min-width:768px){
+@media (min-width:768px) {
 
-    .col-cuatro{
+    .col-cuatro {
         display: none;
     }
 }
@@ -444,5 +467,3 @@ nav ul a:hover,
     }
 
 }
-
-
