@@ -5,8 +5,8 @@
 </div>
 
 <header>
-  <div class="row row-nav col-uno">
-    <div class="col-12 col-md-3 display-center">
+  <div class="row row-nav">
+    <div class=" col-uno col-12 col-md-3 display-center">
       <a href="/" style="width: 70%;">
         <img src="/img/logo_footer.png" style="width: 100%;">
       </a>
@@ -15,18 +15,17 @@
     <div class="col-dos col-md-6 display-center">
       <form action="/product/search" method="get" style="width: 70%; position: relative;">
         <input type="text" name="search" id="search" placeholder="Buscar un producto" class="search-nav">
-
         <i class="fas fa-search"></i>
       </form>
       <div class="category nav d-flex flex-row justify-content-center align-items-center" style="width: 70%;">
         <a class="categ-nav" href="/product/category/genero/Hombre">Hombre</a>
         <a class="categ-nav" href="/product/category/genero/Mujer">Mujer</a>
-        <a class="categ-nav" href="/product/category/Calzado">Zapatillas</a>
+        <a class="categ-nav" href="/product/category/Calzado">Calzado</a>
         <a class="categ-nav" href="/product/category/Indumentaria">Indumentaria</a>
       </div>
     </div>
 
-    <div class="col-tres col-md-3 display-center" style="flex-direction: row;">
+    <div class="col-tres col-12 col-md-3 display-center" style="flex-direction: row;">
       <a class="categ-nav" href="<%= isLoggedIn ? '/user/logout' : '/user/login' %>">
         <% if (isLoggedIn) { %>
           <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
@@ -57,35 +56,33 @@
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SPORTYFY</h5>
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: bolder; text-decoration: none;">SPORTYFY</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
       </button>
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Categorias</a>
+          <a class="nav-link" href="/product/category/genero/Hombre">Hombre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Hombre</a>
+          <a class="nav-link" href="/product/category/genero/Mujer">Mujer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Mujer</a>
+          <a class="nav-link" href="/product/category/Indumentaria">Indumentaria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Marcas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Zapatillas</a>
+          <a class="nav-link" href="/product/category/Calzado">Calzado</a>
         </li>
 
       </ul>
-      <form class="d-flex mt-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="¿Qué desea buscar?" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+
+      <form action="/product/search" method="get" style="width: 70%; position: relative;">
+        <input type="text" name="search" id="search" placeholder="Buscar un producto" class="search-nav">
+        <i class="fas fa-search"></i>
       </form>
     </div>
   </div>

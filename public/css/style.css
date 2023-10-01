@@ -252,8 +252,7 @@ footer {
 
 @media (max-width:768px) {
 
-    .col-dos,
-    .col-tres {
+    .col-dos {
         display: none;
     }
 

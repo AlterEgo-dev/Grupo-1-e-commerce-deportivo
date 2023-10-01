@@ -29,7 +29,6 @@ router.post('/product-create', authSession, productController.productCreatePush)
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);
-
 router.delete('/product-edit/:id/delete-image/:index', authSession, productController.deleteProductImage);
 
 
