@@ -66,15 +66,17 @@
                 <div class="titulo-historial">
                     Podría interesarte
                 </div>
-                <div class="product-usuario">
-                    <div class="img-product-us">
-                        <img src="<%=products.image%>">
+                <a href="/product/detail/<%=products.id%>" style="text-decoration: none;">
+                    <div class="product-usuario">
+                        <div class="img-product-us">
+                            <img src="<%=products.image%>">
+                        </div>
+                        <div class="texto-product-us">
+                            <p style="font-weight: bold; color: black;"><%=products.title%> </p>
+                            <p style="color: orangered;">$ <%=products.price%> </p>
+                        </div>
                     </div>
-                    <div class="texto-product-us">
-                        <p style="font-weight: bold;"><%=products.title%> </p>
-                        <p style="color: orangered;">$ <%=products.price%> </p>
-                    </div>
-                </div>
+                </a>
             <div>
             </div>
         </div>
