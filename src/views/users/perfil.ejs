@@ -31,11 +31,14 @@
                         <button type="submit" class="crud-boton submit-foto">
                             <i class="fa-solid fa-check"></i>
                         </button>
+                        
                     </form> 
+                    <div class="check-info">Reemplazar foto</div>
                     <!--boton eliminar foto perfil-->
                     <form action="/user/perfil/<%=user.id%>?_method=delete" method="post">
                         <button type="submit" class="crud-boton delete-foto"><i class="fa-solid fa-xmark"></i></i></button>
-                    </form>                 
+                    </form>       
+                    <div class="delete-info">Eliminar foto</div>   
                 </div>
                 <div class="fuentes-perfil" style="font-size: x-large;">
                     <%=user.username%>
