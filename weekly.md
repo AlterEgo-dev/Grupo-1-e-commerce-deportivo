@@ -86,8 +86,12 @@ Objetivos para la próxima semana:
 -Revisar las tareas asignadas obligatorias e intentar sumar a las tareas compartidas para avanzar sobre la estética de la página.
 -Comentar los códigos cada vez que se realice un cambio significativo.
 
+SPRINT 6
+-> 01/10/2023
 
+En la Weekly de hoy realizamos la lectura de los objetivos del Sprint 6, se acordó efectuar una nueva reunión en la semana para crear y relacionar las tablas necesarias del proyecto; Una vez resuelto el diagrama de tablas, se procederá a la división de tareas correspondientes.
 
+También se tomó en cuenta la devolución del profesor con respecto al Sprint 5, dividiendo y asignando las tareas para ser realizadas lo antes posible.
 
 
 
