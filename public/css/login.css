@@ -111,6 +111,15 @@ body{
     margin: 15px;
 }
 
+/*BREACKPOINTS*/
+
+@media (max-width: 768px) {
+    .recuadro-session{
+        width: 100vw;
+        padding: 30px;
+    }
+}
+
 
 
 
