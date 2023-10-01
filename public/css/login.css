@@ -53,12 +53,9 @@ body{
 
 .caja-error{
     width: 100%;
-}
-
-.caja-error i{
-    color: orangered;  
+    color: orangered;
     font-size: small;
-    font-family: 'Roboto';
+    font-family: "Roboto";
 }
 
 .caja-checkbox{
