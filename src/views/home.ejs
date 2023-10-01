@@ -50,16 +50,17 @@
                     <ul class="slider-container py-4" id="slider2">
                 <% data.map((results) => { %>       
                     <li>
-                        <a href="product/detail/<%= results.id %>">
+                    <a href="product/detail/<%= results.id %>" style="text-decoration: none; text-align: start;">
                             <div class="card shadow h-100">
                                 <div class="ratio ratio-1x1">
                                 <img src="<%= results.image %>" class="card-img-top" loading="lazy" alt="...">
                             </div>
                             <div class="card-body d-flex flex-column flex-md-row">
-                                <a href="" style="text-decoration: none; text-align: start;">
+                                <div>
                                     <div class="title-interes text-interes"><%= results.title %></div>
                                     <div class="text-interes">$<%= results.price %></div>
-                                </a>
+                                </div>
+                                
                             </div>
                         </div>
                     </a>
@@ -80,16 +81,16 @@
                         <% const shuffledPopularProducts = data.slice().sort(() => Math.random() - 0.5).slice(0, 10);  %> 
                         <% shuffledPopularProducts.map((popularProduct) => { %>       
                         <li>
-                            <a href="product/detail/<%= popularProduct.id %>">
+                            <a href="product/detail/<%= popularProduct.id %>" style="text-decoration: none; text-align: start;">
                                 <div class="card shadow h-100">
                                     <div class="ratio ratio-1x1">
                                         <img src="<%= popularProduct.image %>" class="card-img-top" loading="lazy" alt="...">
                                     </div>
                                     <div class="card-body d-flex flex-column flex-md-row">
-                                        <a href="" style="text-decoration: none; text-align: start;">
+                                        <div>
                                             <div class="title-interes text-interes"><%= popularProduct.title %></div>
                                             <div class="text-interes">$<%= popularProduct.price %></div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
