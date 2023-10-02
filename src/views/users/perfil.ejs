@@ -22,7 +22,7 @@
               <div class="display-center" style="height: 100%;">
                 <div class="box-perfil" style="position: relative;">
                     <div class="foto-perfil" style="background-image: url(/img/img-perfil/<%=user.img%>);">
-                        <p class="texto-mostrado" id="texto-mostrado">Imagen cargada</p>
+                        <p class="texto-mostrado" id="texto-mostrado">*Tienes cambios sin guardar</p>
                     </div>
                        
                     <img id="imagen-previa" src="#" alt="Vista previa de la imagen" style="display: none; max-width: 100%;">
@@ -40,7 +40,7 @@
                         </button>
                         
                     </form> 
-                    <div class="check-info">Reemplazar foto</div>
+                    <div class="check-info">Guardar cambios</div>
                     <!--boton eliminar foto perfil-->
                     <form action="/user/perfil/<%=user.id%>?_method=delete" method="post">
                         <button type="submit" class="crud-boton delete-foto"><i class="fa-solid fa-xmark"></i></i></button>

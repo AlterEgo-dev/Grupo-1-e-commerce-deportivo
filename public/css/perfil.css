@@ -89,7 +89,11 @@ body {
     flex-wrap: wrap;
     position: absolute;
     top: -23px;
-    left: 68px;
+    left: 33px;
+    white-space: nowrap;
+    color: rgb(219, 78, 78);
+    text-transform: lowercase;
+    font-style: italic;
 }
 
 .check-info{
