@@ -84,6 +84,14 @@ body {
     transition: all 0.3s ease;
 }
 
+.texto-mostrado {
+    display: none;
+    flex-wrap: wrap;
+    position: absolute;
+    top: -23px;
+    left: 68px;
+}
+
 .check-info{
     position: absolute;
     color: orangered;
@@ -158,4 +166,32 @@ body {
 
 .texto-product-us p{
     font-family: roboto;
+}
+
+@media screen and (max-width: 600px){
+
+    .submit-foto {
+        left: -5px ;
+        top: 245px;
+    }
+
+    .delete-foto {
+        left: 150px ;
+        top: 245px;
+    }
+
+    .check-info {
+        left: 25px;
+        top: 246px;
+    }
+
+    .delete-info {
+        left: 180px ;
+        top: 245px;
+    }
+
+    .fuentes-perfil {
+        padding: 10px;
+    }
+
 }

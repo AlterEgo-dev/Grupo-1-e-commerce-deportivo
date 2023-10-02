@@ -48,7 +48,7 @@ const userController = {
         const randomIndex = Math.floor(Math.random() * results.length);
         const products = results[randomIndex];
 
-        res.render('perfil.ejs', {user:userToRender, products})
+        res.render('perfil.ejs', {user:userToRender, products, userId: id})
     },
     
     navbar: (req, res) => {

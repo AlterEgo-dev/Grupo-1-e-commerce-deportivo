@@ -14,13 +14,20 @@
 <body>
     
     <%- include ("./partials/navbar") %>
+
+    
    
     <div class="row row-flex-1" style="margin-top: 30px;">
       <div class="col-12 col-md-7">
               <div class="display-center" style="height: 100%;">
                 <div class="box-perfil" style="position: relative;">
                     <div class="foto-perfil" style="background-image: url(/img/img-perfil/<%=user.img%>);">
-                    </div>       
+                        <p class="texto-mostrado" id="texto-mostrado">Imagen cargada</p>
+                    </div>
+                       
+                    <img id="imagen-previa" src="#" alt="Vista previa de la imagen" style="display: none; max-width: 100%;">
+
+       
                     <form action="/user/perfil/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
                         <!--boton para seleccionar la foto (subir-perfil)-->
                         <label for="subir-perfil" class="subir-perfil display-center">
@@ -81,6 +88,8 @@
             </div>
         </div>
     </div>
+
+    <script src="/js/avatar.js"></script>
     
     <%- include ("./partials/footer") %>
 

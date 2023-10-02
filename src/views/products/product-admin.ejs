@@ -19,6 +19,10 @@
 
     <%- include ("../partials/navbar") %>
 
+    <div class="product-admin-button">
+        <a href="/product/product-create">Crear un nuevo producto</a>
+    </div>
+
     <div class="caja-contenedora-productos">
     <% data.map((results) => { %>
         <a class="caja-product-a" href="/product/product-edit/<%= results.id %>">
