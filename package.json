@@ -10,8 +10,10 @@
     "fs": "^0.0.1-security",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.6.1",
     "nodemon": "^3.0.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^6.33.0"
   },
   "name": "grupo-1-e-commerce-deportivo",
   "description": "--------------- # Sobre el e-commerce # --------------",
