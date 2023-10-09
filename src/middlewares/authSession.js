@@ -1,4 +1,4 @@
-const arrData = require('../dataBase/users.json');
+const db = require('../dataBase/models');
 
 // RETORNA AL HOME Y NO PERMITE INGRESAR AL FORM DE LOGIN Y REGISTER EN CASO DE ESTAR VERIFICADO
 
@@ -22,18 +22,28 @@ const authSession = (req, res, next) => {
 };
 
 const adminSession = (req, res, next) => {
-    if(req.session.userId){
-        let iduser = req.session.userId
-        const usuario = arrData.find((prod) => prod.id == iduser);
-        if(usuario.category == "Admin"){
-            return next();
-        }else if(usuario.category == "User"){
-            return res.status(404).render('error-404')
-        }
-    }else{
+    if (!req.session.userId) {
         return res.redirect('/user/login');
     }
+
+    db.User.findByPk(req.session.userId)
+        .then((user) => {
+            if (!user) {
+                return res.status(404).render('error-404');
+            }
+
+            if (user.Role === 'Admin') {
+                return next();
+            } else {
+                return res.status(404).render('error-404');
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            return res.status(500).send('Error en el servidor');
+        });
 }
+
 module.exports = {
     authRedirectSession,
     authSession,

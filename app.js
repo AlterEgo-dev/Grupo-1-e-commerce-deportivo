@@ -9,7 +9,7 @@ const userRoute = require('./src/routes/user');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const dataUser = require('./src/dataBase/users.json');
+const db = require('./src/dataBase/models');
 
 // DEFINIMOS SESSION
 
@@ -33,12 +33,24 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if(req.session.userId){
-        const datoUser = dataUser.find((User) => User.id == req.session.userId)
-        res.locals.isAdmin = datoUser.category == "Admin" ? true : false;
+    if (req.session.userId) {
+        db.User.findByPk(req.session.userId)
+            .then((user) => {
+                if (user && user.Role === 'Admin') {
+                    res.locals.isAdmin = true;
+                } else {
+                    res.locals.isAdmin = false;
+                }
+                next();
+            })
+            .catch((error) => {
+                console.error(error);
+                next();
+            });
+    } else {
+        res.locals.isAdmin = false;
+        next();
     }
-    next();
-
 });
 
 app.use(methodOverride('_method'));

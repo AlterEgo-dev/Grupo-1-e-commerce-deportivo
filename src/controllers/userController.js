@@ -1,8 +1,21 @@
 const {results} = require('../dataBase/productList.json');
-let usuarios = require('../dataBase/users.json');
+const db = require('../dataBase/models')
 const fs = require ("fs")
 const path = require ("path")
-const usersFile = path.join(__dirname, "..", "dataBase", "users.json");
+
+const multer = require ("multer");
+
+const storage = multer.diskStorage({    
+    destination: function (req, file, cb) {
+        const rutaImg= path.join(__dirname, "..", "..", "public", "img", "img-perfil");
+        cb (null, rutaImg)
+    },
+    filename: function (req, file, cb) {
+        const {id}= req.params;
+        const filename="perfil-"+id+Date.now()+path.extname(file.originalname);
+        cb(null, filename)
+    }
+});
 
 const userController = {
     formLogin: (req, res) => {
@@ -31,56 +44,95 @@ const userController = {
         
     },
     
-    perfil: (req, res) => {
-        /*id user*/
-        const { id } = req.params;
-        const user = usuarios.find((e) => e.id === id);
-        let userToRender = user;
-        
-        /*cargar la nueva imagen de perfil aca para pasar una sola img en la vista*/
-        if (req.file && req.file.filename) {
-            user.img = req.file.filename;
-            fs.writeFileSync(usersFile, JSON.stringify(usuarios, null, 2));
-            userToRender = user;
-        } 
-        
-        /*producto aleatorio*/
-        const randomIndex = Math.floor(Math.random() * results.length);
-        const products = results[randomIndex];
-
-        res.render('perfil.ejs', {user:userToRender, products, userId: id})
+    perfil: async (req, res) => {
+        try {
+            // OBTENEMOS EL ID DEL USUARIO MEDIANTE PARAMS
+            const { id } = req.params;
+            // BUSCAMOS EL USUARIO EN LA BASE DE DATOS POR SU ID
+            const user = await db.User.findByPk(id);
+            // SI NO SE ENCUENTRA EL USUARIO, RENDERIZAMOS UNA PÁGINA DE ERROR 404
+            if (!user) {
+                return res.status(404).render('error-404.ejs');
+            }
+            // OBTENEMOS LOS DATOS DEL USUARIO
+            let userToRender = user.dataValues;
+            // SI SE HA SUBIDO UNA FOTO DE PERFIL, LA AGREGAMOS A LOS DATOS DEL USUARIO A RENDERIZAR
+            if (req.file && req.file.filename) {
+                userToRender.img = req.file.filename;
+            } 
+    
+            const randomIndex = Math.floor(Math.random() * results.length);
+            const products = results[randomIndex];
+    
+            res.render('perfil.ejs', { user: userToRender, products, userId: id });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send('Error en el servidor');
+        }
     },
     
+    
     navbar: (req, res) => {
+        // VERIFICAMOS SI EL USUARIO ESTÁ LOGUEADO COMPARANDO SU ID DE SESIÓN
         const isLoggedIn = req.session.userId ? true : false;
         let isAdmin = false;
-            if(req.session.userId){
-            const datoUser = dataUser.find((User) => User.id == req.params.id)
+    
+        // SI EL USUARIO ESTÁ LOGUEADO, COMPROBAMOS SI ES UN ADMINISTRADOR
+        if (req.session.userId) {
+            const datoUser = dataUser.find((User) => User.id == req.params.id);
             isAdmin = datoUser.category == "Admin" ? true : false;
         }
+    
+        // RENDERIZAMOS LA VISTA DE LA BARRA DE NAVEGACIÓN CON LA INFORMACIÓN DE LOGUEO Y ADMINISTRADOR
         res.render('navbar.ejs', { isLoggedIn, isAdmin });
     },
-    /*sobreescribir la foto de perfil predeterminada*/
-    subirFoto: (req, res) => {
-        const {id} = req.params
-        const usuario = usuarios.find((user) => user.id === id);
+    
+    subirFoto: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const user = await db.User.findByPk(id);
+    
+            // SI SE HA ENVIADO UN ARCHIVO, ACTUALIZAMOS LA RUTA DE LA IMAGEN EN LA BASE DE DATOS
+            if (req.file) {
+                const imagePath = `/img/img-perfil/${req.file.filename}`;
 
-        if (req.file) {
-            usuario.img = req.file.filename;
-            fs.writeFileSync(usersFile, JSON.stringify(usuarios, null, 2));
-        } 
-
-        res.redirect("/user/perfil/"+id)
+                await user.update({ Avatar: imagePath });
+            }
+    
+            // REDIRIGIMOS AL USUARIO A SU PERFIL
+            return res.redirect("/user/perfil/" + id);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        }
     },
-    eliminarFoto: (req, res) => {
-        const {id} = req.params;
-        const usuario = usuarios.find((user) => user.id === id);
-        usuario.img="sin-perfil.png";
-  
-        fs.writeFileSync(usersFile, JSON.stringify(usuarios));        
-        
-        res.redirect("/user/perfil/"+id);
+    
+    eliminarFoto: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const user = await db.User.findByPk(id);
+    
+            if (user) {
+                if (user.Avatar) {
+                    const imagePath = `/img/img-perfil/${user.Avatar}`;
+                    if (fs.existsSync(imagePath)) {
+                        fs.unlinkSync(imagePath);
+                    }
+    
+                    // ACTUALIZAMOS LA RUTA DE LA IMAGEN EN LA BASE DE DATOS A UNA IMAGEN POR DEFECTO
+                    await user.update({ Avatar: '/img/img-perfil/sin-perfil.png' });
+                }
+            }
+    
+            // REDIRIGIMOS AL USUARIO A SU PERFIL
+            res.redirect("/user/perfil/" + id);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        }
     }
-};
-
-module.exports = userController;
+}
+    
+    const upload = multer({ storage });
+    
+    module.exports = { userController, upload };

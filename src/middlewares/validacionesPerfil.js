@@ -1,34 +1,24 @@
-const multer = require ("multer");
-const path = require ("path");
+const db = require('../dataBase/models')
 
+const authEditProfile = async (req, res, next) => {
+    const profileId = req.params.id;
+    const userId = req.session.userId;
 
-const storage = multer.diskStorage({    
-    destination: function (req, file, cb) {
-        const rutaImg= path.join(__dirname, "..", "..", "public", "img", "img-perfil");
-        cb (null, rutaImg)
-    },
-    filename: function (req, file, cb) {
-        const {id}= req.params;
-        const filename="perfil-"+id+Date.now()+path.extname(file.originalname);
-        cb(null, filename)
-    }
-});
+    try {
+        const profile = await db.User.findByPk(profileId);
+        if (!profile) {
+            return res.status(404).send('El perfil no existe.');
+        }
+        if (profile.id !== userId) {
+            return res.status(403).redirect(`/user/perfil/${profileId}`);
+        }
 
-const authEditProfile = (req, res, next) => {
-    const profileId = req.params.id; // requerimos el id del usuario
-    const userId = req.session.userId; // requrimos id de session
-
-    if (userId === profileId) { // comparamos
-        
-        return next(); // next si coinciden
-    } else {
-        return res.redirect("/user/perfil/"+profileId) // redireccion si no coinciden
+        next();
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error interno del servidor');
     }
 };
 
-const upload =multer({storage})
 
-module.exports={
-    upload,
-    authEditProfile
-}
+module.exports = authEditProfile
