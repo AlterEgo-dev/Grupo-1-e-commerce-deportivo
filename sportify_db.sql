@@ -65,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `sportify_db`.`Products` (
   `Image3` VARCHAR(150) NULL,
   `OtherProperties` VARCHAR(1000) NULL,
   `Categories_Id` INT NOT NULL,
-  `Genders_id1` INT NOT NULL,
+  `Gender_id` INT NOT NULL,
   PRIMARY KEY (`Id`),
   INDEX `fk_Products_Categories1_idx` (`Categories_Id` ASC),
-  INDEX `fk_Products_Genders2_idx` (`Genders_id1` ASC),
+  INDEX `fk_Products_Genders2_idx` (`Gender_id` ASC),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
   CONSTRAINT `fk_Products_Categories1`
     FOREIGN KEY (`Categories_Id`)
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `sportify_db`.`Products` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Products_Genders2`
-    FOREIGN KEY (`Genders_id1`)
+    FOREIGN KEY (`Gender_id`)
     REFERENCES `sportify_db`.`Genders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -98,18 +98,18 @@ ENGINE = InnoDB;
 -- Table `sportify_db`.`Sizes_has_Products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sportify_db`.`Sizes_has_Products` (
-  `Sizes_Id` INT NOT NULL,
-  `Products_Id` INT NOT NULL,
-  PRIMARY KEY (`Sizes_Id`, `Products_Id`),
-  INDEX `fk_Sizes_has_Products_Products1_idx` (`Products_Id` ASC),
-  INDEX `fk_Sizes_has_Products_Sizes1_idx` (`Sizes_Id` ASC),
+  `Size_Id` INT NOT NULL,
+  `Product_Id` INT NOT NULL,
+  PRIMARY KEY (`Size_Id`, `Product_Id`),
+  INDEX `fk_Sizes_has_Products_Products1_idx` (`Product_Id` ASC),
+  INDEX `fk_Sizes_has_Products_Sizes1_idx` (`Size_Id` ASC),
   CONSTRAINT `fk_Sizes_has_Products_Sizes1`
-    FOREIGN KEY (`Sizes_Id`)
+    FOREIGN KEY (`Size_Id`)
     REFERENCES `sportify_db`.`Sizes` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Sizes_has_Products_Products1`
-    FOREIGN KEY (`Products_Id`)
+    FOREIGN KEY (`Product_Id`)
     REFERENCES `sportify_db`.`Products` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

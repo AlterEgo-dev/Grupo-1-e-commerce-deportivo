@@ -47,27 +47,27 @@ module.exports = (sequelize, DataTypes) =>{
 
     const Product = sequelize.define(alias, cols, config)
 
-    // Product.associate = function (models) {
+    Product.associate = function (models) {
 
-    //     Product.belongsTo(models.Size, {
-    //         as: "Sizes",
-    //         foreignKey: 'Size_id1',
-    //     })
-    // },
-    // Product.associate = function (models) {
-    //     Product.belongsTo(models.Gender,{
-    //         as: "Genders",
-    //         foreignKey: "Genders_id1",
-    //     })
-    // },
-    // Product.associate = function (models) {
-    //     Product.belongsTo(models.Category,{
-    //         as: "Category",
-    //         foreignKey: "Categories_Id",
-    //     })
-    // }
-
-    //lo dejo comentado porque faltan las tablas para hacer el associate
+        Product.belongsToMany(models.Size, {
+            as: "Sizes",
+            through: "sizes_has_products", 
+            foreignKey: 'Product_Id',
+            otherKey: "Size_Id"
+        })
+    },
+    Product.associate = function (models) {
+        Product.belongsTo(models.Gender,{
+            as: "Genders",
+            foreignKey: "Gender_id",
+        })
+    },
+    Product.associate = function (models) {
+        Product.belongsTo(models.Category,{
+            as: "Category",
+            foreignKey: "Categories_Id",
+        })
+    }
 
     
     return Product;
