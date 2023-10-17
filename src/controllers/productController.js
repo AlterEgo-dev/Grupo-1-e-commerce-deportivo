@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const dataBase = require('../dataBase/productList.json');
-const {results} = require('../dataBase/productList.json')
+const dataBase = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
+const {results} = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
+const db = require('../dataBase/models'); //este hay que usar para usar la base de datos
 const multer = require('multer');
 const { log } = require('console');
 
@@ -164,19 +165,25 @@ const productController = {
   
   
   /** BORRAR UN PRODUCTO */
-  
-   deleteProduct: (req, res) => {
-    const idProd = req.params.id; 
-    const ind = dataBase.results.findIndex(product => product.id === idProd);
 
-    if (ind !== -1) {
-        dataBase.results.splice(ind, 1);
-        const dbFilePath = path.join(__dirname, '../dataBase/productList.json');
-        fs.writeFileSync(dbFilePath, JSON.stringify(dataBase, null, 4));
-    }
-
+  deleteProduct: async (req,res) => {
+    await db.Product.destroy({ where: { id: req.params.id }});
     res.redirect('/product/product-admin'); 
   },
+  
+
+  //  deleteProduct: (req, res) => {
+  //   const idProd = req.params.id; 
+  //   const ind = dataBase.results.findIndex(product => product.id === idProd);
+
+  //   if (ind !== -1) {
+  //       dataBase.results.splice(ind, 1);
+  //       const dbFilePath = path.join(__dirname, '../dataBase/productList.json');
+  //       fs.writeFileSync(dbFilePath, JSON.stringify(dataBase, null, 4));
+  //   }
+
+  //   res.redirect('/product/product-admin'); 
+  // },
 
 
   /** BORRAR LAS IMAGENES DE DETALLE  */
