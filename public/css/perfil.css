@@ -144,6 +144,16 @@ body {
     border-bottom: solid grey 2px;
 }
 
+.interes-info-1 {
+    font-weight: bold;
+    color: black;
+}
+
+.interes-info-2 {
+    color: orangered;
+}
+
+
 .compras-historial li{
     font-family: roboto;
     font-size: small;

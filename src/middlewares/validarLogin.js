@@ -19,7 +19,6 @@ const resultadoInicioSesion = async (req, res, next) => {
             old: req.body
         });
     }
-
     // OBTENEMOS LOS DATOS DE CORREO Y CONTRASEÑA DEL FORMULARIO
     const { userEmail, userPassword } = req.body;
 
