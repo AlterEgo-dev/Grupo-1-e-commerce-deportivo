@@ -1,6 +1,8 @@
 const express = require ('express');
 const router = express.Router();
-const productController = require ('../controllers/productController');
+
+const { productController, upload} = require('../controllers/productController')
+
 const path = require('path');
 const { authSession, adminSession } = require('../middlewares/authSession');
 
@@ -20,12 +22,12 @@ router.get("/category/genero/:genero", productController.genero)
 /*** EDITAR PRODUCTO ***/
 
 router.get('/product-edit/:id', adminSession, productController.productEditForm);
-router.put('/product-edit/:id', authSession, productController.saveEditedProduct);
+router.put('/product-edit/:id', authSession, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]), productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
 
 /*** CREAR UN PRODUCTO ***/
 
 router.get('/product-create', adminSession, productController.productCreate);
-router.post('/product-create', authSession, productController.productCreatePush);
+router.post('/product-create', authSession, upload.single('image'), productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);

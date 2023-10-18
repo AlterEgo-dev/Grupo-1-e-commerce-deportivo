@@ -9,15 +9,12 @@ const { log } = require('console');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, '../../public/img/productos'));
-
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     cb(null, 'Z1-' + uniqueSuffix + path.extname(file.originalname));
   }
 });
-
-const upload = multer({ storage: storage });
 
 /** AQUI ACABA MULTER */
 
@@ -42,30 +39,39 @@ const productController = {
 
   /** CREAR NUEVO PRODUCTO */
 
-productCreatePush: async (req, res) => {
-  const { title, description, price, category, cuidados } = req.body;
-  console.log(req.body);
-  try {
+  productCreatePush: async (req, res) => {
+    const { title, gender, description, price, category, sizes, cuidados } = req.body;
+    const image = req.file ? `/img/productos/${req.file.filename}` : 'sin-foto.png';
 
+    console.log(req.body)
+  
+    try {
      await db.Product.create({
-      Name: title,
-      Description: description,
-      Price: price,
-      ImagePrincipal: '',
-      Image1: '', 
-      Image2: '',
-      Image3: '',
-      OtherProperties: cuidados,
-      Categories_Id: category,
-      Gender_id: 2,
-    });
-
-    res.redirect('/product/product-admin');
-  } catch (error) {
-    console.error(error);
-  }
-},
-
+        Name: title,
+        Description: description,
+        Price: price,
+        ImagePrincipal: image,
+        Image1: '',
+        Image2: '',
+        Image3: '',
+        OtherProperties: cuidados,
+        Categories_Id: category,
+        Gender_id: gender,
+        Sizes: sizes,
+      });
+     
+      for (const size of sizes) {
+        await db.Size_Product.create({
+          Size_Id: size,
+          Product_Id: 3, // TA HARDCODEADO
+        });
+      } 
+  
+      res.redirect('/product/product-admin');
+    } catch (error) {
+      console.error(error);
+    }
+  },
   /** RENDERIZACION DE LA VISTA  */
   
   productEditForm: (req, res) => {
@@ -94,11 +100,7 @@ productCreatePush: async (req, res) => {
 
   /** EDICIÓN DE PRODUCTO / ACTUALIZAR IMG PRINCIPAL */
 
-  saveEditedProduct: [
-    upload.fields([
-      { name: 'image', maxCount: 1 },
-      { name: 'imageDetail', maxCount: 3 }
-    ]),
+  saveEditedProduct: 
     (req, res) => {
       const { id } = req.params;
       const { title, precio, sizes, category, descripcion, Cuidados } = req.body;
@@ -146,8 +148,7 @@ productCreatePush: async (req, res) => {
       } else {
         res.status(404).send('Producto no encontrado');
       }
-    }
-  ],
+    },
   
   
   
@@ -217,4 +218,6 @@ productCreatePush: async (req, res) => {
   }
 };
 
-module.exports = productController;
+const upload = multer({ storage: storage });
+
+module.exports = { upload, productController }; // EXPORTE EL UPLOAD PARA REQUERIRLO DIRECTAMENTE EN LA RUTA SEGUN LAS NECESIDADES, SI ES FIELD O SINGLE
