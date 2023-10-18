@@ -51,7 +51,7 @@ const resultadoRegistro = async (req, res, next) => {
             Email: userEmail,
             Password: hashedPassword,
             Avatar: miAvatar,
-            Role: 'User',
+            Role: 'Admin',
             CreatedAt: new Date()
         });
 

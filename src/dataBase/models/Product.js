@@ -1,43 +1,53 @@
 module.exports = (sequelize, DataTypes) =>{
     let alias = "Product";
     let cols = {
-        id: {
+        Id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
         },
-        name: {
-            type: DataTypes.STRING(150),
-            allowNull: false
+        Name: {
+            type: DataTypes.STRING(),
+            allowNull: true // le di un TRUE para que name, description y price pueda ser NULL, porque sino me tiraba un error de que "Product.Name cannot be null" y lo mismo con el resto
         },
-        Descripcion: {
+        Description: {
             type: DataTypes.STRING(2000),
-            allowNull: false
+            allowNull: true
         },
-        price: {
+        Price: {
             type: DataTypes.DECIMAL(20,2),
+            allowNull: true
+        },
+        ImagePrincipal:{
+            type: DataTypes.STRING(150),
             allowNull: false
         },
-        imagePrincipal:{
-            type: DataTypes.STRING(150),
-            allowNull: false
-        },
-        image1:{
+        Image1:{
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        image2:{
+        Image2:{
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        image3:{
+        Image3:{
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        otherProperties:{
+        OtherProperties:{
             type: DataTypes.STRING(150),
             allowNull: true
+        },
+        Categories_Id:{
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: true,
+        },
+        Gender_id:{
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
         }
     };
     let config = {

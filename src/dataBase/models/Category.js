@@ -15,11 +15,11 @@ module.exports = (sequelize, dataTypes) => {
             tableName: 'categories',
             timestamps: false,
         });
-       // Category.associate = function (models) {
-         //   Category.hasMany(models.Product, {
-           //     as: "products",
-             //   foreignKey: "Categories_id"
-       //     })
-        //}
+       Category.associate = function (models) {
+           Category.hasMany(models.Product, {
+                as: "products",
+               foreignKey: "Categories_id"
+        })
+        }
         return Category
     };

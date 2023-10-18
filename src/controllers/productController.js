@@ -42,42 +42,30 @@ const productController = {
 
   /** CREAR NUEVO PRODUCTO */
 
-  productCreatePush: [
-    upload.fields([
-      { name: 'image', maxCount: 1 },
-      { name: 'imageDetail', maxCount: 3 }
-    ]),
-    (req, res) => {
-      const { title, price, sizes, category, description, cuidados } = req.body;
-  
-      const imagePath = '/img/productos/' + req.files['image'][0].filename;
-      const imagePathDetail = req.files['imageDetail'].map(file => '/img/productos/' + file.filename);
-  
-      const productoNuevo = {
-        id: '',
-        title: title,
-        price: price,
-        image: imagePath,
-        imageDetail: imagePathDetail,
-        sizes: sizes,
-        category: category,
-        description: description,
-        cuidados: cuidados
-      };
-  
-      const filePath = path.join(__dirname, '../dataBase/productList.json');
-      const productJson = fs.readFileSync(filePath, 'utf-8');
-      const jsonData = JSON.parse(productJson);
-  
-      const lastId = jsonData.results.length > 0 ? parseInt(jsonData.results[jsonData.results.length - 1].id) : 0;
-      productoNuevo.id = (lastId + 1).toString();
-  
-      jsonData.results.push(productoNuevo);
-      fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
-  
-      res.redirect('/product/product-admin');
-    }
-  ],
+productCreatePush: async (req, res) => {
+  try {
+
+    const { title, description, price, category, sizes, cuidados } = req.body;
+
+     await db.Product.create({
+      Name: title,
+      Description: description,
+      Price: price,
+      ImagePrincipal: 'dfgvdgdf',
+      Image1: 'fghgfhgf', 
+      Image2: 'asdasdsa',
+      Image3: 'dgdfs',
+      OtherProperties: cuidados,
+      Categories_Id: category,
+      Gender_id: 2,
+      Size_Product: sizes
+    });
+
+    res.redirect('/product/product-admin');
+  } catch (error) {
+    console.error(error);
+  }
+},
 
   /** RENDERIZACION DE LA VISTA  */
   
