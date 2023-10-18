@@ -43,22 +43,21 @@ const productController = {
   /** CREAR NUEVO PRODUCTO */
 
 productCreatePush: async (req, res) => {
+  const { title, description, price, category, cuidados } = req.body;
+  console.log(req.body);
   try {
-
-    const { title, description, price, category, sizes, cuidados } = req.body;
 
      await db.Product.create({
       Name: title,
       Description: description,
       Price: price,
-      ImagePrincipal: 'dfgvdgdf',
-      Image1: 'fghgfhgf', 
-      Image2: 'asdasdsa',
-      Image3: 'dgdfs',
+      ImagePrincipal: '',
+      Image1: '', 
+      Image2: '',
+      Image3: '',
       OtherProperties: cuidados,
       Categories_Id: category,
       Gender_id: 2,
-      Size_Product: sizes
     });
 
     res.redirect('/product/product-admin');

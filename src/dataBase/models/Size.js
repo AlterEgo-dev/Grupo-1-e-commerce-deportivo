@@ -15,11 +15,11 @@ module.exports = (sequelize, dataTypes) => {
     {tableName: 'Size',  timestamps: false})
         Size.associate = function (models) {
 
-            Size.belongsToMany(models.Size, {
-                as: "Sizes",
-                through: "sizes_has_products", 
-                foreignKey: 'Product_Id',
-                otherKey: "Size_Id"
+            Size.belongsToMany(models.Product, {
+                as: 'Sizes',
+                through: 'sizes_has_products', 
+                foreignKey: 'Size_Id',
+                otherKey: 'Product_Id'
             })
         }
         return Size
