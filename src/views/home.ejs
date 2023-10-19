@@ -23,8 +23,8 @@
     <!--HEADER-->
     <%- include ("./partials/navbar") %>
 
-    <main>
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+<main>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="/img/imagenes-home/2.png" class="d-block w-100" alt="...">
@@ -41,56 +41,56 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-        </div>
+    </div>
 
-        <!--slider de productos varios-->
-        <h3 class="titulo-productos" id="titulos">→ Novedades</h3>
-        <section style="display: flex; justify-content: center; align-items: center;"> 
+    <!--slider de productos varios-->
+    <h3 class="titulo-productos" id="titulos">→ Novedades</h3>
+    <section style="display: flex; justify-content: center; align-items: center;"> 
             <div style="width: 90%;">     
                 <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-dark slider-nav-outside-expand">
                     <ul class="slider-container py-4" id="slider2">
-                <% data.map((results) => { %>       
+                    <% for (const results of data) { %>       
                     <li>
-                    <a href="product/detail/<%= results.id %>" style="text-decoration: none; text-align: start;">
+                    <a href="product/detail/<%=results.id%>" style="text-decoration: none; text-align: start;">
                             <div class="card shadow h-100">
                                 <div class="ratio ratio-1x1">
-                                <img src="<%= results.image %>" class="card-img-top" loading="lazy" alt="...">
+                                <img src="<%= results.ImagePrincipal %>" class="card-img-top" loading="lazy" alt="...">
                             </div>
                             <div class="card-body d-flex flex-column flex-md-row">
                                 <div>
-                                    <div class="title-interes text-interes"><%= results.title %></div>
-                                    <div class="text-interes">$<%= results.price %></div>
+                                    <div class="title-interes text-interes"><%= results.Name %></div>
+                                    <div class="text-interes">$<%= results.Price %></div>
                                 </div>
                                 
                             </div>
                         </div>
                     </a>
                 </li>                
-                <% }) %>   
+                <% } %>   
             </ul>
             <button type="button" class="slider-nav" aria-label="Ir al anterior"></button>
             <button type="button" class="slider-nav slider-nav-next" aria-label="ir al siguiente"></button>
                 </div>
             </div>  
-         </section>
+    </section>
 
-        <h3 class="titulo-productos" id="titulos">→ Popular</h3>
-        <section style="display: flex; justify-content: center; align-items: center;"> 
+    <h3 class="titulo-productos" id="titulos">→ Popular</h3>
+    <section style="display: flex; justify-content: center; align-items: center;"> 
             <div style="width: 90%;">     
                 <div class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-dark slider-nav-outside-expand">
                     <ul class="slider-container py-4" id="slider2">
                         <% const shuffledPopularProducts = data.slice().sort(() => Math.random() - 0.5).slice(0, 10);  %> 
                         <% shuffledPopularProducts.map((popularProduct) => { %>       
                         <li>
-                            <a href="product/detail/<%= popularProduct.id %>" style="text-decoration: none; text-align: start;">
+                            <a href="product/detail/<%=popularProduct.id%>" style="text-decoration: none; text-align: start;">
                                 <div class="card shadow h-100">
                                     <div class="ratio ratio-1x1">
-                                        <img src="<%= popularProduct.image %>" class="card-img-top" loading="lazy" alt="...">
+                                        <img src="<%= popularProduct.ImagePrincipal %>" class="card-img-top" loading="lazy" alt="...">
                                     </div>
                                     <div class="card-body d-flex flex-column flex-md-row">
                                         <div>
-                                            <div class="title-interes text-interes"><%= popularProduct.title %></div>
-                                            <div class="text-interes">$<%= popularProduct.price %></div>
+                                            <div class="title-interes text-interes"><%= popularProduct.Name %></div>
+                                            <div class="text-interes">$<%= popularProduct.Price %></div>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                     <button type="button" class="slider-nav slider-nav-next" aria-label="ir al siguiente"></button>
                 </div>
             </div>  
-        </section>
+    </section>
 
 
         <!--BANNER -->
@@ -117,19 +117,19 @@
         <div class="contain-interes">
             <div class="row row-interes">
             <div class="col-12 col-sm-4 img-interes" style="background-image: url(/img/imagenes-home/prop1.jpg);">
-                <a href="/product/category/genero/Hombre" style="text-decoration: none; margin: 30px;">
+                <a href="/product/category/genero/1" style="text-decoration: none; margin: 30px;">
                     <div class="title-interes text-interes">HOMBRE</div>
                     <div class="text-interes">Ver categoría</div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 img-interes" style="background-image: url(/img/imagenes-home/prop2.jpg);">
-                <a href="/product/category/genero/Mujer" style="text-decoration: none; margin: 30px;">
+                <a href="/product/category/genero/2" style="text-decoration: none; margin: 30px;">
                     <div class="title-interes text-interes">MUJER</div>
                     <div class="text-interes">Ver categoría</div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 img-interes" style="background-image: url(/img/imagenes-home/prop3.jpg);">
-                <a href="/product/category/Calzado" style="text-decoration: none; margin: 30px;">
+                <a href="/product/category/1" style="text-decoration: none; margin: 30px;">
                     <div class="title-interes text-interes">CALZADO</div>
                     <div class="text-interes">Ver categoría</div>
                 </a>
@@ -137,7 +137,7 @@
             </div>
         </div>
         
-    </main>
+</main>
     
     <!-- FOOTER -->
     <%- include ("./partials/footer") %>

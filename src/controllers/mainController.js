@@ -1,13 +1,14 @@
 const path = require('path');
 const dataBase = require('../dataBase/productList.json')
+const db =require ("../dataBase/models")
 
 const mainController = {
 
     home: (req, res) => {
-        const { results } = dataBase;
         const id = req.session.id;
-    
-        res.render('home.ejs', { data: results, id });
+        db.Product.findAll()
+        .then((data) => {
+        return res.render("home", {data, id});})
     },
     
     carrito: (req, res) => {

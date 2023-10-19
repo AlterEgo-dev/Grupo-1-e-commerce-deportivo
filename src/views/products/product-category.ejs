@@ -24,13 +24,13 @@
     <% for (const products of result) { %>
     <div class="col-12 col-md-3 col-category">
         <a href="/product/detail/<%=products.id%>" class="card-category">
-            <img class="img-category" src="<%=products.image%>" alt="">
+            <img class="img-category" src="<%=products.ImagePrincipal%>" alt="">
             <div class="text-category">
                 <div class="title-category" style="text-decoration: none;">
-                    <%=products.title%>
+                    <%=products.Name%>
                 </div>
                 <div class="price-category ">
-                    $<%=products.price%>
+                    $<%=products.Price%>
                 </div>
             </div>
         </a>

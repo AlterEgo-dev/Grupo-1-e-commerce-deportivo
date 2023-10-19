@@ -3,6 +3,7 @@ const fs = require('fs');
 const dataBase = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
 const {results} = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
 const db = require('../dataBase/models'); //este hay que usar para usar la base de datos
+const { Op } = require('sequelize');//para utilizar los operadores de sequalize (ej:like,etc)
 const multer = require('multer');
 const { log } = require('console');
 
@@ -26,6 +27,11 @@ const productController = {
     const { results } = dataBase;
     const product = results.find((prod) => prod.id === id);
     res.render('detalle-producto.ejs', { product, products: results });
+    /* productDetail: (req, res) => {
+    db.Product.findByPk(req.params.id)
+    .then((product)=>{
+      res.render('detalle-producto.ejs', {product});      
+    })*/
   },
 
   productAdminList: (req, res) => {
@@ -195,27 +201,41 @@ const productController = {
     res.redirect(`/product/product-edit/${id}`);
   },
   genero: (req, res) => {
-    const selectedGenero = req.params.genero;
-    const { results } = dataBase;
-    const result = results.filter((e)=>{
-      return e.genero == selectedGenero
+    const generoId = req.params.genero;
+    db.Product.findAll({
+        where: {
+            Gender_id: generoId
+        }
     })
-    res.render("product-category.ejs", { result })
+    .then((result) => {
+        return res.render("product-category.ejs", { result });
+    })
   },
+  //Buscar por genero
   category: (req, res) => {
-    const selectedCategory = req.params.category;
-    const { results } = dataBase;
-    const result = results.filter((e)=>{
-      return e.category == selectedCategory
+    const categoryId = req.params.category;
+    db.Product.findAll({
+        where: {
+          Categories_Id: categoryId
+        }
     })
-    res.render("product-category.ejs", { result })
+    .then((result) => {
+        return res.render("product-category.ejs", { result });
+    })
   },
+  //Buscar por categoría
   search: (req, res) =>{
-    const busqueda = req.query.search
-    const arrBusqueda = results.filter((e)=>{ 
-      return e.title.includes(busqueda)})
-    res.render('product-search.ejs', { arrBusqueda })
+    const busqueda = req.query.search;
+    db.Product.findAll({
+        where: {
+          Name: { [Op.like]: `%${busqueda}%` },
+        }
+    })
+    .then((arrBusqueda) => {
+      return res.render("product-search", { arrBusqueda })
+    })
   }
+  //Buscador del navBar
 };
 
 const upload = multer({ storage: storage });
