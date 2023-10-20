@@ -27,7 +27,7 @@ router.put('/product-edit/:id', authSession, upload.fields([{ name: 'image', max
 /*** CREAR UN PRODUCTO ***/
 
 router.get('/product-create', adminSession, productController.productCreate);
-router.post('/product-create', authSession, upload.single('image'), productController.productCreatePush);
+router.post('/product-create', authSession, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]), productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);

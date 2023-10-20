@@ -9,7 +9,7 @@ const { log } = require('console');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../../public/img/productos'));
+    cb(null, path.join(__dirname, '../../public/img/productos')); 
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -47,37 +47,42 @@ const productController = {
 
   productCreatePush: async (req, res) => {
     const { title, gender, description, price, category, sizes, cuidados } = req.body;
-    const image = req.file ? `/img/productos/${req.file.filename}` : 'sin-foto.png';
 
-    console.log(req.body)
-  
+    //IMAGE PRINCIPAL
+
+    const image1 = req.files['image1'][0]; // SOLO TRAE LA POSICIÓN 0
+    const image1String = image1 ? `/img/productos/${image1.filename}` : 'sin-foto.png';
+
+    // SUBIDA DE IMAGE DETAIL
+
+    const imageDetailFiles = req.files['imageDetail'];
+    
+    let imageDetailString = 'sin-foto.png';
+    
+      if (imageDetailFiles.length > 0) {
+           imageDetailString = imageDetailFiles.map(file => `/img/productos/${file.filename}`).join(', ');
+       } // UN MAP QUE NOS MUESTRE LOS FILES Y AL FINAL UN JOIN PARA CONVERTIRLO EN STRING
+
+    const sizesString = sizes.join(', ');
+
     try {
-    await db.Product.create({
-        Name: title,
-        Description: description,
-        Price: price,
-        ImagePrincipal: image,
-        Image1: '',
-        Image2: '',
-        Image3: '',
-        OtherProperties: cuidados,
-        Categories_Id: category,
-        Gender_id: gender,
-        Sizes: sizes,
-      });
-      
-      for (const size of sizes) {
-        await db.Size_Product.create({
-          Size_Id: size,
-          Product_Id: 3, // TA HARDCODEADO
+        await db.Product.create({
+            Name: title,
+            Description: description,
+            Price: price,
+            Image1: image1String,
+            ImageDetail: imageDetailString,
+            Care: cuidados,
+            Category: category,
+            Gender: gender,
+            Size: sizesString,
         });
-      } 
-  
-      res.redirect('/product/product-admin');
+
+        res.redirect('/product/product-admin');
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
-  },
+},
   /** RENDERIZACION DE LA VISTA  */
   
   productEditForm: (req, res) => {
