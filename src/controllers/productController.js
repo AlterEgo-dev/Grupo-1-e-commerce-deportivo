@@ -52,7 +52,7 @@ const productController = {
     console.log(req.body)
   
     try {
-     await db.Product.create({
+    await db.Product.create({
         Name: title,
         Description: description,
         Price: price,
@@ -65,7 +65,7 @@ const productController = {
         Gender_id: gender,
         Sizes: sizes,
       });
-     
+      
       for (const size of sizes) {
         await db.Size_Product.create({
           Size_Id: size,

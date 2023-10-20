@@ -15,6 +15,26 @@ CREATE SCHEMA IF NOT EXISTS `sportify_db` DEFAULT CHARACTER SET utf8 ;
 USE `sportify_db` ;
 
 -- -----------------------------------------------------
+-- Table `sportify_db`.`Products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sportify_db`.`Products` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(150) NOT NULL,
+  `Description` VARCHAR(45) NOT NULL,
+  `Price` DECIMAL(20,2) NOT NULL,
+  `Image1` VARCHAR(150) NULL,
+  `Image2` VARCHAR(150) NULL,
+  `image3` VARCHAR(150) NULL,
+  `Image4` VARCHAR(150) NULL,
+  `Care` VARCHAR(1000) NULL,
+  `Category` VARCHAR(150) NOT NULL,
+  `Gender` VARCHAR(150) NOT NULL,
+  `Size` VARCHAR(300) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `sportify_db`.`Users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sportify_db`.`Users` (
@@ -25,94 +45,7 @@ CREATE TABLE IF NOT EXISTS `sportify_db`.`Users` (
   `Avatar` VARCHAR(150) NULL,
   `Role` VARCHAR(45) NOT NULL,
   `CreatedAt` TIMESTAMP NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportify_db`.`Categories`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportify_db`.`Categories` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `Category` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`Id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportify_db`.`Genders`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportify_db`.`Genders` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `Gender` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportify_db`.`Products`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportify_db`.`Products` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(150) NOT NULL,
-  `Description` VARCHAR(1000) NOT NULL,
-  `Price` DECIMAL(20,2) NOT NULL,
-  `ImagePrincipal` VARCHAR(150) NOT NULL,
-  `Image1` VARCHAR(150) NULL,
-  `Image2` VARCHAR(150) NULL,
-  `Image3` VARCHAR(150) NULL,
-  `OtherProperties` VARCHAR(1000) NULL,
-  `Categories_Id` INT NOT NULL,
-  `Gender_id` INT NOT NULL,
-  PRIMARY KEY (`Id`),
-  INDEX `fk_Products_Categories1_idx` (`Categories_Id` ASC),
-  INDEX `fk_Products_Genders2_idx` (`Gender_id` ASC),
-  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
-  CONSTRAINT `fk_Products_Categories1`
-    FOREIGN KEY (`Categories_Id`)
-    REFERENCES `sportify_db`.`Categories` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Products_Genders2`
-    FOREIGN KEY (`Gender_id`)
-    REFERENCES `sportify_db`.`Genders` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportify_db`.`Sizes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportify_db`.`Sizes` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `Size` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Id`),
-  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportify_db`.`Sizes_has_Products`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportify_db`.`Sizes_has_Products` (
-  `Size_Id` INT NOT NULL,
-  `Product_Id` INT NOT NULL,
-  PRIMARY KEY (`Size_Id`, `Product_Id`),
-  INDEX `fk_Sizes_has_Products_Products1_idx` (`Product_Id` ASC),
-  INDEX `fk_Sizes_has_Products_Sizes1_idx` (`Size_Id` ASC),
-  CONSTRAINT `fk_Sizes_has_Products_Sizes1`
-    FOREIGN KEY (`Size_Id`)
-    REFERENCES `sportify_db`.`Sizes` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Sizes_has_Products_Products1`
-    FOREIGN KEY (`Product_Id`)
-    REFERENCES `sportify_db`.`Products` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
