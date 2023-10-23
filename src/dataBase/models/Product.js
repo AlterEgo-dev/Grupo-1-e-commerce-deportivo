@@ -19,34 +19,29 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.DECIMAL(20,2),
             allowNull: true
         },
-        ImagePrincipal:{
-            type: DataTypes.STRING(150),
+        Image1:{
+            type: DataTypes.STRING(200),
             allowNull: false
         },
-        Image1:{
+        ImageDetail:{
+            type: DataTypes.STRING(200),
+            allowNull: true
+        },
+        Care:{
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        Image2:{
-            type: DataTypes.STRING(150),
-            allowNull: true
-        },
-        Image3:{
-            type: DataTypes.STRING(150),
-            allowNull: true
-        },
-        OtherProperties:{
-            type: DataTypes.STRING(150),
-            allowNull: true
-        },
-        Categories_Id:{
+        Category:{
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: true,
         },
-        Gender_id:{
-            type: DataTypes.INTEGER,
-            primaryKey: true,
+        Gender:{
+            type: DataTypes.STRING(150),
+            allowNull: false,
+        },
+        Size:{
+            type: DataTypes.STRING(500),
             allowNull: false,
         }
     };
@@ -56,29 +51,6 @@ module.exports = (sequelize, DataTypes) =>{
     }
 
     const Product = sequelize.define(alias, cols, config)
-
-    Product.associate = function (models) {
-
-        Product.belongsToMany(models.Size, {
-            as: "Sizes",
-            through: "sizes_has_products", 
-            foreignKey: 'Product_Id',
-            otherKey: "Size_Id"
-        })
-    },
-    Product.associate = function (models) {
-        Product.belongsTo(models.Gender,{
-            as: "Genders",
-            foreignKey: "Gender_id",
-        })
-    },
-    Product.associate = function (models) {
-        Product.belongsTo(models.Category,{
-            as: "Category",
-            foreignKey: "Categories_Id",
-        })
-    }
-
-    
+   
     return Product;
 }
