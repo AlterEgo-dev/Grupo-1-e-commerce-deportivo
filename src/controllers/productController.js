@@ -80,11 +80,21 @@ const productController = {
   },
   /** RENDERIZACION DE LA VISTA  */
   
-  productEditForm: (req, res) => {
+  productEditForm: async(req, res) => {
     const { id } = req.params;
-    const { results } = dataBase;
-    const product = results.find((prod) => prod.id === id);
-    res.render('product-edit.ejs', { product, products: results });
+    try{
+      const producto = await db.Product.findOne({
+        where: {id},
+      })
+      if(producto){
+      res.render('product-edit.ejs', { producto });
+    } else {
+      res.status(404).redirect('error-404')
+    }
+    } catch(error) {
+      console.log(error)
+    }
+    
   },
 
   /** BORRAR LA IMAGEN DE UN PRODUCTO */
@@ -106,25 +116,51 @@ const productController = {
 
   /** EDICIÓN DE PRODUCTO / ACTUALIZAR IMG PRINCIPAL */
 
-  saveEditedProduct: 
-    (req, res) => {
+  saveEditedProduct: async (req, res) => {
       const { id } = req.params;
-      const { title, precio, sizes, category, descripcion, Cuidados } = req.body;
-      const { results } = dataBase;
+      const { title, gender, description, price, category, sizes, cuidados } = req.body;
   
-      const product = results.find((prod) => prod.id === id);
+      try {
+        await db.Product.update({
+           Name: title,
+           Description: description,
+           Price: price,
+           /* ImagePrincipal: image, */
+           /* Image1: '',
+           Image2: '',
+           Image3: '', */
+           OtherProperties: cuidados,
+           /* Categories_Id: category,
+           Gender_id: gender, */
+          /*  Sizes: sizes, */
+         },{
+          where:{id}
+         });
+        
+         /* for (const size of sizes) {
+           await db.Size_Product.update({
+             Size_Id: size,
+             Product_Id: 3, // TA HARDCODEADO
+           });
+         }  */
+     
+         res.redirect('/product/product-edit/' + id);
+       } catch (error) {
+         console.error(error);
+       }
+      /* const product = results.find((prod) => prod.id === id);
       if (product) {
         product.title = title || product.title;
         product.price = precio || product.price;
-
+ */
         /** ACA FILTRA EL ARRAY DE TALLES */
   
-        if (Array.isArray(sizes)) {
+        /* if (Array.isArray(sizes)) {
           product.sizes = sizes.filter(size => size !== '');
-
+ */
         /** EN CASO DE NO HABER OPCION, RELLENA CON ESPACIO VACIO PARA QUE ACTUE EL ELSE IF DEL DETALLE DE PRODUCTO */
 
-        } else {
+       /*  } else {
           product.sizes = sizes ? [sizes] : [];
         }
   
@@ -153,7 +189,7 @@ const productController = {
         res.redirect(`/product/detail/${id}`);
       } else {
         res.status(404).send('Producto no encontrado');
-      }
+      } */
     },
   
   

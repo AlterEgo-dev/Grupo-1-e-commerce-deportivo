@@ -23,15 +23,16 @@
     <div class="caja-grande" >
         <div class="box-form">
           <div class="title-form">FORMULARIO DE EDICIÓN</div>
-            <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario" style="width: 100%;" enctype="multipart/form-data">
+           /* Categories_Id: category,
+            <form action="/product/product-edit/<%= producto.Id %>" method="post" class="formulario" style="width: 100%;" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
     
                 <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
-                <input type="text" name="title" value="<%= product.title %>"  class="input-form">
+                <input type="text" name="title" value="<%= producto.Name %>"  class="input-form">
               
                 <label for="" class="label-form">CATEGORÍA</label>
                     <div>
-                        <% if (product.category === "Calzado") { %>
+                        <% if (producto.Categories_Id === 1) { %>
                         <label for="cat-calzado" class="form-radio">
                         <input type="radio" name="category" value="Calzado" id="cat-calzado" checked> Calzado </label>
                         <% } else { %>
@@ -41,10 +42,10 @@
                     </div>
 
                     <label for="sizes" class="label-form">TALLES</label>
-                    <% if (product.category === "Calzado") { %>
+                    <% if (producto.Categories_Id === 1) { %>
                         <div class="form-check">
                             <% for (let i = 35; i < 47; i++) { %>
-                                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(i.toString()) ? "checked" : ""; %>
+                                <% let isChecked = Array.isArray(producto.Sizes) && producto.Sizes.includes(i.toString()) ? "checked" : ""; %>
                                 <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
                             <% } %>
                         </div>
@@ -52,14 +53,14 @@
                         <div class="form-check">
                             <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
                             <% for (let w = 0; w < tallesLetras.length; w++) { %>
-                                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
+                                <% let isChecked = Array.isArray(producto.Sizes) && producto.Sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
                                 <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
                             <% } %>
                         </div>
                     <% } %>
                     
                     <label for="img" class="label-form">IMAGEN PRINCIPAL</label>
-                    <img class="imagenprinc" src="<%= product.image %>" alt="">
+                    <img class="imagenprinc" src="<%= producto.ImagePrincipal %>" alt="">
                     <label for="newImage" class="label-form">Actualizar Imagen Principal</label>
                     <div class="label-inpu">
                         <p>Subir imagen</p>
@@ -73,13 +74,13 @@
                     </div>
                     
                     <label for="price" class="label-form">PRECIO</label>
-                    <input type="text" name="precio" value="<%= product.price %>" class="input-form">
+                    <input type="text" name="price" value="<%= producto.Price %>" class="input-form">
                     
                     <label for="description" class="label-form">DESCRIPCIÓN</label>
-                    <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." class="input-form" style="height:90px;"><%= product.description %></textarea>
+                    <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." class="input-form" style="height:90px;"><%= producto.Description %></textarea>
                     
                     <label for="cuidados" class="label-form">CUIDADOS</label>
-                    <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." class="input-form" style="height:90px;"><%= product.cuidados %></textarea>
+                    <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." class="input-form" style="height:90px;"><%= producto.OtherProperties %></textarea>
 
                     <div class="div-button-edit">
                         <button type="submit" class="button-form">EDITAR PRODUCTO</button>
@@ -88,89 +89,18 @@
             </form>
 
                 
-            <form method="POST" action="/product/product-edit/<%= product.id %>?_method=DELETE" class="formulario" style="width: 100%;">
+            <form method="POST" action="/product/product-edit/<%= producto.Id %>?_method=DELETE" class="formulario" style="width: 100%;">
                 <div class="div-button-edit">
                     <button type="submit" class="button-form" >ELIMINAR PRODUCTO</button>
                 </div>
             </form>
 
-            <label for="img" class="label-form">IMÁGENES DE DETALLE</label>
-                    <div class="image-detail-container">
-                        <% product.imageDetail.forEach((imagePath, index) => { %>
-                            <div class="image-item">
-                                <img class="imagenprinc" src="<%= imagePath %>" alt="Detalle del producto">
-                                <form action="/product/product-edit/<%= product.id %>/delete-image/<%= index %>?_method=DELETE" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="button-form">Eliminar</button>
-                                </form>
-                            </div>
-                         <% }) %>
-                        </div>
-        </div>       
+                   </div>       
     </div>
                 
                 
 
 
-
-<!--
-
-
-    <form action="/product/product-edit/<%= product.id %>?_method=PUT" method="post" class="formulario">
-    <input type="hidden" name="_method" value="PUT">
-    <div class="nombre">
-        <label for="title">Nombre del producto: </label>
-        <input type="text" name="title" value="<%= product.title %>">
-    </div>
-    <label for="">Categoria:</label>
-    <div class="cate">
-        <% if (product.category === "Calzado") { %>
-            <label><input type="radio" name="category" value="Calzado" checked> Calzado</label>
-        <% } else { %>
-            <label><input type="radio" name="category" value="Indumentaria" checked> Indumentaria</label>
-        <% } %>
-    </div>
-    <label for="talles">talles:</label>
-    <% if (product.category === "Calzado") { %>
-        <div class="talles">
-            <% for (let i = 35; i < 47; i++) { %>
-                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(i.toString()) ? "checked" : ""; %>
-                <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
-            <% } %>
-        </div>
-    <% } else { %>
-        <div class="talles">
-            <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
-            <% for (let w = 0; w < tallesLetras.length; w++) { %>
-                <% let isChecked = Array.isArray(product.sizes) && product.sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
-                <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
-            <% } %>
-        </div>
-    <% } %>
-
-    <label for="img">imagenes:</label>
-    <img class="imagenprinc" src="<%= product.image %>" alt="">
-    <div class="precio">
-        <label for="price">Precio: </label>
-        <input type="text" name="precio" value="<%= product.price %>" name="precio">
-    </div>
-    <div class="textT">
-        <div class="descYCuid">
-            <label for="descripcion">Descripcion:</label>
-            <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Escriba una descripcion de producto..." name="descripcion"><%= product.description %></textarea>
-        </div>
-        <div class="descYCuid">
-            <label for="cuidados">Cuidados:</label>
-            <textarea name="Cuidados" id="" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." name="Cuidados"><%= product.cuidados %></textarea>
-        </div>
-    </div>
-    <button type="submit" class="boton-prod">Subir producto</button>
-</form>
-<form method="POST" action="/product/product-edit/<%= product.id %>?_method=DELETE" class="formulario">
-    <button type="submit" class="boton-elim">Eliminar producto</button>
-</form>
-
--->
 
 
     <%- include ("../partials/footer") %>

@@ -22,7 +22,7 @@ router.get("/category/genero/:genero", productController.genero)
 /*** EDITAR PRODUCTO ***/
 
 router.get('/product-edit/:id', adminSession, productController.productEditForm);
-router.put('/product-edit/:id', authSession, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]), productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
+router.post('/product-edit/:id', authSession, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]), productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
 
 /*** CREAR UN PRODUCTO ***/
 
