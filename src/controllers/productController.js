@@ -242,10 +242,10 @@ const productController = {
     res.redirect(`/product/product-edit/${id}`);
   },
   genero: (req, res) => {
-    const generoId = req.params.genero;
+    const generoSelect = req.params.genero;
     db.Product.findAll({
         where: {
-            Gender: generoId
+            Gender: generoSelect
         }
     })
     .then((result) => {
