@@ -61,9 +61,15 @@ const userController = {
                 userToRender.img = req.file.filename;
             } 
     
-            const randomIndex = Math.floor(Math.random() * results.length);
-            const products = results[randomIndex];
-    
+            // Obtener la cantidad total de productos
+            const count = await db.Product.count();
+
+            // Calcular un índice aleatorio
+            const randomIndex = Math.floor(Math.random() * count);
+
+            // Buscar el producto correspondiente al índice aleatorio
+            const products = await db.Product.findOne({ offset: randomIndex });
+            
             res.render('perfil.ejs', { user: userToRender, products, userId: id });
         } catch (error) {
             console.error(error);
