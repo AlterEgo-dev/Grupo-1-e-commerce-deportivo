@@ -27,7 +27,8 @@ const productController = {
     .then((products) => {
       db.Product.findByPk(req.params.id) // Espera a que se resuelva la promesa
         .then((product) => {
-          res.render('detalle-producto.ejs', { products, product });
+          let sizes = product.Size.split(",");
+          res.render('detalle-producto.ejs', { products, product, sizes });
         })
       })   
   },

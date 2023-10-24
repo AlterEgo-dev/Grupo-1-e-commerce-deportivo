@@ -70,33 +70,24 @@
             <form class="talles-form">
               <h3>Talles</h3>
               <div class="talles-radio">
-                <% if (Array.isArray(product.Sizes)) { %>
-                  <% if (product.Size.length===1) { %>
+                
+                  <% if (sizes.length===1) { %>
                     <input type="radio" class="btn-check" name="talles" autocomplete="off"
-                      value="<%= product.Size[0] %>" id="<%= product.Size[0] %>" checked />
-                    <label class="btn btn-outline-dark btn-radio" for="<%= product.Size[0] %>">
-                      <%= product.Size[0] %>
+                      value="<%= sizes[0] %>" id="<%= sizes[0] %>" checked />
+                    <label class="btn btn-outline-dark btn-radio" for="<%= sizes[0] %>">
+                      <%= sizes[0] %>
                     </label>
-                    <% } else if (product.Size.length> 1) { %>
-                      <% product.Size.forEach((size, index)=> { %>
+                  <% } else if (sizes.length> 1) { %>
+                      <% sizes.forEach((size, index)=> { %>
                         <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
                           id="<%= size %>" />
                         <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
                           <%= size %>
                         </label>
-                        <% }) %>
-                          <% } else { %>
+                      <% }) %>
+                        <% } else { %>
                             <p>No hay talles disponibles.</p>
-                            <% } %>
-                              <% } else if (typeof product.Size==='string' ) { %>
-                                <input type="radio" class="btn-check" name="talles" autocomplete="off"
-                                  value="<%= product.Size %>" id="<%= product.Size %>" checked /><label
-                                  class="btn btn-outline-dark btn-radio" for="<%= product.Size %>">
-                                  <%= product.Size %>
-                                </label>
-                                <% } else { %>
-                                  <p>No hay talles disponibles.</p>
-                                  <% } %>
+                        <% } %>
               </div>
             </form>
           </div>
