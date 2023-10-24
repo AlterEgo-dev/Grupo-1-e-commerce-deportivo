@@ -245,7 +245,7 @@ const productController = {
     const generoId = req.params.genero;
     db.Product.findAll({
         where: {
-            Gender_id: generoId
+            Gender: generoId
         }
     })
     .then((result) => {
@@ -257,7 +257,7 @@ const productController = {
     const categoryId = req.params.category;
     db.Product.findAll({
         where: {
-          Categories_Id: categoryId
+          Category: categoryId
         }
     })
     .then((result) => {
