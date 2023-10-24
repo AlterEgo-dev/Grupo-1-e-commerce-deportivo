@@ -23,15 +23,13 @@ const storage = multer.diskStorage({
 
 const productController = {
   productDetail: (req, res) => {
-    const { id } = req.params;
-    const { results } = dataBase;
-    const product = results.find((prod) => prod.id === id);
-    res.render('detalle-producto.ejs', { product, products: results });
-    /* productDetail: (req, res) => {
-    db.Product.findByPk(req.params.id)
-    .then((product)=>{
-      res.render('detalle-producto.ejs', {product});      
-    })*/
+    db.Product.findAll()
+    .then((products) => {
+      db.Product.findByPk(req.params.id) // Espera a que se resuelva la promesa
+        .then((product) => {
+          res.render('detalle-producto.ejs', { products, product });
+        })
+      })   
   },
 
   productAdminList: (req, res) => {

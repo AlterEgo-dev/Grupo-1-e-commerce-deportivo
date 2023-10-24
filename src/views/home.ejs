@@ -51,7 +51,7 @@
                     <ul class="slider-container py-4" id="slider2">
                     <% for (const results of data) { %>       
                     <li>
-                    <a href="product/detail/<%=results.id%>" style="text-decoration: none; text-align: start;">
+                    <a href="product/detail/<%=results.Id%>" style="text-decoration: none; text-align: start;">
                             <div class="card shadow h-100">
                                 <div class="ratio ratio-1x1">
                                 <img src="<%= results.Image1 %>" class="card-img-top" loading="lazy" alt="...">
@@ -82,7 +82,7 @@
                         <% const shuffledPopularProducts = data.slice().sort(() => Math.random() - 0.5).slice(0, 10);  %> 
                         <% shuffledPopularProducts.map((popularProduct) => { %>       
                         <li>
-                            <a href="product/detail/<%=popularProduct.id%>" style="text-decoration: none; text-align: start;">
+                            <a href="product/detail/<%=popularProduct.Id%>" style="text-decoration: none; text-align: start;">
                                 <div class="card shadow h-100">
                                     <div class="ratio ratio-1x1">
                                         <img src="<%= popularProduct.Image1 %>" class="card-img-top" loading="lazy" alt="...">

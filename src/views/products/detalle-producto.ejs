@@ -33,9 +33,9 @@
                 aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-              <% product.imageDetail.forEach((product, index)=> { %>
+              <% product.ImageDetail.split(",").forEach((image, index)=> { %>
                 <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                  <img src="<%= product %>" class="" alt="Zapatillas <%= index + 1 %>" />
+                  <img src="<%= image %>" class="" alt="Zapatillas <%= index + 1 %>" />
                 </div>
                 <% }) %>
             </div>
@@ -55,13 +55,13 @@
         <!-- Nombre precio y talles -->
         <article class="detalles">
           <h2>
-            <%= product.title %>
+            <%= product.Name %>
           </h2>
           <div class="precio-container">
-            <h3 class="precio">$ <%= product.price %>
+            <h3 class="precio">$ <%= product.Price %>
             </h3>
             <h4 class="descuento">10%OFF</h4>
-            <p id="id">ID: <%= product.id %>
+            <p id="id">ID: <%= product.Id %>
             </p>
           </div>
 
@@ -70,15 +70,15 @@
             <form class="talles-form">
               <h3>Talles</h3>
               <div class="talles-radio">
-                <% if (Array.isArray(product.sizes)) { %>
-                  <% if (product.sizes.length===1) { %>
+                <% if (Array.isArray(product.Sizes)) { %>
+                  <% if (product.Size.length===1) { %>
                     <input type="radio" class="btn-check" name="talles" autocomplete="off"
-                      value="<%= product.sizes[0] %>" id="<%= product.sizes[0] %>" checked />
-                    <label class="btn btn-outline-dark btn-radio" for="<%= product.sizes[0] %>">
-                      <%= product.sizes[0] %>
+                      value="<%= product.Size[0] %>" id="<%= product.Size[0] %>" checked />
+                    <label class="btn btn-outline-dark btn-radio" for="<%= product.Size[0] %>">
+                      <%= product.Size[0] %>
                     </label>
-                    <% } else if (product.sizes.length> 1) { %>
-                      <% product.sizes.forEach((size, index)=> { %>
+                    <% } else if (product.Size.length> 1) { %>
+                      <% product.Size.forEach((size, index)=> { %>
                         <input type="radio" class="btn-check" name="talles" autocomplete="off" value="<%= size %>"
                           id="<%= size %>" />
                         <label class="btn btn-outline-dark btn-radio" for="<%= size %>">
@@ -88,11 +88,11 @@
                           <% } else { %>
                             <p>No hay talles disponibles.</p>
                             <% } %>
-                              <% } else if (typeof product.sizes==='string' ) { %>
+                              <% } else if (typeof product.Size==='string' ) { %>
                                 <input type="radio" class="btn-check" name="talles" autocomplete="off"
-                                  value="<%= product.sizes %>" id="<%= product.sizes %>" checked /><label
-                                  class="btn btn-outline-dark btn-radio" for="<%= product.sizes %>">
-                                  <%= product.sizes %>
+                                  value="<%= product.Size %>" id="<%= product.Size %>" checked /><label
+                                  class="btn btn-outline-dark btn-radio" for="<%= product.Size %>">
+                                  <%= product.Size %>
                                 </label>
                                 <% } else { %>
                                   <p>No hay talles disponibles.</p>
@@ -121,9 +121,9 @@
                   </div>
                   <div class="modal-body">
                     <h2>Descripcion</h2>
-                    <p></p>
+                    <p><%=product.Description%></p>
                     <h2>Cuidados</h2>
-                    <p></p>
+                    <p><%=product.Care%></p>
                   </div>
                   <div class="modal-footer"></div>
                 </div>
@@ -284,7 +284,7 @@
               </div>
             </div>
           </div>
-          <a href="/carrito/<%= product.id %>">
+          <a href="/carrito/<%= product.Id %>">
             <button type="button" class="btn btn-carrito">
               Agregar al carrito
             </button>
