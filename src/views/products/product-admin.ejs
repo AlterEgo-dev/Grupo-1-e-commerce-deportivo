@@ -25,19 +25,19 @@
 
     <div class="caja-contenedora-productos">
     <% data.map((results) => { %>
-        <a class="caja-product-a" href="/product/product-edit/<%= results.id %>">
-        <div class="caja-product" href="/product/product-edit/<%= results.id %>">
+        <a class="caja-product-a" href="/product/product-edit/<%= results.Id %>">
+        <div class="caja-product" href="/product/product-edit/<%= results.Id %>">
                 <div class="img-product">
-                    <img src="<%= results.image %>">
+                    <img src="<%= results.Image1 %>">
                 </div>
                 <div class="title-product">
-                    <%= results.title %>
+                    <%= results.Name %>
                 </div>
                 <div class="price-product">
-                    <%= results.price %>
+                    <%= results.Price %>
                 </div>
                 <div class="id-product">
-                    <%= results.id %>
+                    <%= results.Id %>
                 </div>
             </div>
         </a>

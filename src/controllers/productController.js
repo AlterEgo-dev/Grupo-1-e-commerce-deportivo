@@ -33,9 +33,13 @@ const productController = {
       })   
   },
 
-  productAdminList: (req, res) => {
-    const { results } = dataBase;
-    res.render('product-admin.ejs', { data: results });
+  productAdminList: async (req, res) => {
+    try{
+        const data = await db.Product.findAll()
+        return res.render('product-admin.ejs', {data})
+      }catch(error){
+        res.status(404).redirect('error-404');
+      }
   },
 
   productCreate: (req, res) => {
@@ -91,6 +95,7 @@ const productController = {
         where: {id},
       })
       if(producto){
+
       res.render('product-edit.ejs', { producto });
     } else {
       res.status(404).redirect('error-404')
@@ -123,77 +128,34 @@ const productController = {
   saveEditedProduct: async (req, res) => {
       const { id } = req.params;
       const { title, gender, description, price, category, sizes, cuidados } = req.body;
-  
+      const image1 = req.files.image[0].filename; // SOLO TRAE LA POSICIÓN 0
+      const imageDetail = req.files.imageDetail;
+
+     
+      const imagenes = imageDetail.map(function(imagen){
+        return "/img/productos/" + imagen.filename;
+      })
+
+      const imageDetailString = imagenes.join(', ')
+
       try {
         await db.Product.update({
-           Name: title,
-           Description: description,
-           Price: price,
-           /* ImagePrincipal: image, */
-           /* Image1: '',
-           Image2: '',
-           Image3: '', */
-           OtherProperties: cuidados,
-           /* Categories_Id: category,
-           Gender_id: gender, */
-          /*  Sizes: sizes, */
+          Name: title,
+          Description: description,
+          Price: price,
+          Image1: "/img/productos/" + image1,
+          ImageDetail: imageDetailString,
+          Care: cuidados,
+          Category: category,
+          Gender: gender,
+          Sizes: sizes
          },{
           where:{id}
          });
-        
-         /* for (const size of sizes) {
-           await db.Size_Product.update({
-             Size_Id: size,
-             Product_Id: 3, // TA HARDCODEADO
-           });
-         }  */
-     
-         res.redirect('/product/product-edit/' + id);
+         res.redirect('/product/detail/' + id);
        } catch (error) {
          console.error(error);
        }
-      /* const product = results.find((prod) => prod.id === id);
-      if (product) {
-        product.title = title || product.title;
-        product.price = precio || product.price;
- */
-        /** ACA FILTRA EL ARRAY DE TALLES */
-  
-        /* if (Array.isArray(sizes)) {
-          product.sizes = sizes.filter(size => size !== '');
- */
-        /** EN CASO DE NO HABER OPCION, RELLENA CON ESPACIO VACIO PARA QUE ACTUE EL ELSE IF DEL DETALLE DE PRODUCTO */
-
-       /*  } else {
-          product.sizes = sizes ? [sizes] : [];
-        }
-  
-        product.category = category || product.category;
-        product.description = descripcion || product.description;
-        product.cuidados = Cuidados || product.cuidados;
-  
-        if (req.files['image']) {
-          if (product.image) {
-            const oldImagePath = path.join(__dirname, '../../public', product.image);
-            fs.unlinkSync(oldImagePath);
-          }
-          product.image = '/img/productos/' + req.files['image'][0].filename;
-        }
-  
-        if (req.files['imageDetail']) {
-          const newImages = req.files['imageDetail'].map(
-            (file) => '/img/productos/' + file.filename
-          );
-          product.imageDetail = product.imageDetail.concat(newImages);
-        }
-  
-        const filePath = path.join(__dirname, '../dataBase/productList.json');
-        fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2));
-  
-        res.redirect(`/product/detail/${id}`);
-      } else {
-        res.status(404).send('Producto no encontrado');
-      } */
     },
   
   
@@ -201,24 +163,13 @@ const productController = {
   /** BORRAR UN PRODUCTO */
 
   deleteProduct: async (req,res) => {
-    await db.Product.destroy({ where: { id: req.params.id }});
-    res.redirect('/product/product-admin'); 
+    try{
+      await db.Product.destroy({ where: { id: req.params.id }});
+      res.redirect('/product/product-admin'); 
+    }catch(error){
+      res.status(404).redirect('error-404');
+    }
   },
-  
-
-  //  deleteProduct: (req, res) => {
-  //   const idProd = req.params.id; 
-  //   const ind = dataBase.results.findIndex(product => product.id === idProd);
-
-  //   if (ind !== -1) {
-  //       dataBase.results.splice(ind, 1);
-  //       const dbFilePath = path.join(__dirname, '../dataBase/productList.json');
-  //       fs.writeFileSync(dbFilePath, JSON.stringify(dataBase, null, 4));
-  //   }
-
-  //   res.redirect('/product/product-admin'); 
-  // },
-
 
   /** BORRAR LAS IMAGENES DE DETALLE  */
   
