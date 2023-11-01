@@ -6,7 +6,7 @@ const sequelize = require('sequelize');
 const validacionesRegistro = [
     body('username').notEmpty().withMessage('El nombre es obligatorio').bail(),
     body('userEmail').notEmpty().withMessage('El correo electrónico es obligatorio')
-        .isEmail().withMessage('Debe ingresar un correo electrónico válido').bail()
+        // .isEmail().withMessage('EL CORREO ELECTRONICO DEBE CONTENER hotmail, outlook, gmail, etc').bail()
         .custom(async (value) => {
 
             // COMPROBAMOS SI EL CORREO YA ESTA REGISTRADO
@@ -17,6 +17,12 @@ const validacionesRegistro = [
             });
             if (existingUser) {
                 throw new Error('El correo electrónico ya está registrado');
+            }
+            const domains = ["yahoo.com", "hotmail.com", "outlook.com", "gmail.com"];
+            const emailDomain = value.split('@')[1];
+
+            if (!domains.includes(emailDomain)) {
+                throw new Error('El dominio del correo electrónico no está permitido');
             }
             return true;
         }),

@@ -99,13 +99,9 @@ const userController = {
             const user = await db.User.findByPk(id);
     
             // SI SE HA ENVIADO UN ARCHIVO, ACTUALIZAMOS LA RUTA DE LA IMAGEN EN LA BASE DE DATOS
-            if (req.file) {
-                const imagePath = `/img/img-perfil/${req.file.filename}`;
+            const imagePath = `/img/img-perfil/${req.file.filename}`;
 
-                await user.update({ Avatar: imagePath });
-            }
-    
-            // REDIRIGIMOS AL USUARIO A SU PERFIL
+            await user.update({ Avatar: imagePath });
             return res.redirect("/user/perfil/" + id);
         } catch (error) {
             console.error(error);

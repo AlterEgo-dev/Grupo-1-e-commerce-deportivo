@@ -4,7 +4,17 @@ const db = require('../dataBase/models');
 const sequelize = require('sequelize');
 
 const validacionesInicioSesion = [
-    body('userEmail').notEmpty().withMessage('EL CORREO ELECTRÓNICO ES OBLIGATORIO').bail(),
+    body('userEmail')
+    .notEmpty().withMessage('EL CORREO ELECTRÓNICO ES OBLIGATORIO').bail()
+    .custom((value) => {
+        const domains = ["yahoo.com", "hotmail.com", "outlook.com", "gmail.com"];
+        const emailDomain = value.split('@')[1];
+
+        if (!domains.includes(emailDomain)) {
+            throw new Error('El dominio del correo electrónico no está permitido');
+        }
+        return true;
+    }),
     body('userPassword').notEmpty().withMessage('LA CONTRASEÑA ES OBLIGATORIA').bail(),
 ];
 

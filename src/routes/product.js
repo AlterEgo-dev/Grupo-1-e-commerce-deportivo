@@ -5,6 +5,8 @@ const { productController, upload} = require('../controllers/productController')
 
 const path = require('path');
 const { authSession, adminSession } = require('../middlewares/authSession');
+const  imagesVerif  = require('../middlewares/imagesProducts')
+
 
 router.get('/detail/:id', productController.productDetail);
 
@@ -27,7 +29,7 @@ router.post('/product-edit/:id', authSession, upload.fields([{ name: 'image', ma
 /*** CREAR UN PRODUCTO ***/
 
 router.get('/product-create', adminSession, productController.productCreate);
-router.post('/product-create', authSession, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]), productController.productCreatePush);
+router.post('/product-create', authSession, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]),imagesVerif ,productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);
