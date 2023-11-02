@@ -111,6 +111,31 @@ body{
     margin: 15px;
 }
 
+/* DOM CLASSLIST */
+
+.emptyInput {
+    border: solid 1px red !important;
+    transition: all .3s;
+}
+
+.errorInput {
+    display: none;
+    color: red;
+}
+
+.errorInput ul {
+    list-style: none;
+}
+
+.errorDatos {
+    display: none;
+    color: red;
+}
+
+.errorDatos, ul {
+    list-style: none;
+}
+
 /*BREACKPOINTS*/
 
 @media (max-width: 768px) {

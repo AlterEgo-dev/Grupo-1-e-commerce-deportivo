@@ -29,29 +29,35 @@
                 <div class="caja-usuario">
                     <label for="userEmail">E-mail</label>
                     <input type="email" name="userEmail" id="userEmail" value="<%= (locals.old && old.userEmail) ? old.userEmail : '' %> ">
-                    <div class="caja-error">
-                    <% if( locals.errors && errors.userEmail ){ %>
-                        <i>
-                            <%= errors.userEmail.msg %>
-                        </i>
-                    <% } %>
-                    </div>
                 </div>
 
                 <div class="caja-usuario">
                     <label for="userPassword">Contraseña</label>
-                    <input type="password" name="userPassword" id="userPassword">
-                    <div class="caja-error">
-                        <% if( locals.errors && errors.userPassword ){ %>
-                            <i>                    
-                                <%= errors.userPassword.msg %>
-                            </i>
-                        <% } %>                        
-                    </div>
-                    <% if (locals.error) { %>
-                        <p><%= locals.error %></p>
-                    <% } %>
+                    <input type="password" id="userPassword" name="userPassword">
                 </div>
+
+                <label for="errorInput">
+                    <ul>
+                        <li>
+                            <p class="errorDatos" name="errorDatos" id="errorDatos">Datos invalidos o erroneos</p>
+                        </li>
+                        <li>
+                            <p class="errorInput" name="errorInput" id="errorInput" style="display: none;">Hay campos vacios.</p>
+                        </li>
+                    </ul>
+
+                    <% if( locals.errors && errors.userPassword ){ %>
+                        <i>
+                            <%= errors.userPassword.msg %>
+                        </i>
+                    <% } %>
+
+                <% if (locals.error) { %>
+                    <p><%= locals.error %></p>
+                <% } %>
+                
+                </label>
+
 
                 <div class="caja-checkbox">
                     <input type="checkbox">
@@ -59,7 +65,7 @@
                 </div>
 
                 <div class="caja-usuario">
-                    <button type="submit" class="button-form">Iniciar Sesion</button>
+                    <button type="submit" class="button-form" id="submitSession">Iniciar Sesion</button>
                 </div>
             </form>
             <div class="registro-session">
