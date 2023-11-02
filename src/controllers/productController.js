@@ -128,7 +128,7 @@ const productController = {
   saveEditedProduct: async (req, res) => {
       const { id } = req.params;
       const { title, gender, description, price, category, sizes, cuidados } = req.body;
-      const image1 = req.files.image[0].filename; // SOLO TRAE LA POSICIÓN 0
+      const image1 = req.files.image1[0].filename; // SOLO TRAE LA POSICIÓN 0
       const imageDetail = req.files.imageDetail;
 
      
