@@ -136,6 +136,10 @@ body{
     list-style: none;
 }
 
+.errorBackend {
+    color: red;
+}
+
 /*BREACKPOINTS*/
 
 @media (max-width: 768px) {

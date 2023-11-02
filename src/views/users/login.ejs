@@ -46,16 +46,12 @@
                         </li>
                     </ul>
 
-                    <% if( locals.errors && errors.userPassword ){ %>
-                        <i>
-                            <%= errors.userPassword.msg %>
-                        </i>
+                    <p id="errorMessage" style="display: none;"></p>
+
+                    <% if (locals.error) { %>
+                        <p class="errorBackend">Correo o contraseña incorrecta</p>
                     <% } %>
 
-                <% if (locals.error) { %>
-                    <p><%= locals.error %></p>
-                <% } %>
-                
                 </label>
 
 
