@@ -5,7 +5,7 @@ const { productController, upload} = require('../controllers/productController')
 
 const path = require('path');
 const { authSession, adminSession } = require('../middlewares/authSession');
-const  imagesVerif  = require('../middlewares/imagesProducts')
+const imagesProducts = require('../middlewares/imagesProducts')
 
 
 router.get('/detail/:id', productController.productDetail);
@@ -24,12 +24,12 @@ router.get("/category/genero/:genero", productController.genero)
 /*** EDITAR PRODUCTO ***/
 
 router.get('/product-edit/:id', adminSession, productController.productEditForm);
-router.post('/product-edit/:id', authSession, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]), productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
+router.post('/product-edit/:id', authSession, upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]),imagesProducts,productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
 
 /*** CREAR UN PRODUCTO ***/
 
 router.get('/product-create', adminSession, productController.productCreate);
-router.post('/product-create', authSession, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]),imagesVerif ,productController.productCreatePush);
+router.post('/product-create', authSession, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]),imagesProducts,productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);
