@@ -6,6 +6,9 @@ const app = express();
 const mainRoute = require('./src/routes/main');
 const productRoute = require('./src/routes/product');
 const userRoute = require('./src/routes/user');
+
+const apiUserRoute = require('./src/routes/api/apiUser')
+
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -71,6 +74,10 @@ app.set('views',['./src/views', './src/views/users', './src/views/products']);
 app.use('/', mainRoute);
 app.use('/product', productRoute);
 app.use('/user', userRoute);
+
+//Api Rutas
+
+app.use('/api', apiUserRoute)
 
 app.use((req, res) => {
     res.status(404).render('error-404');
