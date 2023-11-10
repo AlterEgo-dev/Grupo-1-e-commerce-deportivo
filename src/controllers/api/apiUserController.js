@@ -4,22 +4,41 @@ const db = require('../../dataBase/models')
 
 const apiUserController = {
 
-     users: async (req, res) => {
+    users: async (req, res) => {
+        try {
+            const usuarios = await db.User.findAll({
+                attributes: ['id', 'UserName', 'Email']
+            });
+    
+            const usuariosConURL = usuarios.map(usuario => {
+                return {
+                    id: usuario.id,
+                    UserName: usuario.UserName,
+                    Email: usuario.Email,
+                    URL: `https://localhost:8000/api/user/${usuario.id}`
+                };
+            });
+            const count = usuariosConURL.length;
+    
+            return res.json({ data: usuariosConURL, count });
+        } catch (err) {
+            console.log(err);
+        }
+    },
+
+    getUsers: async(req, res) => {
+        const { id } = req.params
 
         try {
-            const usuarios = await db.User.findAll(
-                {attributes: ['id', 'UserName', 'Email']}
-            );
 
-            const count = usuarios.length
+            const usuarios = await db.User.findByPk(id, 
+                {attributes: ['id', 'userName', 'Email']});
 
-            return res.json({data: usuarios, count})
-
-        }catch(err) {
-        console.log(err)
+            return res.json({usuarios})
+        } catch(err){
+            console.log(err)
+        }
     }
-
-    } 
 }
 
 module.exports = apiUserController;
