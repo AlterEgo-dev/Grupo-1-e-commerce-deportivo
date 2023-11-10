@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+/*window.addEventListener('DOMContentLoaded', function(){
     const inputEmail = document.querySelector('#userEmail');
     const inputPassword = document.querySelector('#userPassword');
     const submitSession = document.querySelector('#submitSession');
@@ -89,3 +89,4 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     });
 });
+*/

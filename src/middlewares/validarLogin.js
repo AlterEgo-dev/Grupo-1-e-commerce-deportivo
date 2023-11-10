@@ -4,18 +4,22 @@ const db = require('../dataBase/models');
 const sequelize = require('sequelize');
 
 const validacionesInicioSesion = [
-    body('userEmail')
-    .notEmpty().withMessage('EL CORREO ELECTRÓNICO ES OBLIGATORIO').bail()
-    .custom((value) => {
-        const domains = ["yahoo.com", "hotmail.com", "outlook.com", "gmail.com"];
-        const emailDomain = value.split('@')[1];
 
-        if (!domains.includes(emailDomain)) {
-            throw new Error('El dominio del correo electrónico no está permitido');
+    //VERIFICACIÓN EMAIL
+    body('userEmail')
+    .notEmpty().withMessage('Debe ingresar un correo electrónico').bail()
+    .isEmail().withMessage('El correo electrónico debe ser válido').bail()
+    .custom(async (value) => {
+        // Verificar si el correo electrónico existe en la base de datos
+        const user = await db.User.findOne({ where: { Email: value } });
+        if (!user) {
+          throw new Error('Correo electrónico no registrado');
         }
         return true;
-    }),
-    body('userPassword').notEmpty().withMessage('LA CONTRASEÑA ES OBLIGATORIA').bail(),
+      }),
+      //VERIFICACIÓN PASSWORD
+      body('userPassword')
+      .notEmpty().withMessage('Debe ingresar una contraseña').bail()
 ];
 
 const resultadoInicioSesion = async (req, res, next) => {
@@ -41,7 +45,7 @@ const resultadoInicioSesion = async (req, res, next) => {
         });
         // SI EL USUARIO NO EXISTE O LA CONTRASEÑA NO COINCIDE
         if (!user || !compareSync(userPassword, user.Password)) { 
-            return res.render('login', { error: 'correo o contraseña incorrecta' });
+            return res.render('login', { error: 'Correo o contraseña incorrecta' });
         }
         // SI EL USUARIO EXISTE Y LA CONTRASEÑA COINCIDE NEXT
         req.session.userId = user.id;

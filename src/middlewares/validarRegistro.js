@@ -4,33 +4,38 @@ const db = require('../dataBase/models');
 const sequelize = require('sequelize');
 
 const validacionesRegistro = [
-    body('username').notEmpty().withMessage('El nombre es obligatorio').bail(),
-    body('userEmail').notEmpty().withMessage('El correo electrónico es obligatorio')
-        // .isEmail().withMessage('EL CORREO ELECTRONICO DEBE CONTENER hotmail, outlook, gmail, etc').bail()
-        .custom(async (value) => {
+    body('username')
+    .notEmpty().withMessage('Completar el nombre de usuario').bail()
+    .isLength({ min: 2 }).withMessage('El nombre de usuario debe tener al menos 2 carácteres'),
 
-            // COMPROBAMOS SI EL CORREO YA ESTA REGISTRADO
-            const existingUser = await db.User.findOne({
+    body('userEmail')
+    .notEmpty().withMessage('El correo electrónico es obligatorio')     
+    //Comprobamos si esta ya registrado  
+    .custom(async (value) => { 
+        const existingUser = await db.User.findOne({
                 where: {
                     [sequelize.Op.or]: [{ Email: value }, { UserName: value }]
                 }
-            });
-            if (existingUser) {
+        });
+        if (existingUser) {
                 throw new Error('El correo electrónico ya está registrado');
-            }
-            const domains = ["yahoo.com", "hotmail.com", "outlook.com", "gmail.com"];
-            const emailDomain = value.split('@')[1];
-
+        }
+        return true
+    })
+    //Comprobando formato válido
+    .custom(async (value) => {
+        const domains = ["yahoo.com", "hotmail.com", "outlook.com", "gmail.com"];
+        const emailDomain = value.split('@')[1];
             if (!domains.includes(emailDomain)) {
                 throw new Error('El dominio del correo electrónico no está permitido');
             }
             return true;
-        }),
-    body('userPassword').notEmpty().withMessage('La contraseña es obligatoria')
-        .isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
-        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/)
-        .withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial')
-        .bail(),
+    }),
+
+    body('userPassword')
+    .notEmpty().withMessage('La contraseña es obligatoria')
+    .isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/).withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial').bail(),
 ];
 
 const resultadoRegistro = async (req, res, next) => {

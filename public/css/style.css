@@ -14,6 +14,13 @@ header {
     overflow: hidden;
 }
 
+.caja-error{
+    width: 100%;
+    color: orangered;
+    font-size: small;
+    font-family: "Roboto";
+}
+
 .switch {
     margin: 20px;
     font-size: 17px;
