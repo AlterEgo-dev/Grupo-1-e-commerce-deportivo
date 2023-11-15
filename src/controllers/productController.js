@@ -1,11 +1,10 @@
 const path = require('path');
 const fs = require('fs');
-const dataBase = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
-const {results} = require('../dataBase/productList.json');// hay que borrar cuando pasemos todo a base de datos
 const db = require('../dataBase/models'); //este hay que usar para usar la base de datos
 const { Op } = require('sequelize');//para utilizar los operadores de sequalize (ej:like,etc)
 const multer = require('multer');
 const { log } = require('console');
+const { validationResult } = require("express-validator");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -49,7 +48,18 @@ const productController = {
   /** CREAR NUEVO PRODUCTO */
 
   productCreatePush: async (req, res) => { 
-      const { title, gender, description, price, category, sizes, cuidados } = req.body;
+    const errors = validationResult(req);
+    console.log(errors)
+
+    if (!errors.isEmpty()) {
+      return res.render('product-create', {
+            errors: errors.mapped(),
+            old: req.body
+          },
+      );
+    }
+    
+    const { title, gender, description, price, category, sizes, cuidados } = req.body;
   
       //IMAGE PRINCIPAL
   
@@ -108,29 +118,38 @@ const productController = {
 
   /** BORRAR LA IMAGEN DE UN PRODUCTO */
   
-  deleteImage: (req, res) => {
-    const { id, index } = req.params;
-    const product = dataBase.results.find((prod) => prod.id === id);
+  // deleteImage: (req, res) => {
+  //   const { id, index } = req.params;
+  //   const product = dataBase.results.find((prod) => prod.id === id);
   
-    if (product) {
-      if (index >= 0 && index < product.imageDetail.length) {
-        product.imageDetail.splice(index, 1);
-        const filePath = path.join(__dirname, '../dataBase/productList.json');
-        fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
-      }
-    }
+  //   if (product) {
+  //     if (index >= 0 && index < product.imageDetail.length) {
+  //       product.imageDetail.splice(index, 1);
+  //       const filePath = path.join(__dirname, '../dataBase/productList.json');
+  //       fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
+  //     }
+  //   }
   
-    res.redirect(`/product/product-edit/${id}`);
-  },
+  //   res.redirect(`/product/product-edit/${id}`);
+  // },
 
   /** EDICIÓN DE PRODUCTO / ACTUALIZAR IMG PRINCIPAL */
 
   saveEditedProduct: async (req, res) => {
+    const errors = validationResult(req);
+    console.log(errors)
+
+    if (!errors.isEmpty()) {
+      return res.render('product-edit', {
+            errors: errors.mapped(),
+            old: req.body
+          },
+      );
+    }
       const { id } = req.params;
       const { title, gender, description, price, category, sizes, cuidados } = req.body;
       const image1 = req.files.image1[0].filename; // SOLO TRAE LA POSICIÓN 0
       const imageDetail = req.files.imageDetail;
-
      
       const imagenes = imageDetail.map(function(imagen){
         return "/img/productos/" + imagen.filename;
@@ -152,7 +171,7 @@ const productController = {
          },{
           where:{id}
          });
-         res.redirect('/product/detail/' + id);
+         res.redirect('/product/detail/' + id, { producto });
        } catch (error) {
          console.error(error);
        }
@@ -173,24 +192,24 @@ const productController = {
 
   /** BORRAR LAS IMAGENES DE DETALLE  */
   
-  deleteProductImage: (req, res) => {
-    const { id, index } = req.params;
-    const product = dataBase.results.find(prod => prod.id === id);
+  // deleteProductImage: (req, res) => {
+  //   const { id, index } = req.params;
+  //   const product = dataBase.results.find(prod => prod.id === id);
   
-    if (product) {
-      if (index >= 0 && index < product.imageDetail.length) {
+  //   if (product) {
+  //     if (index >= 0 && index < product.imageDetail.length) {
 
-        if (product.imageDetail.length > 1) {
-          product.imageDetail.splice(index, 1);
+  //       if (product.imageDetail.length > 1) {
+  //         product.imageDetail.splice(index, 1);
   
-          const filePath = path.join(__dirname, '../dataBase/productList.json');
-          fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
-        }
-      }
-    }
+  //         const filePath = path.join(__dirname, '../dataBase/productList.json');
+  //         fs.writeFileSync(filePath, JSON.stringify(dataBase, null, 2), 'utf-8');
+  //       }
+  //     }
+  //   }
   
-    res.redirect(`/product/product-edit/${id}`);
-  },
+  //   res.redirect(`/product/product-edit/${id}`);
+  // },
   genero: (req, res) => {
     const generoSelect = req.params.genero;
     db.Product.findAll({

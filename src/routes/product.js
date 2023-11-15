@@ -5,9 +5,7 @@ const { productController, upload} = require('../controllers/productController')
 
 const path = require('path');
 const { authSession, adminSession } = require('../middlewares/authSession');
-const {productCreate, validarFormProduct, validacionProductCreate} = require('../middlewares/ProductCreate')
-const imagesProducts = require('../middlewares/imagesProducts');
-const imageVerif = require('../middlewares/imageVerif');
+const editCreate = require('../middlewares/editCreate');
 
 
 router.get('/detail/:id', productController.productDetail);
@@ -26,17 +24,19 @@ router.get("/category/genero/:genero", productController.genero)
 /*** EDITAR PRODUCTO ***/
 
 router.get('/product-edit/:id', adminSession, productController.productEditForm);
-router.post('/product-edit/:id',authSession, validacionProductCreate, validarFormProduct, productController.productCreatePush); 
-//router.post('/product-edit/:id', authSession, upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]),imagesProducts,productController.saveEditedProduct); // RECIBE POR UPLOAD LOS CAMPOS REQUERIDOS, EN ESTE CASO IMAGE(LA IMAGEN PRINCIPAL) E IMAGEDETAL
+router.post('/product-edit/:id', upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'imageDetail', maxCount: 3 }]), authSession, editCreate, productController.saveEditedProduct);
 
 /*** CREAR UN PRODUCTO ***/
 
 router.get('/product-create', adminSession,  productController.productCreate);
-router.post('/product-create', authSession, validacionProductCreate, validarFormProduct, imagesProducts, upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]), productController.productCreatePush);
+router.post('/product-create', upload.fields([{name: 'image1', maxCount: 1}, { name: 'imageDetail', maxCount: 3}]), authSession, editCreate, productController.productCreatePush);
 
 /*** ELIMINAR PRODUCTO ***/
 router.delete('/product-edit/:id', authSession, productController.deleteProduct);
-router.delete('/product-edit/:id/delete-image/:index', authSession, productController.deleteProductImage);
+
+// comentado hasta que hagamos la logica para esto
+
+// router.delete('/product-edit/:id/delete-image/:index', authSession, productController.deleteProductImage);
 
 
 module.exports = router;

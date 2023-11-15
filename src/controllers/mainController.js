@@ -1,5 +1,5 @@
 const path = require('path');
-const dataBase = require('../dataBase/productList.json')
+// const dataBase = require('../dataBase/productList.json')
 const db =require ("../dataBase/models")
 
 const mainController = {
