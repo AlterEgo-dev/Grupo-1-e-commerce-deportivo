@@ -1,6 +1,8 @@
 // ACA DE LO QUE SACAMOS DE LAS APICONTROLLER
 const express = require('express')
-const apiProductController = require('../../controllers/api/apiProductController')
+const apiProductsController = require('../../controllers/api/apiProductsController')
 const router = express.Router()
 
-router.get("/products", apiProductController.list)
+router.get('/products', apiProductsController.list);
+
+module.exports = router;

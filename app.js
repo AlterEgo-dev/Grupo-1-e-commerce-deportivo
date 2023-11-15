@@ -8,6 +8,7 @@ const productRoute = require('./src/routes/product');
 const userRoute = require('./src/routes/user');
 
 const apiUserRoute = require('./src/routes/api/apiUser')
+const apiProductsRoute = require('./src/routes/api/apiProduct')
 
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -76,6 +77,7 @@ app.use('/product', productRoute);
 app.use('/user', userRoute);
 
 //Api Rutas
+app.use('/api', apiProductsRoute)
 
 app.use('/api', apiUserRoute)
 
@@ -86,3 +88,7 @@ app.use((req, res) => {
 app.listen(puerto, () => {
     console.log(`Aplicación corriendo en puerto ${puerto}`);
 });
+
+
+
+
