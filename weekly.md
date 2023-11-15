@@ -93,6 +93,13 @@ En la Weekly de hoy realizamos la lectura de los objetivos del Sprint 6, se acor
 
 También se tomó en cuenta la devolución del profesor con respecto al Sprint 5, dividiendo y asignando las tareas para ser realizadas lo antes posible.
 
+SPRINT 7
+-> 14/11/2023
+
+Debido a que hamos tenido problemas para reunirnos en los horarios pautados, la Weekly se realizará en el día y horario de las clases ya que debemos aprovecharlas para finalizar el proyecto.
+
+Los objetivos que no pudimos cumplir del Sprint 6 se están realizando y se espera finalizarlos a la brevedad.
+
 
 
 
