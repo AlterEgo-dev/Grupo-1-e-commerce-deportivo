@@ -1,4 +1,4 @@
-const {results} = require('../dataBase/productList.json');
+// const {results} = require('../dataBase/productList.json');
 const db = require('../dataBase/models')
 const fs = require ("fs")
 const path = require ("path")

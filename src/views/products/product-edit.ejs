@@ -29,10 +29,29 @@
     
                 <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
                 <input type="text" name="title" value="<%= producto.Name %>"  class="input-form">
-              
+                
+                <div class="caja-error">
+                    <% if( locals.errors && locals.errors.title ){ %>
+                        <i><%= locals.errors.title.msg %></i>
+                    <% } %>
+                </div>
+                <label for="" class="label-form">GENERO</label>
+                    <div>
+                        <% if (producto.Gender == "Hombre") { %>
+                        <label for="male-gender" class="form-radio"><input type="radio" name="gender" value="Hombre" id="male-gender" checked> Hombre</label>
+                        <% } else { %>
+                        <label for="female-gender" class="form-radio"><input type="radio" name="gender" value="Mujer" id="female-gender" checked > Mujer</label>
+                        <% } %>
+                    </div>
+                
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.gender ){ %>
+                            <i><%= locals.errors.gender.msg %></i>
+                        <% } %>
+                      </div>
                 <label for="" class="label-form">CATEGORÍA</label>
                     <div>
-                        <% if (producto.Categories_Id === 1) { %>
+                        <% if (producto.Category == "Calzado") { %>
                         <label for="cat-calzado" class="form-radio">
                         <input type="radio" name="category" value="Calzado" id="cat-calzado" checked> Calzado </label>
                         <% } else { %>
@@ -40,7 +59,11 @@
                         <input type="radio" name="category" value="Indumentaria" id="cat-indumentaria" checked > Indumentaria</label>
                         <% } %>
                     </div>
-
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.category ){ %>
+                            <i><%= locals.errors.category.msg %></i>
+                        <% } %>
+                      </div>
                     <label for="sizes" class="label-form">TALLES</label>
                     <% if (producto.Categories_Id === 1) { %>
                         <div class="form-check">
@@ -58,7 +81,11 @@
                             <% } %>
                         </div>
                     <% } %>
-                    
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.sizes ){ %>
+                            <i><%= locals.errors.sizes.msg %></i>
+                        <% } %>
+                      </div>
                     <label for="img" class="label-form">IMAGEN PRINCIPAL</label>
                     <img class="imagenprinc" src="<%= producto.ImagePrincipal %>" alt="">
                     <label for="newImage" class="label-form">Actualizar Imagen Principal</label>
@@ -66,22 +93,42 @@
                         <p>Subir imagen</p>
                         <input type="file" name="image1" accept="image/*" >
                     </div>
-
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.image1 ){ %>
+                            <i><%= locals.errors.image1.msg %></i>
+                        <% } %>
+                      </div>
                     <label for="imageDetail" class="label-form">Actualizar imagenes de DETALLE</label>
                     <div class="label-inpu">
                         <p>Subir imagen/es</p>
                         <input type="file" name="imageDetail" multiple>
                     </div>
-                    
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.imageDetail ){ %>
+                            <i><%= locals.errors.imageDetail.msg %></i>
+                        <% } %>
+                    </div>
                     <label for="price" class="label-form">PRECIO</label>
                     <input type="text" name="price" value="<%= producto.Price %>" class="input-form">
-                    
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.price ){ %>
+                            <i><%= locals.errors.price.msg %></i>
+                        <% } %>
+                      </div>
                     <label for="description" class="label-form">DESCRIPCIÓN</label>
                     <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." class="input-form" style="height:90px;"><%= producto.Description %></textarea>
-                    
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.description ){ %>
+                            <i><%= locals.errors.description.msg %></i>
+                        <% } %>
+                      </div>
                     <label for="cuidados" class="label-form">CUIDADOS</label>
                     <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." class="input-form" style="height:90px;"><%= producto.OtherProperties %></textarea>
-
+                    <div class="caja-error">
+                        <% if( locals.errors && locals.errors.cuidados ){ %>
+                            <i><%= locals.errors.cuidados.msg %></i>
+                        <% } %>
+                    </div>
                     <div class="div-button-edit">
                         <button type="submit" class="button-form">EDITAR PRODUCTO</button>
                     </div>

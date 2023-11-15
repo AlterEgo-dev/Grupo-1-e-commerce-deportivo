@@ -25,11 +25,28 @@ Acciones de mejora:
 -Lograr que cada uno de los compañeros pueda sortear las dificultades que surgan, tanto personales como de conocimiento específico de los temas dados.
 
 
-------RETROSPECTIVA SPRINT 3------
+------RETROSPECTIVA SPRINT 4------
 
 Resumen del Sprint:
 En este Sprint hemos logrado finalizar todos los objetivos que fueron planteados, cosa que no se había podido lograr anteriormente. Asimismo se identificaron errores puntuales que fueron mejorándose en cuanto a la lógica y a las vistas, quedando pendiente algunos que se irán puliendo con el tiempo.
 
 Acciones de mejora: 
 -Se espera para el siguiente sprint: Una mayor presencialidad los días de las Weekly para mejor organización del proyecto y resolución de los conflictos que vayan generándose.
+
+------RETROSPECTIVA SPRINT 6------
+
+Resumen del Sprint:
+En este Sprint hemos tenido algunos problemas de organización y cumplimiento tanto de las Weekly como de los objetivos planteados. No llegamos a realizar a tiempo todas las actividades propuestas y quedan en espera para el siguiente Sprint.
+
+Acciones de mejora:
+-Pactar nuevamente un día y horario para la Weekly.
+-Reveer los objetivos que no pudimos finalizar.
+
+
+------RETROSPECTIVA SPRINT 7-------
+
+Resumen del Sprint:
+En este Sprint logramos acomodarnos y ponernos al día en cuanto a algunas actividades faltante.
+Se utilizan los días y horarios del curso para reorganizar y actualizar el proyecto.
+Se estima finalizarlo en tiempo y forma.
 
