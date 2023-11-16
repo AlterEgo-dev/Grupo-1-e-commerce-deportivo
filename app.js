@@ -78,7 +78,6 @@ app.use('/user', userRoute);
 
 //Api Rutas
 app.use('/api', apiProductsRoute)
-
 app.use('/api', apiUserRoute)
 
 app.use((req, res) => {

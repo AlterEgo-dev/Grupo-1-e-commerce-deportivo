@@ -56,7 +56,17 @@ const apiProductsController = {
             .catch(error => {
                 res.status(500).json({ result: "error", payload: error.message });
             });
-    }
+    },
+    productId: (req, res) => {
+        const { id } = req.params;
+        db.Product.findByPk(id)
+        .then((product)=>{
+            return res.status(200).json({
+                data:product,
+                detail: `http://localhost:8000/api/products/${id}`,
+
+            })
+        })}
 };
 
 module.exports = apiProductsController;
