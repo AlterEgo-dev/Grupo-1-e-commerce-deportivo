@@ -138,15 +138,18 @@ const productController = {
   saveEditedProduct: async (req, res) => {
     const errors = validationResult(req);
     console.log(errors)
-
+    const { id } = req.params;
+    const producto = await db.Product.findOne({
+      where: {id},
+    });
     if (!errors.isEmpty()) {
       return res.render('product-edit', {
             errors: errors.mapped(),
-            old: req.body
+            old: req.body,
+            producto
           },
       );
     }
-      const { id } = req.params;
       const { title, gender, description, price, category, sizes, cuidados } = req.body;
       const image1 = req.files.image1[0].filename; // SOLO TRAE LA POSICIÓN 0
       const imageDetail = req.files.imageDetail;
@@ -171,7 +174,7 @@ const productController = {
          },{
           where:{id}
          });
-         res.redirect('/product/detail/' + id, { producto });
+         res.redirect('/product/detail/' + id );
        } catch (error) {
          console.error(error);
        }

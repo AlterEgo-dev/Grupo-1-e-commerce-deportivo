@@ -23,7 +23,6 @@
     <div class="caja-grande" >
         <div class="box-form">
           <div class="title-form">FORMULARIO DE EDICIÓN</div>
-           /* Categories_Id: category,
             <form action="/product/product-edit/<%= producto.Id %>" method="post" class="formulario" style="width: 100%;" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
     
@@ -65,10 +64,10 @@
                         <% } %>
                       </div>
                     <label for="sizes" class="label-form">TALLES</label>
-                    <% if (producto.Categories_Id === 1) { %>
+                    <% if (producto.Category === "Calzado") { %>
                         <div class="form-check">
                             <% for (let i = 35; i < 47; i++) { %>
-                                <% let isChecked = Array.isArray(producto.Sizes) && producto.Sizes.includes(i.toString()) ? "checked" : ""; %>
+                                <% let isChecked = producto.Size.includes(i.toString()) ? "checked" : ""; %>
                                 <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
                             <% } %>
                         </div>
@@ -76,7 +75,7 @@
                         <div class="form-check">
                             <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
                             <% for (let w = 0; w < tallesLetras.length; w++) { %>
-                                <% let isChecked = Array.isArray(producto.Sizes) && producto.Sizes.includes(tallesLetras[w]) ? "checked" : ""; %>
+                                <% let isChecked = producto.Size.includes(tallesLetras[w]) ? "checked" : ""; %>
                                 <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
                             <% } %>
                         </div>
