@@ -32,9 +32,9 @@
                     <label for="username">Usuario</label>
                     <input type="text" name="username" id="username" value="<%= ( locals.old && old.username ) ? old.username : '' %> ">
                     <div class="caja-error">
-                        <% if( locals.errors && errors.username ){ %>
+                        <!-- <% if( locals.errors && errors.username ){ %>
                             <i><%= errors.username.msg %></i>
-                        <% } %>
+                        <% } %> -->
                     </div>
                 </div>
 
@@ -42,9 +42,9 @@
                     <label for="userEmail">E-mail</label>
                     <input type="email" name="userEmail" id="userEmail" value="<%= ( locals.old && old.userEmail ) ? old.userEmail : '' %> ">
                     <div class="caja-error">
-                        <% if( locals.errors && errors.userEmail ){ %>
+                        <!-- <% if( locals.errors && errors.userEmail ){ %>
                             <i><%= errors.userEmail.msg %></i>
-                        <% } %>
+                        <% } %> -->
                     </div>
                 </div>
 
@@ -52,11 +52,32 @@
                     <label for="userPassword">Crear Contraseña</label>
                     <input type="password" name="userPassword" id="userPassword">
                     <div class="caja-error">
-                        <% if( locals.errors && errors.userPassword ){ %>
+                        <!-- <% if( locals.errors && errors.userPassword ){ %>
                             <i><%= errors.userPassword.msg %></i>
-                        <% } %>
+                        <% } %> -->
                     </div>
                 </div>
+                <label for="errorInput">
+                    <ul>
+                        <li>
+                            <p class="errorDatos" name="errorInput" id="errorDatos">Datos invalidos o erroneos</p>
+                        </li>
+                        <li>
+                            <p class="errorInput" name="errorInput" id="errorInput" style="display: none;">Hay campos vacios.</p>
+                        </li>
+                        <li>
+                            <p class="errorDatos" name="errorInput" id="errorPassword" style="display: none;">La contraseña debe tener minimo 8 caracteres, al menos una letra mayúscula, una letra minúscula y un número.</p>
+                        </li>
+                    </ul>
+
+                    <p id="errorMessage" style="display: none;"></p>
+
+                    <% if (locals.error) { %>
+                        <p class="errorBackend">El correo ya existe</p>
+                    <% } %>
+
+                </label>
+
 
                 <div class="caja-error">
                     <i>*Podrás cargar tu foto de perfil cuando te registres.</i>
