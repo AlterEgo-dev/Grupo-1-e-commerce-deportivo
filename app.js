@@ -14,6 +14,11 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const db = require('./src/dataBase/models');
+const cors = require('cors');
+
+
+// //USO DE CORS PARA LA API
+app.use(cors());
 
 // DEFINIMOS SESSION
 

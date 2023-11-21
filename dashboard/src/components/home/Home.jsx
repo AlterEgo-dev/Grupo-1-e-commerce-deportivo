@@ -16,7 +16,7 @@ export function Home(){
             <Link to="/users" className="categ-nav">
                 <p >Usuarios</p>
             </Link>
-            <a class="categ-nav" href="http://localhost:8000/">Sportify</a>
+            <a className="categ-nav" href="http://localhost:8000/">Sportify</a>
             </div>
         </div>
     )

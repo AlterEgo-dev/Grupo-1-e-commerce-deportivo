@@ -43,7 +43,7 @@ const apiProductsController = {
                         id: product.Id,
                         name: product.Name,
                         description: product.Description,
-                        detail: `http://localhost:8000/api/products/${product.id}`,
+                        detail: `http://localhost:8000/api/products/${product.Id}`,
                     };
                 });
 
@@ -66,7 +66,23 @@ const apiProductsController = {
                 detail: `http://localhost:8000/api/products/${id}`,
 
             })
-        })}
+        }).catch(error => {
+            res.status(500).json({ result: "error", payload: error.message });
+        });
+    },
+    "LastProduct": (req,res) => {
+        db.Product.findAll({
+            order: [["id", "DESC"]],
+            limit: 1
+        }).then(product => {
+            return res.status(200).json({
+                data:product,
+            })
+        }).catch(error => {
+            res.status(500).json({ result: "error", payload: error.message });
+        });
+    }
+    
 };
 
 module.exports = apiProductsController;
