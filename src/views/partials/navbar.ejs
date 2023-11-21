@@ -6,9 +6,9 @@
 
 <header id="headerChange">
   <div class="row row-nav">
-    <div class=" col-uno col-12 col-md-3 display-center">
+    <div class="col-uno col-12 col-md-3 display-center">
       <a href="/" style="width: 70%;">
-        <img src="/img/logo_footer.png" style="width: 100%;">
+        <img class="test" src="/img/logo_footer.png" style="width: 100%;">
       </a>
     </div>
 
@@ -62,7 +62,7 @@
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: bolder; text-decoration: none;">SPORTYFY</h5>
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: bolder; text-decoration: none;">SPORTIFY</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
       </button>
     </div>
@@ -70,6 +70,27 @@
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          <div class="col-tres col-12 col-md-3 display-center" style="flex-direction: row;">
+            <a class="categ-nav" href="<%= isLoggedIn ? '/user/logout' : '/user/login' %>">
+              <% if (isLoggedIn) { %>
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                <% } else { %>
+                  <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                  <% } %>
+            </a>
+            <a class="categ-nav" href="<%= isLoggedIn ? '/user/perfil/' + userId : '/user/login' %>">
+              <% if (isLoggedIn) { %>
+                <i class="fa-solid fa-user"></i> Perfil
+                <% } %>
+            </a>
+            <% if(isLoggedIn) { %>
+              <%if(isAdmin){%>
+                <a href="/product/product-admin">
+                  <i class="fa-solid fa-gear"></i>
+                </a>
+                <%}}%>
+                
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/product/category/genero/Hombre">Hombre</a>
