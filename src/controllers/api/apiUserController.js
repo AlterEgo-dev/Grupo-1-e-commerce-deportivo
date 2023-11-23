@@ -38,6 +38,18 @@ const apiUserController = {
         } catch(err){
             console.log(err)
         }
+    },
+    "LastUser": (req,res) => {
+        db.User.findAll({
+            order: [["id", "DESC"]],
+            limit: 1
+        }).then(user => {
+            return res.status(200).json({
+                data:user,
+            })
+        }).catch(error => {
+            res.status(500).json({ result: "error", payload: error.message });
+        });
     }
 }
 
