@@ -5,6 +5,7 @@ import './App.css';
 import { Users } from './components/users/Users';
 import { TotalProducts } from './components/productsComponents/TotalProducts';
 import { UltimoProduct } from './components/productsComponents/UltimoProduct';
+import { ListProduct } from './components/productsComponents/ListProduct';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
-            <Route path='productos' element={<UltimoProduct/>}/>
+            <Route path='productos' element={<Products/>}/>
             <Route path='users' element={<Users/>}/>
           </Route>
         </Routes>

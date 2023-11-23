@@ -10,13 +10,15 @@ export function Home(){
                 </a>
             </div>
             <div className="links">
-            <Link to="/productos" className="categ-nav">
-                <p >Productos</p>
-            </Link>
-            <Link to="/users" className="categ-nav">
-                <p >Usuarios</p>
-            </Link>
-            <a className="categ-nav" href="http://localhost:8000/">Sportify</a>
+                <Link to="/productos" className="categ-nav">
+                    <p >Productos</p>
+                </Link>
+                <Link to="/users" className="categ-nav">
+                    <p >Usuarios</p>
+                </Link>
+                <Link to="http://localhost:8000/" className="categ-nav">
+                    <p >Sportify</p>
+                </Link>
             </div>
         </div>
     )

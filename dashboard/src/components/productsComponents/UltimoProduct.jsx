@@ -10,7 +10,6 @@ export function UltimoProduct(){
         },
       }).then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setProduct(data.data[0]);//posicion 0 porque no hay otra posicion
       })
       .catch((error) => {
@@ -18,14 +17,28 @@ export function UltimoProduct(){
       });
     }, []);
 
-    return(
-        <div>
-            <p>{Product.Name}</p>
-            <p>{Product.Care}</p>
-            <p>{Product.Gender}</p>
-            <p>{Product.Price}</p>
-            <p>{Product.Size}</p>
-            <p>{Product.Description}</p>
-        </div>
+  return(
+  <div className="lastP">
+    <h1>Ultimo Producto</h1>
+    <div className="lastProduct">
+      <div >
+        <img src={`http://localhost:8000/${Product.Image1}`} alt={Product.Name} height="350px" width="350px"/>
+      </div>
+      <div className="infoProducts">
+          <ul>
+            <li><p>Nombre</p>{Product.Name}</li>
+            <li><p>Cuidados</p>{Product.Care}</li>
+            <li><p>Genero</p>{Product.Gender}</li>
+            <li><p>Precio</p> ${Product.Price}</li>
+            <li><p>Talles</p>{Product.Size} </li>
+            {/* <li>Descripcion: {Product.Description} </li> */}
+          </ul>
+      </div>
+    </div>
+    <div className="descrip">
+        <p className="title-desc">Descripcion</p>
+        <p>{Product.Description}</p>
+    </div>
+  </div>
     )
 }

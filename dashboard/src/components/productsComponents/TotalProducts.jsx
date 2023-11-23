@@ -18,8 +18,11 @@ export function TotalProducts(){
     }, []);
 
     return (
-        <div>
-            <p>{prodCant.count}</p>
+        <div className="notification">
+          <div className="notiglow"></div>
+          <div className="notiborderglow"></div>
+          <div className="notititle">Total de Productos en la base:</div>
+          <div className="notibody">{prodCant.count}</div>
         </div>
     )
     

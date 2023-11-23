@@ -1,16 +1,21 @@
+body{
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: black;
+}
+/* ===============HOME=========== */
 .home {
   text-align: center;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
-body{
-  justify-content: center;
-  align-items: center;
-  font-family: 'Roboto';
+.img{
   background-color: #FD611A;
 }
-
 .img img{
   width: 280px;
 }
@@ -19,7 +24,6 @@ body{
   flex-direction: column;
 }
 .categ-nav {
-  font-family: 'Roboto';
   text-decoration: none;
   color: white;
   font-size:xx-large;
@@ -28,27 +32,163 @@ body{
 }
 
 .categ-nav:hover {
-  background-color: #00000017;
-  color: black;
-  font-weight: bolder;
+  background-color: #1a1a1a;
+  color: #FD611A;
   border-radius: 5px;
-  transition: 0.5s;
+  transition: 0,5s;
 
 }
 
-/* * {
-  margin: 0;
+/* ======PRODUCTOS======== */
+
+.infoProducts {
+  display: flex;
+  font-size: 16px;
+  height: 50%;
+}
+
+.infoProducts ul{
+  display: flex;
+  flex-direction: column;
+  height: 50%; 
+  list-style: none;
+  gap: 20px;
   padding: 0;
-  box-sizing: border-box;
+}
+.infoProducts ul li p{
+  margin: 0;
+  font-size: large;
+  color: #FD611A;
+}
+.lastP{
+  display: flex;
+  flex-direction: column;
+  border: black 2px solid;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px;
+  max-width: 800px;
+  border-radius: 10px;
+  border: solid 3px #FD611A;
+}
+.lastP h1{
+  text-align: center;
+  color:#FD611A;
+}
+.lastP .descrip{
+  margin: 0 10px;
+}
+.lastP .descrip .title-desc{
+  font-size: large;
+  color: #FD611A;
+}
+.lastProduct {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+.lastProduct img {
+  margin: 10px;
+  border: solid 3px #FD611A;
+  border-radius: 10px;
 }
 
-body {
-  font-family: 'Roboto';
-  height: 100%;
-}
 
-header {
-  padding: 5px 0px 5px 0px;
-  background-color: #FD611A;
+
+/* prueba */
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 18rem;
+  height: 8rem;
+  background: #1a1a1a;
+  border-radius: 10px;
   overflow: hidden;
-} */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  --gradient: linear-gradient(to bottom, rgb(255, 238, 46), #3d83ff, #7e61ff);
+  border: solid 3px #FD611A;
+}
+
+
+
+.notititle {
+  color: #FD611A;
+  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notibody {
+  color: rgb(255, 255, 255);
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+  font-size: 50px;
+}
+
+.note {
+  color: var(--color);
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  width: 75%;
+}
+
+.content-cards{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 33px;
+}
+.card-lastP{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+}
+.content-list{
+  border: black 2px solid;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 10px;
+  border: solid 3px #FD611A;
+  text-align: center;
+  color: black;
+}
+.content-list h1{
+  color: #FD611A;
+}
+.listP{
+
+  gap: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.listProduct{
+  /* border: solid 3px #FD611A; */
+  border-radius: 13px;
+  background-color: white;
+}
+.listProduct img{
+  border-radius: 10px 10px 0 0;
+  border-bottom: solid 3px black;
+}
+.listProduct ul{
+  list-style: none;
+  padding: 0;
+}
