@@ -15,7 +15,7 @@ const apiUserController = {
                     id: usuario.id,
                     UserName: usuario.UserName,
                     Email: usuario.Email,
-                    URL: `https://localhost:8000/api/user/${usuario.id}`
+                    URL: `http://localhost:8000/api/users/${usuario.id}`
                 };
             });
             const count = usuariosConURL.length;

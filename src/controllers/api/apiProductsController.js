@@ -27,7 +27,7 @@ const apiProductsController = {
     "list": (req, res) => {
         db.Product
             .findAll({
-                attributes: ['Id', 'Name', 'Description', 'Category'],
+                attributes: ['Id', 'Name', 'Image1', 'Category'],
             })
             .then(products => {
                 const count = products.length;
@@ -42,7 +42,7 @@ const apiProductsController = {
                     return {
                         id: product.Id,
                         name: product.Name,
-                        description: product.Description,
+                        Image1: product.Image1,
                         detail: `http://localhost:8000/api/products/${product.Id}`,
                     };
                 });
