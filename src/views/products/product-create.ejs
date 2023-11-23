@@ -28,7 +28,7 @@
         <form action="/product/product-create" method="post" class="formulario" style="width: 100%;" enctype="multipart/form-data">
 
           <label for="title" class="label-form">NOMBRE DEL PRODUCTO</label>
-          <input type="text" name="title" required class="input-form">
+          <input type="text" name="title" class="input-form" id="campo-nombre">
 
           <div class="caja-error">
             <% if( locals.errors && locals.errors.title ){ %>
@@ -94,7 +94,7 @@
         <label for="image" class="label-form">IMAGEN PRINCIPAL</label>
         <div class="label-inpu">
           <p>Subir imagen</p>
-          <input type="file" name="image1">
+          <input type="file" name="image1" id="campo-img">
         </div>
 
         <div class="caja-error">
@@ -106,7 +106,7 @@
         <label for="imageDetail" class="label-form">IMÁGENES DE DETALLE</label>
         <div class="label-inpu">
           <p>Subir imagen/es</p>
-          <input type="file" name="imageDetail" multiple>
+          <input type="file" name="imageDetail" multiple id="campo-img2">
         </div>
 
         <div class="caja-error">
@@ -116,7 +116,7 @@
         </div>
 
         <label for="price" class="label-form">PRECIO</label>
-        <input type="text" name="price" required class="input-form">
+        <input type="text" name="price" class="input-form" id="campo-precio">
 
         <div class="caja-error">
           <% if( locals.errors && locals.errors.price ){ %>
@@ -125,7 +125,7 @@
         </div>
 
         <label for="description" class="label-form">DESCRIPCIÓN</label>
-        <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." required class="input-form" style="height:90px;"></textarea>
+        <textarea name="description" id="descripcion" cols="30" rows="10" placeholder="Escriba una descripción de producto..." class="input-form" style="height:90px;"></textarea>
 
         <div class="caja-error">
           <% if( locals.errors && locals.errors.description ){ %>
@@ -134,12 +134,16 @@
         </div>
 
         <label for="cuidados" class="label-form">CUIDADOS</label>
-        <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." required class="input-form" style="height:90px;"></textarea>
+        <textarea name="cuidados" id="cuidados" cols="30" rows="10" placeholder="Escriba los cuidados del producto..." class="input-form" style="height:90px;"></textarea>
 
         <div class="caja-error">
           <% if( locals.errors && locals.errors.cuidados ){ %>
               <i><%= locals.errors.cuidados.msg %></i>
           <% } %>
+        </div>
+
+        <div class="errores-product">
+          <ul></ul>
         </div>
 
         <div class="div-button">
@@ -152,6 +156,8 @@
       
 
     <%- include ("../partials/footer") %>
+
+    <script src="/js/productValidator.js"></script>
 </body>
 
 </html>

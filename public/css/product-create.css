@@ -118,6 +118,13 @@
     background-color: #ff9b6d;
 }
 
+.errores-product ul{
+    color: red;
+    list-style: none;
+    text-align: center;
+}
+
+
 
 
 /*PAGINA DE EDICIÓN*/
