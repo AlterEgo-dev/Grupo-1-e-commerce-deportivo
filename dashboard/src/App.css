@@ -60,7 +60,7 @@ body{
   font-size: large;
   color: #FD611A;
 }
-.lastP{
+.card{
   display: flex;
   flex-direction: column;
   border: black 2px solid;
@@ -71,23 +71,23 @@ body{
   border-radius: 10px;
   border: solid 3px #FD611A;
 }
-.lastP h1{
+.card h1{
   text-align: center;
   color:#FD611A;
 }
-.lastP .descrip{
+.card .descrip{
   margin: 0 10px;
 }
-.lastP .descrip .title-desc{
+.card .descrip .title-desc{
   font-size: large;
   color: #FD611A;
 }
-.lastProduct {
+.card-content {
   display: flex;
   flex-direction: row;
   /* align-items: center; */
 }
-.lastProduct img {
+.card-content img {
   margin: 10px;
   border: solid 3px #FD611A;
   border-radius: 10px;
@@ -191,4 +191,10 @@ body{
 .listProduct ul{
   list-style: none;
   padding: 0;
+}
+
+/* =======USER======== */
+
+.user{
+  color: antiquewhite;
 }

@@ -18,9 +18,9 @@ export function UltimoProduct(){
     }, []);
 
   return(
-  <div className="lastP">
+  <div className="card">
     <h1>Ultimo Producto</h1>
-    <div className="lastProduct">
+    <div className="card-content">
       <div >
         <img src={`http://localhost:8000/${Product.Image1}`} alt={Product.Name} height="350px" width="350px"/>
       </div>

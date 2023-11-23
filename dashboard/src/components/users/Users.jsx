@@ -1,7 +1,11 @@
+import { LastUser } from "../usersComponents/LastUser";
+import { TotalUsers } from "../usersComponents/TotalUsers";
+
 export function Users(){
     return (
-        <>
-        <h1>ultimo Usuario</h1>
-        </>
+        <div className="user">
+            <LastUser/>
+            <TotalUsers/>
+        </div>
     )
 }
