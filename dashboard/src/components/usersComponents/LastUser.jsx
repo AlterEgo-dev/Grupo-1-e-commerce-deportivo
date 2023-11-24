@@ -18,11 +18,11 @@ export function LastUser(){
     }, []);
 
     return(
-    <div className="card">
+    <div className="card user">
         <h1>Ultimo Usuario</h1>
         <div className="card-content">
           <div >
-            <img src={`http://localhost:8000/${user.Avatar}`} alt={user.UserName} height="350px" width="350px"/>
+            <img src={`http://localhost:8000/${user.Avatar}`} alt={user.UserName}/>
           </div>
           <div className="infoProducts">
               <ul>

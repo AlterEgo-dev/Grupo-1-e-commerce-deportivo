@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export function TotalCategory(){
     const [category, setCategory] = useState([]);
+    const [tProducts, setTproducts] = useState([]);
     useEffect(() => {
       fetch("http://localhost:8000/api/products", {
         method: "GET",
@@ -11,6 +12,8 @@ export function TotalCategory(){
       }).then((response) => response.json())
       .then((data) => {
         setCategory(data.countByCategory);
+        setTproducts(data.count);
+
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -36,6 +39,12 @@ export function TotalCategory(){
             <div className="notiborderglow"></div>
             <div className="notititle">Cantidad de Indumentaria:</div>
             <div className="notibody">{category.Indumentaria}</div>
+          </div>
+          <div className="notification">
+            <div className="notiglow"></div>
+            <div className="notiborderglow"></div>
+            <div className="notititle">Total de Productos en la base:</div>
+            <div className="notibody">{tProducts}</div>
           </div>
         </div>
         

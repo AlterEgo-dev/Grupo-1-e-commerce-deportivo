@@ -7,7 +7,7 @@ const apiUserController = {
     users: async (req, res) => {
         try {
             const usuarios = await db.User.findAll({
-                attributes: ['id', 'UserName', 'Email']
+                attributes: ['id', 'UserName', 'Email', 'Role']
             });
     
             const usuariosConURL = usuarios.map(usuario => {
@@ -15,12 +15,21 @@ const apiUserController = {
                     id: usuario.id,
                     UserName: usuario.UserName,
                     Email: usuario.Email,
+                    Role: usuario.Role,
                     URL: `http://localhost:8000/api/users/${usuario.id}`
                 };
             });
+            const userAdmin = usuarios.map(user => {
+                let c = 0;
+                if(user.Role == 'Admin'){
+                    c = c+1;
+                }
+                return c;
+            })
             const count = usuariosConURL.length;
+            const cantAdmin = userAdmin.length;
     
-            return res.json({ data: usuariosConURL, count });
+            return res.json({ data: usuariosConURL, count, cantAdmin });
         } catch (err) {
             console.log(err);
         }

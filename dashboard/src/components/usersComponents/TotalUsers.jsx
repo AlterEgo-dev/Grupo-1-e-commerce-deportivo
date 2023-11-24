@@ -17,11 +17,13 @@ export function TotalUsers(){
       });
     }, []);
     return(
+      <>
         <div className="notification">
           <div className="notiglow"></div>
           <div className="notiborderglow"></div>
           <div className="notititle">Total de usuarios en la base</div>
           <div className="notibody">{user}</div>
         </div>
+      </>
     )
 }

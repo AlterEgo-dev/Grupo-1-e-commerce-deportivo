@@ -60,6 +60,7 @@ body{
   font-size: large;
   color: #FD611A;
 }
+/* revisar el max width para que no tenga el mismo valor el max-width */
 .card{
   display: flex;
   flex-direction: column;
@@ -67,7 +68,7 @@ body{
   background-color: #1a1a1a;
   color: white;
   padding: 10px;
-  max-width: 800px;
+  max-width: 1000px;
   border-radius: 10px;
   border: solid 3px #FD611A;
 }
@@ -82,6 +83,7 @@ body{
   font-size: large;
   color: #FD611A;
 }
+
 .card-content {
   display: flex;
   flex-direction: row;
@@ -91,6 +93,8 @@ body{
   margin: 10px;
   border: solid 3px #FD611A;
   border-radius: 10px;
+  height: 350px;
+  width: 350px;
 }
 
 
@@ -109,7 +113,6 @@ body{
   overflow: hidden;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
-  --gradient: linear-gradient(to bottom, rgb(255, 238, 46), #3d83ff, #7e61ff);
   border: solid 3px #FD611A;
 }
 
@@ -154,7 +157,7 @@ body{
   margin-bottom: 100px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2%;
 }
 .content-list{
@@ -180,9 +183,11 @@ body{
 }
 
 .listProduct{
-  /* border: solid 3px #FD611A; */
+  border: solid 3px black;
   border-radius: 13px;
   background-color: white;
+  height: 400px;
+  width: 350px;
 }
 .listProduct img{
   border-radius: 10px 10px 0 0;
@@ -192,9 +197,74 @@ body{
   list-style: none;
   padding: 0;
 }
-
-/* =======USER======== */
-
+.navbar{
+  display: flex;
+  flex-direction: row;
+  background-color:#FD611A;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.imgNav img{
+  width: 280px;
+}
 .user{
-  color: antiquewhite;
+  width: 95%;
+}
+.link{
+  display: flex;
+  flex-direction: row;
+}
+.categ{
+  text-decoration: none;
+  color: white;
+  font-size:x-large;
+  margin: 5px;
+  padding: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .card-lastP{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .content-cards{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 750px) {
+  .navbar{
+    flex-direction: column;
+  }
+  .card-content{
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-content img {
+    height: 250px;
+    width: 250px;
+  }
+  .categ{
+    font-size: large;
+  }
+  .listProduct{
+    width: 250px;
+    height: 300px;
+  }
+  .listProduct img{
+    width: 250px;
+    height: 253px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .card{
+    width: 250px;
+  }
+  .notification{
+    width: 250px;
+  }
+  .navbar img{
+    width: 250px;
+  }
 }

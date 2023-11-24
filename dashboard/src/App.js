@@ -3,9 +3,6 @@ import { Products } from './components/products/products';
 import { Home } from './components/home/Home';
 import './App.css';
 import { Users } from './components/users/Users';
-import { TotalProducts } from './components/productsComponents/TotalProducts';
-import { UltimoProduct } from './components/productsComponents/UltimoProduct';
-import { ListProduct } from './components/productsComponents/ListProduct';
 
 function App() {
   return (
