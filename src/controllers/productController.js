@@ -49,6 +49,7 @@ const productController = {
 
   productCreatePush: async (req, res) => { 
     const errors = validationResult(req);
+    let sizesString = '';
     console.log(errors)
 
     if (!errors.isEmpty()) {
@@ -75,8 +76,12 @@ const productController = {
         if (imageDetailFiles.length > 0) {
              imageDetailString = imageDetailFiles.map(file => `/img/productos/${file.filename}`).join(', ');
          } // UN MAP QUE NOS MUESTRE LOS FILES Y AL FINAL UN JOIN PARA CONVERTIRLO EN STRING
-  
-      const sizesString = sizes.join(', ');
+         
+        if(Array.isArray(sizes)){
+          sizesString = sizes.join(', ');
+        }else{
+          sizesString = sizes;
+        }
   
       try {
           await db.Product.create({
