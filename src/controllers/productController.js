@@ -165,6 +165,12 @@ const productController = {
 
       const imageDetailString = imagenes.join(', ')
 
+      if(Array.isArray(sizes)){
+        sizesString = sizes.join(', ');
+      }else{
+        sizesString = sizes;
+      }
+
       try {
         await db.Product.update({
           Name: title,
@@ -175,7 +181,7 @@ const productController = {
           Care: cuidados,
           Category: category,
           Gender: gender,
-          Sizes: sizes
+          Size: sizesString
          },{
           where:{id}
          });
