@@ -7,7 +7,6 @@
 
 body {
     background-color: gainsboro;
-    min-height: 70vh;
 }
 
 main {
@@ -15,7 +14,6 @@ main {
     text-align: center;
     margin: auto;
     padding: 20px;
-    height: 70vh;
 
 }
 
@@ -103,6 +101,7 @@ main {
     width: 25%;
     padding: 20px;
     border-radius: 10px;
+    max-height: 400px;
 }
 
 .pago-total>h3 {

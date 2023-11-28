@@ -35,8 +35,11 @@
       </a>
       <a class="categ-nav" href="<%= isLoggedIn ? '/user/perfil/' + userId : '/user/login' %>">
         <% if (isLoggedIn) { %>
-          <i class="fa-solid fa-user"></i> Perfil
+          <i class="fa-solid fa-user"></i> 
           <% } %>
+      </a>
+      <a href="/carrito" class="categ-nav">
+        <i class="fa-solid fa-cart-shopping"></i>
       </a>
       <% if(isLoggedIn) { %>
         <%if(isAdmin){%>

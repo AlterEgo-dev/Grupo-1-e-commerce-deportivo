@@ -25,15 +25,21 @@
       <div class="contenedor-prod-precio">
         <div class="contenedor-productos">
           <h1>MI CARRITO</h1>
+          <%if(!result){%>
+            <div class="producto-seleccionado"> 
+              <h1>no se agregaron productos </h1>
+            </div>
+          <%}else{%>
+          <% for (const data of result) { %>     
           <div class="producto-seleccionado">
-            <img src="<%= result.image %>" alt="producto" class="img-prod-carrito">
+            <img src="<%= data.Image1 %>" alt="producto" class="img-prod-carrito">
             <div class="nombre-prod-talle">
               <p class="sector-prod-talle nombre-prod">
-                <%= result.title %>
+                <%= data.Name %>
               </p>
-              <p class="sector-prod-talle">Talle: <%= result.sizes %>
+              <p class="sector-prod-talle">Talle: <%= data.Size %>
               </p>
-              <p class="sector-prod-talle">Item ID: <%= result.id %>
+              <p class="sector-prod-talle">Item ID: <%= data.Id %>
               </p>
               <a class="sector-prod-talle editar-prod" href="#">Editar Producto</a>
             </div>
@@ -54,18 +60,22 @@
                 </select>
               </form>
               <p class="precio-total">
-                Subtotal: <span id="subtotal"><%= result.price %></span>
+                Subtotal: <span id="subtotal"><%= data.Price %></span>
               </p>
             </div>
-            <i class="fa-solid fa-trash-can canasto"></i>
+            <a href="borrar/<%= data.Id %>">
+              <i class="fa-solid fa-trash-can canasto"></i>
+            </a>
+            
           </div>
+          <%}}%>
         </div>
         <div class="pago-total">
           <h3>RESUMEN DE COMPRA</h3>
           <div class="calculo-pago">
             <div class="subtotal">
               <p class="subtitulo">Subtotal</p>
-              <p> $43.350</p>
+              <p> <%= subtotal%></p>
             </div>
             <div class="envio">
               <p class="subtitulo">Envio</p>
@@ -73,7 +83,7 @@
             </div>
             <div class="total">
               <p class="subtitulo">Total</p>
-              <p>$43.350</p>
+              <p><%= subtotal + 1%></p>
             </div>
           </div>
 
@@ -86,16 +96,15 @@
             <a href="/" class="boton-comprar">Seguir Comprando</a>
           </button>
         </div>
-
       </div>
       </div>
+      
     </main>
 
     <!-- FOOTER -->
 
     <%- include ("../partials/footer") %>
 </body>
-
 <script src="/js/carritoSuma.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
