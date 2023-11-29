@@ -65,17 +65,19 @@
                       </div>
                     <label for="sizes" class="label-form">TALLES</label>
                     <% if (producto.Category === "Calzado") { %>
+                        <% let tallesN = producto.Size.split(',').map(t => t.trim()) %>
                         <div class="form-check">
                             <% for (let i = 35; i < 47; i++) { %>
-                                <% let isChecked = producto.Size.includes(i.toString()) ? "checked" : ""; %>
+                                <% let isChecked = tallesN.includes(i.toString()) ? "checked" : ""; %>
                                 <label><input type="checkbox" value="<%= i %>" name="sizes" <%= isChecked %>> <%= i %></label>
                             <% } %>
                         </div>
                         <% } else { %>
                         <div class="form-check">
                             <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
+                            <% let tallesL = producto.Size.split(',').map(t => t.trim())%>
                             <% for (let w = 0; w < tallesLetras.length; w++) { %>
-                                <% let isChecked = producto.Size === tallesLetras[w] ? "checked" : ""; %>
+                                <% let isChecked = tallesL.includes(tallesLetras[w]) ? "checked" : ""; %>
                                 <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
                             <% } %>
                         </div>
