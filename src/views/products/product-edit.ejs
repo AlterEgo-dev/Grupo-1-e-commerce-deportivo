@@ -75,7 +75,7 @@
                         <div class="form-check">
                             <% let tallesLetras = ["S", "M", "L", "XL", "XXL"]; %>
                             <% for (let w = 0; w < tallesLetras.length; w++) { %>
-                                <% let isChecked = producto.Size.includes(tallesLetras[w]) ? "checked" : ""; %>
+                                <% let isChecked = producto.Size === tallesLetras[w] ? "checked" : ""; %>
                                 <label><input type="checkbox" name="sizes" value="<%= tallesLetras[w] %>" <%= isChecked %>> <%= tallesLetras[w] %></label>
                             <% } %>
                         </div>

@@ -77,12 +77,13 @@ const productController = {
              imageDetailString = imageDetailFiles.map(file => `/img/productos/${file.filename}`).join(', ');
          } // UN MAP QUE NOS MUESTRE LOS FILES Y AL FINAL UN JOIN PARA CONVERTIRLO EN STRING
          
+        console.log(sizes);
         if(Array.isArray(sizes)){
           sizesString = sizes.join(', ');
         }else{
           sizesString = sizes;
         }
-  
+        console.log(sizesString);
       try {
           await db.Product.create({
               Name: title,
