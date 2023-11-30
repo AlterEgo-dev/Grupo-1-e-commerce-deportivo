@@ -8,6 +8,7 @@
     margin: 0;
 }
 
+main{min-height: 70vh;}
 .caja-grande {
     background-color: gainsboro; 
     display: flex;

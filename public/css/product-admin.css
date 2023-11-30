@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+.caja-contenedora-productos{min-height: 70vh;}
 .product-admin-button {
     display: flex;
     justify-content: center;

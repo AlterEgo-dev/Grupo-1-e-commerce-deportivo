@@ -10,6 +10,7 @@ body {
 }
 
 main {
+    min-height: 70vh;
     width: 80vw;
     text-align: center;
     margin: auto;
